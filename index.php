@@ -7,8 +7,13 @@ $router->setBasePath('/mangatheque');
 
 $router->map('GET', '/', 'ControllerPage#homePage', 'homepage');
 
-$match = $router->match();
+//USER
+$router->map('GET', '/user/[i:id]', 'ControllerUser#oneUserById', 'userPage');
 
+//DELETE USER
+$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById', 'deleteUser');
+
+$match = $router->match();
 if (is_array($match)) {
     list($controller, $action) = explode('#', $match['target']);
     $obj = new $controller();

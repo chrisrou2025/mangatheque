@@ -1,16 +1,15 @@
 <?php
-$title = "Page d'accueil";
+$title = "Utilisateur : " . $user->getPseudo();
 ob_start();
-foreach ($users as $user) :
 ?>
 <div class="user">
     <h2><?= $user->getPseudo() ?></h2>
     <p>Email: <?= $user->getEmail() ?></p>
-    <p><a href="user/<?= $user->getId() ?>">Voir le user</a></p>
-    <p><a href="">Supprimer le user</a></p>
+    <!-- Utilisation de getCreated_at() avec formatage de la date -->
+    <p>Créé le <?= $user->getCreated_at()->format('d/m/Y H:i') ?></p>
 </div>
 <?php
-endforeach;
+
 $content = ob_get_contents();
 ob_end_clean();
 require_once './view/base-html.php';
