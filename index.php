@@ -7,11 +7,18 @@ $router->setBasePath('/mangatheque');
 
 $router->map('GET', '/', 'ControllerPage#homePage', 'homepage');
 
-//USER
+// USER
 $router->map('GET', '/user/[i:id]', 'ControllerUser#oneUserById', 'userPage');
 
-//DELETE USER
-$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById', 'deleteUser');
+// DELETE USER
+$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById', 'userdelete');
+
+// UPDATE USER - Affichage du formulaire
+$router->map('GET', '/user/update/[i:id]', 'ControllerUser#updateUserForm', 'userUpdateForm');
+
+// UPDATE USER - Traitement de la soumission du formulaire (méthode POST)
+$router->map('POST', '/user/update/[i:id]', 'ControllerUser#updateUser', 'userUpdate');
+
 
 $match = $router->match();
 if (is_array($match)) {
