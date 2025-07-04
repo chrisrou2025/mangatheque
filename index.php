@@ -11,7 +11,7 @@ $router->map('GET', '/', 'ControllerPage#homePage', 'homepage');
 $router->map('GET', '/user/[i:id]', 'ControllerUser#oneUserById', 'userPage');
 
 // DELETE USER
-$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById', 'userdelete');
+$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById', 'userDelete');
 
 // UPDATE USER - Affichage du formulaire
 $router->map('GET', '/user/update/[i:id]', 'ControllerUser#updateUserForm', 'userUpdateForm');

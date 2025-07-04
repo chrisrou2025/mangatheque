@@ -34,26 +34,16 @@ class ModelUser extends Model
     }
 
     // Méthode pour mettre à jour un utilisateur dans la base de données
-    public function updateUser(array $data): bool
+    // Le nom de la méthode devrait correspondre à celle appelée dans le contrôleur : updateOneUserById
+    public function updateOneUserById(int $id, string $pseudo, string $email, string $password) : bool //
     {
-        $db = $this->getDb();
+        $req = $this->getDb()->prepare('UPDATE user SET pseudo = :pseudo, email = :email, password = :password WHERE id = :id'); //
 
-        $sql = 'UPDATE user SET pseudo = :pseudo, email = :email';
-        if (isset($data['password']) && !empty($data['password'])) { // Vérifie si le mot de passe est fourni et non vide
-            $sql .= ', password = :password';
-        }
-        $sql .= ' WHERE id = :id';
+        $req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR); //
+        $req->bindParam(':email', $email, PDO::PARAM_STR); //
+        $req->bindParam(':password', $password, PDO::PARAM_STR); // Ajout du bind pour le mot de passe
+        $req->bindParam(':id', $id, PDO::PARAM_INT); //
 
-        $req = $db->prepare($sql);
-
-        $req->bindParam(':pseudo', $data['pseudo'], PDO::PARAM_STR);
-        $req->bindParam(':email', $data['email'], PDO::PARAM_STR);
-        $req->bindParam(':id', $data['id'], PDO::PARAM_INT);
-
-        if (isset($data['password']) && !empty($data['password'])) {
-            $req->bindParam(':password', $data['password'], PDO::PARAM_STR);
-        }
-
-        return $req->execute();
+        return $req->execute(); //
     }
 }

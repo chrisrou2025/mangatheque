@@ -10,13 +10,13 @@ ob_start(); // Démarre la mise en mémoire tampon de la sortie
     <h2>Modifier l'utilisateur : <?= $user->getPseudo() ?></h2>
     <form action="/mangatheque/user/update/<?= $user->getId() ?>" method="POST">
         <label for="pseudo">Pseudo:</label>
-        <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" required>
+        <input type="text" id="pseudo" name="pseudo" value="<?= $user->getPseudo() ?>" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" required>
+        <input type="email" id="email" name="email" value="<?= $user->getEmail() ?>" required>
 
         <label for="password">Nouveau mot de passe (laisser vide si inchangé):</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password" value="<?= $user->getPassword() ?>">
 
         <button type="submit">Mettre à jour</button>
     </form>
