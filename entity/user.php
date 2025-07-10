@@ -6,23 +6,7 @@ class User
     private string $pseudo;
     private string $password;
     private string $email;
-    private DateTimeImmutable $created_at;
-
-    public function __construct(array $datas)
-    {
-        $this->created_at = new \DateTimeImmutable();
-        $this->hydrate($datas);
-    }
-
-    private function hydrate(array $datas)
-    {
-        foreach ($datas as $key => $value) {
-            $method = 'set' . ucfirst($key);
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
+    private DateTimeImmutable $createdAt;
 
     public function getId(): int
     {
@@ -44,10 +28,9 @@ class User
         return $this->email;
     }
 
-    // Correction : méthode avec underscore comme vous le souhaitez
-    public function getCreated_at(): DateTimeImmutable
+    public function getCreatedAt(): DateTimeImmutable
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     public function setId(int $id): void
@@ -59,20 +42,37 @@ class User
     {
         $this->pseudo = $pseudo;
     }
-    
     public function setPassword(string $password): void
     {
         $this->password = $password;
     }
-    
     public function setEmail(string $email): void
     {
         $this->email = $email;
     }
-    
-    // Méthode setter correspondante avec underscore
-    public function setCreated_at(string $created_at): void
+    public function setCreatedAt(DateTimeImmutable $createdAt): void
     {
-        $this->created_at = new \DateTimeImmutable($created_at);
+        $this->createdAt = $createdAt;
     }
 }
+
+// Création et initialisation du premier utilisateur
+$user = new User();
+$user->setId(1);
+$user->setPseudo('Alice');
+$user->setPassword('motdepasse123');
+$user->setEmail('alice@example.com');
+$user->setCreatedAt(new DateTimeImmutable());
+
+// Création et initialisation du deuxième utilisateur
+$user2 = new User();
+$user2->setId(2);
+$user2->setPseudo('Bob');
+$user2->setPassword('autre_motdepasse');
+$user2->setEmail('bob@example.com');
+$user2->setCreatedAt(new DateTimeImmutable());
+
+echo $user->getId() . '<br>'; // Ajout d'un saut de ligne HTML pour une meilleure lisibilité
+echo $user2->getId() . '<br>'; // Ajout d'un saut de ligne HTML
+
+?>
