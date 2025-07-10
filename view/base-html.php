@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,15 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
         /* Styles pour les coins arrondis sur tous les éléments */
         * {
-            border-radius: 0.5rem; /* Applique un rayon de bordure par défaut */
+            border-radius: 0.5rem;
+            /* Applique un rayon de bordure par défaut */
         }
     </style>
 </head>
+
 <body class="bg-gray-100 min-h-screen flex flex-col">
     <header class="bg-gray-800 text-white p-4 shadow-md">
         <nav class="container mx-auto flex justify-between items-center">
@@ -27,6 +31,18 @@
             </div>
         </nav>
     </header>
+    
+    <?php if (isset($_SESSION['error'])) : ?>
+        <div class="error"><?php $_SESSION['error'] ?></div>
+        <?php unset($_SESSION['error']) ?>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])) : ?>
+        <div class="success"><?php $_SESSION['success'] ?></div>
+        <?php unset($_SESSION['success']) ?>
+    <?php endif; ?>
+
+    <!-- <?= $content ?? 'Pas de contenu' ?> -->
 
     <main class="flex-grow py-8">
         <?= $content ?? '<p class="text-center text-gray-600 text-xl">Pas de contenu à afficher.</p>' ?>
@@ -36,4 +52,5 @@
         <p>&copy; <?= date('Y') ?> Ma Mangathèque. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

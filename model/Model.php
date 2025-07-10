@@ -21,11 +21,13 @@ abstract class Model
         return self::$db;
     }
 
-    public function deleteOneUserById(int $i): bool
+    // Correction du bug : utilisation du bon nom de variable
+    public function deleteOneUserById(int $id): bool
     {
         $req = $this->getDb()->prepare('DELETE FROM user WHERE id = :id');
-        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':id', $id, PDO::PARAM_INT); // Utilise $id au lieu de $i
+        $req->execute(); // Ajout de l'exécution de la requête
 
-        return $req->rowCount()  >  0;
+        return $req->rowCount() > 0;
     }
 }
