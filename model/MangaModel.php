@@ -1,15 +1,8 @@
 <?php
 
-// Inclusion de la classe Manga (entité)
-// require_once 'entity/Manga.php';
-// Inclusion de la classe Model pour l'héritage
-// require_once 'Model.php';
-
 // Définition de la classe MangaModel qui hérite de Model
 class MangaModel extends Model
 {
-    // Plus besoin de propriété $db ni de constructeur
-    // La connexion est gérée par la classe parent Model
 
     /**
      * Récupère tous les mangas depuis la base de données.
