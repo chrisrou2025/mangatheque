@@ -3,7 +3,7 @@
 
 // Définir les constantes pour les informations de connexion à la base de données
 define('DB_HOST', 'localhost'); // Hôte de la base de données (souvent 'localhost')
-define('DB_NAME', 'mangatheque_db'); // Nom de votre base de données
+define('DB_NAME', 'mangatheque'); // Nom de votre base de données
 define('DB_USER', 'root'); // Nom d'utilisateur de la base de données
 define('DB_PASS', 'root'); // Mot de passe de la base de données (vide par défaut pour XAMPP/WAMP)
 

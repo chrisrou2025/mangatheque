@@ -5,9 +5,9 @@ require 'vendor/autoload.php';
 require 'vendor/altorouter/altorouter/AltoRouter.php';
 
 // Inclut le contrôleur de page (déjà existant)
-require_once 'controller/ControllerPage.php';
+// require_once 'controller/ControllerPage.php';
 // Inclut le nouveau contrôleur de manga
-require_once 'controller/ControllerManga.php';
+// require_once 'controller/ControllerManga.php';
 
 // Crée une nouvelle instance d'AltoRouter
 $router = new AltoRouter();
