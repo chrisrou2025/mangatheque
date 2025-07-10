@@ -1,8 +1,8 @@
 <?php
 
 // Inclusion des classes nécessaires
-require_once 'entity/Manga.php';
-require_once 'model/MangaModel.php';
+// require_once 'entity/Manga.php';
+// require_once 'model/MangaModel.php';
 // Le fichier database.php est déjà inclus par MangaModel, pas besoin de le remettre ici.
 
 // Définition de la classe ControllerManga

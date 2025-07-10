@@ -1,9 +1,9 @@
 <?php
 
 // Inclusion de la classe Manga (entité)
-require_once 'entity/Manga.php';
+// require_once 'entity/Manga.php';
 // Inclusion du fichier de configuration de la base de données pour la fonction getDbConnection()
-require_once 'config/database.php';
+// require_once 'config/database.php';
 
 // Définition de la classe MangaModel
 class MangaModel

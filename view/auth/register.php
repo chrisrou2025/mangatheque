@@ -1,21 +1,21 @@
 <?php
-$title = "register";
+$title = "Register";
 ob_start();
 ?>
 <form action="/mangatheque/register" method="POST">
     <div>
         <label for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo" id="pseudo">
+        <input type="text" name="pseudo" id="pseudo" required>
     </div>
-    <div>
+        <div>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" required>
     </div>
-    <div>
+        <div>
         <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
     </div>
-    <div>
+        <div>
         <input type="submit" name="submit" value="Register">
     </div>
 </form>

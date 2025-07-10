@@ -5,9 +5,9 @@ require 'vendor/autoload.php';
 require 'vendor/altorouter/altorouter/AltoRouter.php';
 
 // Inclut le contrôleur de page (déjà existant)
-require_once 'controller/ControllerPage.php';
+// require_once 'controller/ControllerPage.php';
 // Inclut le nouveau contrôleur de manga
-require_once 'controller/ControllerManga.php';
+// require_once 'controller/ControllerManga.php';
 
 // Crée une nouvelle instance d'AltoRouter
 $router = new AltoRouter();
@@ -36,6 +36,16 @@ $router->map('POST', '/mangas/[i:id]/update', 'ControllerManga#updateManga', 'ma
 $router->map('POST', '/mangas/[i:id]/delete', 'ControllerManga#deleteManga', 'mangas_delete');
 // GET /mangas/[i:id]/cover → Affichage de l'image de couverture
 $router->map('GET', '/mangas/[i:id]/cover', 'ControllerManga#showCoverImage', 'mangas_cover');
+
+// User
+$router->map('GET', '/user/[i:id]', 'ControllerUser#oneUserById', 'userPage');
+$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById','userDelete');
+$router->map('GET|POST', '/user/update/[i:id]', 'ControllerUser#updateUser','userUpdate');
+
+// LOGIN REGISTER LOGOUT
+
+$router->map('GET|POST', '/register', 'ControllerAuth#register', 'register');
+$router->map('GET|POST', '/login', 'ControllerAuth#login', 'login');
 
 // Cherche une correspondance pour l'URL actuelle
 $match = $router->match();
