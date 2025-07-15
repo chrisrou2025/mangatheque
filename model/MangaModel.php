@@ -1,21 +1,8 @@
 <?php
 
-// Inclusion de la classe Manga (entité)
-require_once 'entity/Manga.php';
-// Inclusion du fichier de configuration de la base de données pour la fonction getDbConnection()
-require_once 'config/database.php';
-
-// Définition de la classe MangaModel
-class MangaModel
+// Définition de la classe MangaModel qui hérite de Model
+class MangaModel extends Model
 {
-    private PDO $db; // Propriété pour stocker l'objet PDO de connexion à la base de données
-
-    // Constructeur de la classe MangaModel
-    public function __construct()
-    {
-        // Initialise la connexion à la base de données via la fonction getDbConnection()
-        $this->db = getDbConnection();
-    }
 
     /**
      * Récupère tous les mangas depuis la base de données.
@@ -24,8 +11,8 @@ class MangaModel
     public function getAll(): array
     {
         $mangas = []; // Initialise un tableau vide pour stocker les objets Manga
-        // Prépare la requête SQL pour sélectionner tous les mangas, incluant la colonne cover_image et publisher
-        $stmt = $this->db->query("SELECT id, title, author, volume, description, cover_image, publisher FROM mangas ORDER BY id DESC");
+        // Utilise $this->getDb() héritée de la classe Model
+        $stmt = $this->getDb()->query("SELECT id, title, author, volume, description, cover_image, publisher FROM mangas ORDER BY id DESC");
         // Exécute la requête et récupère tous les résultats
         $data = $stmt->fetchAll();
 
@@ -45,8 +32,8 @@ class MangaModel
      */
     public function getById(int $id): ?Manga
     {
-        // Prépare la requête SQL avec un placeholder pour l'ID, incluant la colonne cover_image et publisher
-        $stmt = $this->db->prepare("SELECT id, title, author, volume, description, cover_image, publisher FROM mangas WHERE id = :id");
+        // Utilise $this->getDb() héritée de la classe Model
+        $stmt = $this->getDb()->prepare("SELECT id, title, author, volume, description, cover_image, publisher FROM mangas WHERE id = :id");
         // Lie la valeur de l'ID au placeholder en utilisant bindValue pour éviter les notices
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         // Exécute la requête
@@ -70,8 +57,8 @@ class MangaModel
      */
     public function add(Manga $manga): bool
     {
-        // Prépare la requête SQL d'insertion avec des placeholders, incluant cover_image et publisher
-        $stmt = $this->db->prepare("INSERT INTO mangas (title, author, volume, description, cover_image, publisher) VALUES (:title, :author, :volume, :description, :cover_image, :publisher)");
+        // Utilise $this->getDb() héritée de la classe Model
+        $stmt = $this->getDb()->prepare("INSERT INTO mangas (title, author, volume, description, cover_image, publisher) VALUES (:title, :author, :volume, :description, :cover_image, :publisher)");
 
         // Stocke les valeurs des propriétés dans des variables locales pour éviter les notices avec bindParam
         $title = $manga->getTitle();
@@ -93,7 +80,7 @@ class MangaModel
         $result = $stmt->execute();
         // Si l'insertion a réussi, met à jour l'ID de l'objet Manga avec le dernier ID inséré
         if ($result) {
-            $manga->setId((int)$this->db->lastInsertId());
+            $manga->setId((int)$this->getDb()->lastInsertId());
         }
         return $result;
     }
@@ -105,8 +92,8 @@ class MangaModel
      */
     public function update(Manga $manga): bool
     {
-        // Prépare la requête SQL de mise à jour avec des placeholders, incluant cover_image et publisher
-        $stmt = $this->db->prepare("UPDATE mangas SET title = :title, author = :author, volume = :volume, description = :description, cover_image = :cover_image, publisher = :publisher WHERE id = :id");
+        // Utilise $this->getDb() héritée de la classe Model
+        $stmt = $this->getDb()->prepare("UPDATE mangas SET title = :title, author = :author, volume = :volume, description = :description, cover_image = :cover_image, publisher = :publisher WHERE id = :id");
 
         // Stocke les valeurs des propriétés dans des variables locales pour éviter les notices avec bindParam
         $title = $manga->getTitle();
@@ -137,8 +124,8 @@ class MangaModel
      */
     public function delete(int $id): bool
     {
-        // Prépare la requête SQL de suppression avec un placeholder pour l'ID
-        $stmt = $this->db->prepare("DELETE FROM mangas WHERE id = :id");
+        // Utilise $this->getDb() héritée de la classe Model
+        $stmt = $this->getDb()->prepare("DELETE FROM mangas WHERE id = :id");
         // Lie la valeur de l'ID au placeholder en utilisant bindValue pour éviter les notices
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 

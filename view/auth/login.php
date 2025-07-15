@@ -1,17 +1,17 @@
 <?php
-$title = "login";
+$title = "Login";
 ob_start();
 ?>
 <form action="/mangatheque/login" method="POST">
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" required>
     </div>
-    <div>
+        <div>
         <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
     </div>
-    <div>
+        <div>
         <input type="submit" name="submit" value="Login">
     </div>
 </form>
