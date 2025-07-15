@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Inclut l'autoloader de Composer
 require 'vendor/autoload.php';
 // Inclut la classe AltoRouter
@@ -46,6 +47,7 @@ $router->map('GET|POST', '/user/update/[i:id]', 'ControllerUser#updateUser','use
 
 $router->map('GET|POST', '/register', 'ControllerAuth#register', 'register');
 $router->map('GET|POST', '/login', 'ControllerAuth#login', 'login');
+$router->map('GET', '/logout', 'ControllerAuth#logout', 'logout');
 
 // Cherche une correspondance pour l'URL actuelle
 $match = $router->match();

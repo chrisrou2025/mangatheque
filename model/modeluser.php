@@ -95,6 +95,7 @@ class ModelUser extends Model {
 
         $user = $req->fetch(PDO::FETCH_ASSOC);
 
-        return $user ? new User($user) : null;
+        return $req->rowCount() > 0 ? new User($user) : null;
+
     }
 }
