@@ -7,11 +7,11 @@ ob_start();
         <label for="email">Email</label>
         <input type="text" name="email" id="email" required>
     </div>
-        <div>
+    <div>
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password" required>
     </div>
-        <div>
+    <div>
         <input type="submit" name="submit" value="Login">
     </div>
 </form>

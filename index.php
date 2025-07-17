@@ -5,11 +5,6 @@ require 'vendor/autoload.php';
 // Inclut la classe AltoRouter
 require 'vendor/altorouter/altorouter/AltoRouter.php';
 
-// Inclut le contrôleur de page (déjà existant)
-// require_once 'controller/ControllerPage.php';
-// Inclut le nouveau contrôleur de manga
-// require_once 'controller/ControllerManga.php';
-
 // Crée une nouvelle instance d'AltoRouter
 $router = new AltoRouter();
 // Définit le chemin de base de l'application
@@ -40,8 +35,8 @@ $router->map('GET', '/mangas/[i:id]/cover', 'ControllerManga#showCoverImage', 'm
 
 // User
 $router->map('GET', '/user/[i:id]', 'ControllerUser#oneUserById', 'userPage');
-$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById','userDelete');
-$router->map('GET|POST', '/user/update/[i:id]', 'ControllerUser#updateUser','userUpdate');
+$router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById', 'userDelete');
+$router->map('GET|POST', '/user/update/[i:id]', 'ControllerUser#updateUser', 'userUpdate');
 
 // LOGIN REGISTER LOGOUT
 
