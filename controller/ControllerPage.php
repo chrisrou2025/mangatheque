@@ -21,6 +21,11 @@ class ControllerPage
      */
     public function homePage()
     {
+        if(!isset($_SESSION['id'])) {
+            // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+            header('Location: /mangatheque/login');
+            exit();
+        }
         $mangas = $this->mangaModel->getAll();
         $users = $this->modelUser->getUsers();
         $title = "Bienvenue dans Ma Mangathèque";
