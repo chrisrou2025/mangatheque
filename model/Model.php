@@ -6,7 +6,7 @@ abstract class Model
     private static function setDb()
     {
         try {
-            self::$db = new PDO('mysql:host=localhost;dbname=mangatheque', 'root', 'root');
+            self::$db = new PDO('mysql:host=localhost;dbname=mangatheque', 'root');
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
