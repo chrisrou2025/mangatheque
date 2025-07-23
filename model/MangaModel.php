@@ -12,13 +12,13 @@ class MangaModel extends Model
     {
         $mangas = []; // Initialise un tableau vide pour stocker les objets Manga
         // Utilise $this->getDb() héritée de la classe Model
-        $stmt = $this->getDb()->query("SELECT id, title, author, volume, description, cover_image, publisher FROM mangas ORDER BY id DESC");
+        $stmt = $this->getDb()->query("SELECT id, title, author, volume, description, cover_image, publisher, type FROM mangas ORDER BY id DESC");
         // Exécute la requête et récupère tous les résultats
         $data = $stmt->fetchAll();
 
         // Parcourt les données récupérées et crée des objets Manga
         foreach ($data as $row) {
-            $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher']);
+            $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher'], $row['type']);
             $manga->setId($row['id']); // Assigne l'ID récupéré de la base de données
             $mangas[] = $manga; // Ajoute l'objet Manga au tableau
         }
@@ -33,7 +33,7 @@ class MangaModel extends Model
     public function getById(int $id): ?Manga
     {
         // Utilise $this->getDb() héritée de la classe Model
-        $stmt = $this->getDb()->prepare("SELECT id, title, author, volume, description, cover_image, publisher FROM mangas WHERE id = :id");
+        $stmt = $this->getDb()->prepare("SELECT id, title, author, volume, description, cover_image, publisher, type FROM mangas WHERE id = :id");
         // Lie la valeur de l'ID au placeholder en utilisant bindValue pour éviter les notices
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         // Exécute la requête
@@ -43,7 +43,7 @@ class MangaModel extends Model
 
         // Si une ligne est trouvée, crée et retourne un objet Manga
         if ($row) {
-            $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher']);
+            $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher'], $row['type']);
             $manga->setId($row['id']);
             return $manga;
         }
@@ -58,7 +58,7 @@ class MangaModel extends Model
     public function add(Manga $manga): bool
     {
         // Utilise $this->getDb() héritée de la classe Model
-        $stmt = $this->getDb()->prepare("INSERT INTO mangas (title, author, volume, description, cover_image, publisher) VALUES (:title, :author, :volume, :description, :cover_image, :publisher)");
+        $stmt = $this->getDb()->prepare("INSERT INTO mangas (title, author, volume, description, cover_image, publisher, type) VALUES (:title, :author, :volume, :description, :cover_image, :publisher, :type)");
 
         // Stocke les valeurs des propriétés dans des variables locales pour éviter les notices avec bindParam
         $title = $manga->getTitle();
@@ -67,6 +67,7 @@ class MangaModel extends Model
         $description = $manga->getDescription();
         $coverImage = $manga->getCoverImage();
         $publisher = $manga->getPublisher();
+        $type = $manga->getType();
 
         // Lie les valeurs des propriétés du manga aux placeholders
         $stmt->bindParam(':title', $title);
@@ -75,6 +76,7 @@ class MangaModel extends Model
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':cover_image', $coverImage);
         $stmt->bindParam(':publisher', $publisher);
+        $stmt->bindParam(':type', $type);
 
         // Exécute la requête
         $result = $stmt->execute();
@@ -93,7 +95,7 @@ class MangaModel extends Model
     public function update(Manga $manga): bool
     {
         // Utilise $this->getDb() héritée de la classe Model
-        $stmt = $this->getDb()->prepare("UPDATE mangas SET title = :title, author = :author, volume = :volume, description = :description, cover_image = :cover_image, publisher = :publisher WHERE id = :id");
+        $stmt = $this->getDb()->prepare("UPDATE mangas SET title = :title, author = :author, volume = :volume, description = :description, cover_image = :cover_image, publisher = :publisher, type = :type WHERE id = :id");
 
         // Stocke les valeurs des propriétés dans des variables locales pour éviter les notices avec bindParam
         $title = $manga->getTitle();
@@ -102,6 +104,7 @@ class MangaModel extends Model
         $description = $manga->getDescription();
         $coverImage = $manga->getCoverImage();
         $publisher = $manga->getPublisher();
+        $type = $manga->getType();
         $id = $manga->getId(); // L'ID pour la clause WHERE
 
         // Lie les valeurs des propriétés du manga aux placeholders
@@ -111,6 +114,7 @@ class MangaModel extends Model
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':cover_image', $coverImage);
         $stmt->bindParam(':publisher', $publisher);
+        $stmt->bindParam(':type', $type);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
         // Exécute la requête et retourne le résultat

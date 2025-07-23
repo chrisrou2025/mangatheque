@@ -16,6 +16,19 @@
             <input type="number" id="volume" name="volume" value="<?= htmlspecialchars($manga->getVolume()) ?>" required class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
         </div>
 
+        <!-- Nouveau champ pour le type de manga avec la valeur actuelle sélectionnée -->
+        <div class="mb-4">
+            <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type de manga:</label>
+            <select id="type" name="type" required class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+                <option value="">Sélectionnez un type</option>
+                <option value="Shonen" <?= $manga->getType() === 'Shonen' ? 'selected' : '' ?>>Shōnen</option>
+                <option value="Kodomo" <?= $manga->getType() === 'Kodomo' ? 'selected' : '' ?>>Kodomo</option>
+                <option value="Shôjo" <?= $manga->getType() === 'Shôjo' ? 'selected' : '' ?>>Shôjo</option>
+                <option value="Seinen" <?= $manga->getType() === 'Seinen' ? 'selected' : '' ?>>Seinen</option>
+                <option value="Josei" <?= $manga->getType() === 'Josei' ? 'selected' : '' ?>>Josei</option>
+            </select>
+        </div>
+
         <div class="mb-4">
             <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
             <textarea id="description" name="description" rows="4" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"><?= htmlspecialchars($manga->getDescription()) ?></textarea>

@@ -41,14 +41,24 @@
 
     <header class="bg-gray-800 text-white p-4 shadow-md">
         <nav class="container mx-auto flex justify-between items-center">
+            <!-- Logo toujours présent -->
             <a href="/mangatheque" class="text-2xl font-bold text-orange-400 hover:text-orange-300 transition duration-300 ease-in-out">Ma Mangathèque</a>
+            
             <div>
-                <a href="/mangatheque/mangas" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Mangas</a>
-                <a href="/mangatheque/mangas/create" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium ml-4 transition duration-300 ease-in-out">Ajouter un manga</a>
-
-                <!-- Liens d'authentification -->
-                <a href="/mangatheque/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Connexion</a>
-                <a href="/mangatheque/register" class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md text-sm font-medium ml-2 transition duration-300 ease-in-out">Inscription</a>
+                <?php if (isset($_SESSION['id'])): ?>
+                    <!-- Menu pour utilisateur connecté -->
+                    <a href="/mangatheque/mangas" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Mangas</a>
+                    <a href="/mangatheque/mangas/create" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium ml-4 transition duration-300 ease-in-out">Ajouter un manga</a>
+                    
+                    <!-- Bouton de déconnexion avec alerte JavaScript -->
+                    <button onclick="confirmLogout()" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium ml-4 transition duration-300 ease-in-out">
+                        Déconnexion
+                    </button>
+                <?php else: ?>
+                    <!-- Menu pour utilisateur non connecté -->
+                    <a href="/mangatheque/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Connexion</a>
+                    <a href="/mangatheque/register" class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md text-sm font-medium ml-2 transition duration-300 ease-in-out">Inscription</a>
+                <?php endif; ?>
             </div>
         </nav>
     </header>
@@ -60,6 +70,22 @@
     <footer class="bg-gray-800 text-white p-4 text-center text-sm mt-auto">
         <p>&copy; <?= date('Y') ?> Ma Mangathèque. Tous droits réservés.</p>
     </footer>
+
+    <!-- Script JavaScript pour la confirmation de déconnexion -->
+    <script>
+        /**
+         * Fonction pour confirmer la déconnexion avec une alerte
+         * Si l'utilisateur confirme, il est redirigé vers la page de déconnexion
+         */
+        function confirmLogout() {
+            // Affiche une boîte de dialogue de confirmation
+            if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+                // Si l'utilisateur confirme, redirection vers la route de déconnexion
+                window.location.href = '/mangatheque/logout';
+            }
+            // Si l'utilisateur annule, rien ne se passe (il reste sur la page actuelle)
+        }
+    </script>
 </body>
 
 </html>

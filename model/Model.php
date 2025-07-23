@@ -6,7 +6,7 @@ abstract class Model
     private static function setDb()
     {
         try {
-            self::$db = new PDO('mysql:host=localhost;dbname=mangatheque', 'root');
+            self::$db = new PDO('mysql:host=localhost;dbname=mangatheque', 'root', 'root');
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -21,7 +21,6 @@ abstract class Model
         return self::$db;
     }
 
-    // Correction du bug : utilisation du bon nom de variable
     public function deleteOneUserById(int $id): bool
     {
         $req = $this->getDb()->prepare('DELETE FROM user WHERE id = :id');

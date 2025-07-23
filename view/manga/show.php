@@ -1,5 +1,5 @@
 <?php
-// Assurez-vous que $manga est défini
+// Assure que $manga est défini
 if (!isset($manga)) {
     // Redirige ou affiche une erreur si le manga n'est pas passé
     header('Location: /mangatheque/mangas');
@@ -16,16 +16,22 @@ if (!isset($manga)) {
         </div>
         <div>
             <h2 class="text-2xl font-semibold mb-4 text-gray-800"><?= htmlspecialchars($manga->getTitle()) ?></h2>
+            
+            <!-- Remplacer l'ID par le type de manga -->
             <div class="mb-3">
-                <strong class="text-gray-700">ID:</strong> <span class="text-gray-900"><?= htmlspecialchars($manga->getId()) ?></span>
+                <strong class="text-gray-700">Type:</strong> 
+                <span class="text-gray-900 bg-blue-100 px-2 py-1 rounded-full text-sm font-medium">
+                    <?= htmlspecialchars($manga->getType()) ?>
+                </span>
             </div>
+            
             <div class="mb-3">
                 <strong class="text-gray-700">Auteur:</strong> <span class="text-gray-900"><?= htmlspecialchars($manga->getAuthor()) ?></span>
             </div>
             <div class="mb-3">
                 <strong class="text-gray-700">Volume:</strong> <span class="text-gray-900"><?= htmlspecialchars($manga->getVolume()) ?></span>
             </div>
-            <!-- Ajout de l'affichage de la maison d'édition -->
+            <!-- Affichage de la maison d'édition -->
             <div class="mb-3">
                 <strong class="text-gray-700">Maison d'édition:</strong> <span class="text-gray-900"><?= htmlspecialchars($manga->getPublisher()) ?></span>
             </div>

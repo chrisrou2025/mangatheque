@@ -1,29 +1,42 @@
 <?php
 
-// Définition de la classe Manga
+/**
+ * Classe représentant un manga avec toutes ses propriétés
+ */
 class Manga
 {
-    // Propriétés privées de la classe Manga
-    private ?int $id = null; // Identifiant unique du manga, nullable car il peut ne pas exister lors de la création
-    private string $title; // Titre du manga
-    private string $author; // Auteur du manga
-    private int $volume; // Numéro de volume
-    private string $description; // Description du manga
-    private string $coverImage; // Chemin de l'image de couverture du manga
-    private string $publisher; // Nom de la maison d'édition
+    private ?int $id;
+    private string $title;
+    private string $author;
+    private int $volume;
+    private string $description;
+    private string $coverImage;
+    private string $publisher;
+    private string $type; // Nouveau champ pour le type de manga
 
-    // Constructeur de la classe Manga
-    public function __construct(string $title = '', string $author = '', int $volume = 0, string $description = '', string $coverImage = 'placeholder.png', string $publisher = '')
+    /**
+     * Constructeur de la classe Manga
+     * @param string $title Titre du manga
+     * @param string $author Auteur du manga
+     * @param int $volume Numéro de volume
+     * @param string $description Description du manga
+     * @param string $coverImage Nom du fichier de couverture
+     * @param string $publisher Maison d'édition
+     * @param string $type Type de manga (Shonen, Kodomo, Shôjo, Seinen, Josei)
+     */
+    public function __construct(string $title, string $author, int $volume, string $description, string $coverImage = 'placeholder.png', string $publisher = '', string $type = 'Shonen')
     {
         $this->title = $title;
         $this->author = $author;
         $this->volume = $volume;
         $this->description = $description;
-        $this->coverImage = $coverImage; // Initialise avec une image par défaut
-        $this->publisher = $publisher; // Initialise la maison d'édition
+        $this->coverImage = $coverImage;
+        $this->publisher = $publisher;
+        $this->type = $type;
+        $this->id = null;
     }
 
-    // Méthodes getter pour accéder aux propriétés
+    // Getters
     public function getId(): ?int
     {
         return $this->id;
@@ -59,8 +72,13 @@ class Manga
         return $this->publisher;
     }
 
-    // Méthodes setter pour modifier les propriétés
-    public function setId(?int $id): void
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    // Setters
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -93,5 +111,10 @@ class Manga
     public function setPublisher(string $publisher): void
     {
         $this->publisher = $publisher;
+    }
+
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 }

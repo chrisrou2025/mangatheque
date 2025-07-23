@@ -36,7 +36,11 @@ if (!isset($mangas) || !is_array($mangas)) {
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Volume
                         </th>
-                        <!-- Ajout de la colonne "Éditeur" ici -->
+                        <!-- NOUVELLE COLONNE TYPE AJOUTÉE ICI -->
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Type
+                        </th>
+                        <!-- Colonne "Éditeur" existante -->
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Éditeur
                         </th>
@@ -60,7 +64,13 @@ if (!isset($mangas) || !is_array($mangas)) {
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                 <?= htmlspecialchars($manga->getVolume()) ?>
                             </td>
-                            <!-- Ajout de la cellule "Éditeur" ici -->
+                            <!-- NOUVELLE CELLULE TYPE AJOUTÉE ICI -->
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    <?= htmlspecialchars($manga->getType()) ?>
+                                </span>
+                            </td>
+                            <!-- Cellule "Éditeur" existante -->
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                                 <?= htmlspecialchars($manga->getPublisher()) ?>
                             </td>
