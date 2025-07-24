@@ -12,18 +12,8 @@ class Manga
     private string $description;
     private string $coverImage;
     private string $publisher;
-    private string $type; // Nouveau champ pour le type de manga
+    private string $type;
 
-    /**
-     * Constructeur de la classe Manga
-     * @param string $title Titre du manga
-     * @param string $author Auteur du manga
-     * @param int $volume Numéro de volume
-     * @param string $description Description du manga
-     * @param string $coverImage Nom du fichier de couverture
-     * @param string $publisher Maison d'édition
-     * @param string $type Type de manga (Shonen, Kodomo, Shôjo, Seinen, Josei)
-     */
     public function __construct(string $title, string $author, int $volume, string $description, string $coverImage = 'placeholder.png', string $publisher = '', string $type = 'Shonen')
     {
         $this->title = $title;

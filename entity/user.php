@@ -44,7 +44,6 @@ class User
         return $this->email;
     }
 
-    // Correction : méthode avec underscore comme vous le souhaitez
     public function getCreated_at(): DateTimeImmutable
     {
         return $this->created_at;
@@ -70,7 +69,6 @@ class User
         $this->email = $email;
     }
 
-    // Méthode setter correspondante avec underscore
     public function setCreated_at(string $created_at): void
     {
         $this->created_at = new \DateTimeImmutable($created_at);

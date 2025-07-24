@@ -12,7 +12,7 @@ $router->setBasePath('/mangatheque');
 
 // --- Définition des routes ---
 
-// Route pour la page d'accueil (déjà existante)
+// Route pour la page d'accueil
 $router->map('GET', '/', 'ControllerPage#homePage', 'homepage');
 
 // Routes pour les mangas

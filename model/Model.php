@@ -25,7 +25,7 @@ abstract class Model
     {
         $req = $this->getDb()->prepare('DELETE FROM user WHERE id = :id');
         $req->bindParam(':id', $id, PDO::PARAM_INT);
-        $req->execute(); // Ajout de l'exécution de la requête
+        $req->execute();
 
         return $req->rowCount() > 0;
     }

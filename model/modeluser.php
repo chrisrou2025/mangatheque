@@ -5,7 +5,6 @@ class ModelUser extends Model
 
     /**
      * Récupère tous les utilisateurs depuis la base de données.
-     * @return User[] Tableau de tous les objets User.
      */
     public function getUsers(): array
     {
@@ -21,8 +20,6 @@ class ModelUser extends Model
 
     /**
      * Récupère un utilisateur par son ID depuis la base de données.
-     * @param int $id L'identifiant de l'utilisateur.
-     * @return User|null L'objet User si trouvé, sinon null.
      */
     public function getOneUserById(int $id): ?User
     {
@@ -37,10 +34,6 @@ class ModelUser extends Model
 
     /**
      * Crée un nouvel utilisateur dans la base de données.
-     * @param string $pseudo Le pseudo de l'utilisateur.
-     * @param string $email L'email de l'utilisateur.
-     * @param string $password Le mot de passe en clair (sera hashé).
-     * @return bool Vrai si la création a réussi, faux sinon.
      */
     public function createUser(string $pseudo, string $email, string $password): bool
     {
@@ -55,11 +48,6 @@ class ModelUser extends Model
 
     /**
      * Met à jour un utilisateur existant dans la base de données.
-     * @param int $id L'identifiant de l'utilisateur.
-     * @param string $pseudo Le nouveau pseudo.
-     * @param string $email Le nouvel email.
-     * @param string $password Le nouveau mot de passe (sera hashé).
-     * @return bool Vrai si la mise à jour a réussi, faux sinon.
      */
     public function updateOneUserById(int $id, string $pseudo, string $email, string $password): bool
     {
@@ -77,8 +65,6 @@ class ModelUser extends Model
 
     /**
      * Supprime un utilisateur de la base de données par son ID.
-     * @param int $id L'identifiant de l'utilisateur à supprimer.
-     * @return bool Vrai si la suppression a réussi, faux sinon.
      */
     public function deleteOneUserById(int $id): bool
     {
@@ -91,8 +77,6 @@ class ModelUser extends Model
 
     /**
      * Récupère un utilisateur par son email depuis la base de données.
-     * @param string $email L'email de l'utilisateur.
-     * @return User|null L'objet User si trouvé, sinon null.
      */
     public function getUserByEmail(string $email): ?User
     {

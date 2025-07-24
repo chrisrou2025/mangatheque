@@ -4,10 +4,8 @@
 class MangaModel extends Model
 {
 
-    /**
-     * Récupère tous les mangas depuis la base de données.
-     * @return Manga[] Tableau de tous les objets Manga.
-     */
+    // Récupère tous les mangas depuis la base de données.  
+
     public function getAll(): array
     {
         $mangas = []; // Initialise un tableau vide pour stocker les objets Manga
@@ -25,11 +23,9 @@ class MangaModel extends Model
         return $mangas;
     }
 
-    /**
-     * Récupère un manga par son ID depuis la base de données.
-     * @param int $id L'identifiant du manga.
-     * @return Manga|null L'objet Manga si trouvé, sinon null.
-     */
+
+    //  Récupère un manga par son ID depuis la base de données.
+
     public function getById(int $id): ?Manga
     {
         // Utilise $this->getDb() héritée de la classe Model
@@ -50,11 +46,9 @@ class MangaModel extends Model
         return null; // Retourne null si aucun manga n'est trouvé
     }
 
-    /**
-     * Ajoute un nouveau manga à la base de données.
-     * @param Manga $manga L'objet Manga à ajouter.
-     * @return bool Vrai si l'ajout a réussi, faux sinon.
-     */
+
+    // Ajoute un nouveau manga à la base de données.
+
     public function add(Manga $manga): bool
     {
         // Utilise $this->getDb() héritée de la classe Model
@@ -87,11 +81,9 @@ class MangaModel extends Model
         return $result;
     }
 
-    /**
-     * Met à jour un manga existant dans la base de données.
-     * @param Manga $manga L'objet Manga mis à jour (doit avoir un ID).
-     * @return bool Vrai si la mise à jour a réussi, faux sinon.
-     */
+
+    //  Met à jour un manga existant dans la base de données.
+
     public function update(Manga $manga): bool
     {
         // Utilise $this->getDb() héritée de la classe Model
@@ -121,11 +113,9 @@ class MangaModel extends Model
         return $stmt->execute();
     }
 
-    /**
-     * Supprime un manga de la base de données par son ID.
-     * @param int $id L'identifiant du manga à supprimer.
-     * @return bool Vrai si la suppression a réussi, faux sinon.
-     */
+
+    //   Supprime un manga de la base de données par son ID.
+
     public function delete(int $id): bool
     {
         // Utilise $this->getDb() héritée de la classe Model

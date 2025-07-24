@@ -17,11 +17,9 @@ class ControllerManga
         }
     }
 
-    /**
-     * Gère l'upload d'un fichier image.
-     * @param array $file Le tableau $_FILES pour le fichier.
-     * @return string Le nom du fichier sauvegardé ou 'placeholder.png' en cas d'erreur/absence.
-     */
+
+    // Gère l'upload d'un fichier image.
+
     private function handleFileUpload(array $file): string
     {
         // Vérifie si un fichier a été uploadé sans erreur
@@ -133,7 +131,6 @@ class ControllerManga
     /**
      * Affiche la fiche détaillée d'un manga.
      * Route: GET /mangas/[i:id]
-     * @param array $params Paramètres de la route, contenant l'ID du manga.
      */
     public function showManga(array $params): void
     {
@@ -165,7 +162,6 @@ class ControllerManga
     /**
      * Affiche le formulaire d'édition d'un manga existant.
      * Route: GET /mangas/[i:id]/edit
-     * @param array $params Paramètres de la route, contenant l'ID du manga.
      */
     public function editMangaForm(array $params): void
     {
@@ -197,7 +193,6 @@ class ControllerManga
     /**
      * Traite la soumission du formulaire d'édition et met à jour un manga.
      * Route: POST /mangas/[i:id]/update
-     * @param array $params Paramètres de la route, contenant l'ID du manga.
      */
     public function updateManga(array $params): void
     {
@@ -240,7 +235,7 @@ class ControllerManga
             // alors supprime l'ancienne image physique pour éviter l'accumulation.
             // S'assure que l'ancienne image n'est pas la placeholder avant de tenter de la supprimer.
             if (($newCoverImage !== 'placeholder.png') && ($currentCoverImage !== 'placeholder.png') && file_exists(self::UPLOAD_DIR . $currentCoverImage)) {
-                 unlink(self::UPLOAD_DIR . $currentCoverImage);
+                unlink(self::UPLOAD_DIR . $currentCoverImage);
             }
 
             // Crée un objet Manga avec les données mises à jour et l'ID existant
@@ -249,8 +244,8 @@ class ControllerManga
                 $author,
                 $volume,
                 $description,
-                $coverImageToSave, // Image de couverture finale
-                $publisher         // Maison d'édition finale
+                $coverImageToSave, 
+                $publisher         
             );
             $updatedManga->setId($id);
 
@@ -273,7 +268,6 @@ class ControllerManga
     /**
      * Supprime un manga.
      * Route: POST /mangas/[i:id]/delete
-     * @param array $params Paramètres de la route, contenant l'ID du manga.
      */
     public function deleteManga(array $params): void
     {
