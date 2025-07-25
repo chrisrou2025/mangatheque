@@ -134,24 +134,22 @@ class ControllerManga
      */
     public function showManga(array $params): void
     {
-        $id = (int)$params['id']; // Récupère l'ID du manga depuis les paramètres
-        // Récupère le manga par son ID
+        $id = (int)$params['id'];
         $manga = $this->mangaModel->getById($id);
 
-        // Vérifie si le manga existe
         if ($manga) {
-            // Définit le titre de la page
+            // Vérifier si le manga est en favori pour l'utilisateur connecté
+            $isFavorite = false;
+            if (isset($_SESSION['id'])) {
+                $isFavorite = $this->mangaModel->isFavorite((int)$_SESSION['id'], $id);
+            }
+
             $title = "Fiche de " . $manga->getTitle();
-            // Démarre la capture de la sortie pour inclure la vue
             ob_start();
-            // Inclut la vue de la fiche détaillée
             require './view/manga/show.php';
-            // Récupère le contenu capturé
             $content = ob_get_clean();
-            // Inclut le template HTML de base
             require './view/base-html.php';
         } else {
-            // Si le manga n'est pas trouvé, renvoie une erreur 404
             http_response_code(404);
             $title = "Manga non trouvé";
             $content = "<h1>Erreur 404: Manga non trouvé</h1><p>Le manga que vous recherchez n'existe pas.</p>";
@@ -244,8 +242,8 @@ class ControllerManga
                 $author,
                 $volume,
                 $description,
-                $coverImageToSave, 
-                $publisher         
+                $coverImageToSave,
+                $publisher
             );
             $updatedManga->setId($id);
 
@@ -288,5 +286,94 @@ class ControllerManga
         // Redirige vers la liste des mangas après la suppression (ou si ce n'est pas POST)
         header('Location: /mangatheque/mangas');
         exit();
+    }
+
+    /**
+     * Gère l'ajout/retrait d'un manga des favoris
+     * Route: POST /mangas/[i:id]/toggle-favorite
+     */
+    public function toggleFavorite(array $params): void
+    {
+        // Vérifier que l'utilisateur est connecté
+        if (!isset($_SESSION['id'])) {
+            $_SESSION['error'] = "Vous devez être connecté pour ajouter des favoris.";
+            header('Location: /mangatheque/login');
+            exit();
+        }
+
+        $mangaId = (int)$params['id'];
+        $userId = (int)$_SESSION['id'];
+
+        // Vérifier que le manga existe
+        $manga = $this->mangaModel->getById($mangaId);
+        if (!$manga) {
+            $_SESSION['error'] = "Le manga demandé n'existe pas.";
+            header('Location: /mangatheque/mangas');
+            exit();
+        }
+
+        // Vérifier si le manga est déjà en favori
+        $isFavorite = $this->mangaModel->isFavorite($userId, $mangaId);
+
+        if ($isFavorite) {
+            // Retirer des favoris
+            if ($this->mangaModel->removeFavorite($userId, $mangaId)) {
+                $_SESSION['success'] = "Le manga \"{$manga->getTitle()}\" a été retiré de vos favoris.";
+            } else {
+                $_SESSION['error'] = "Erreur lors de la suppression du favori.";
+            }
+        } else {
+            // Ajouter aux favoris
+            if ($this->mangaModel->addFavorite($userId, $mangaId)) {
+                $_SESSION['success'] = "Le manga \"{$manga->getTitle()}\" a été ajouté à vos favoris.";
+            } else {
+                $_SESSION['error'] = "Erreur lors de l'ajout du favori.";
+            }
+        }
+
+        // Rediriger vers la fiche du manga
+        header('Location: /mangatheque/mangas/' . $mangaId);
+        exit();
+    }
+
+    /**
+     * Affiche la page du top des mangas favoris
+     * Route: GET /mangas/top
+     */
+    public function topFavorites(): void
+    {
+        // Récupère le top 5 des mangas favoris
+        $topMangas = $this->mangaModel->getTopFavorites(5);
+
+        $title = "Top des Mangas Favoris";
+
+        ob_start();
+        require './view/manga/top.php';
+        $content = ob_get_clean();
+        require './view/base-html.php';
+    }
+
+    /**
+     * Affiche les favoris de l'utilisateur connecté
+     * Route: GET /mangas/favorites
+     */
+    public function myFavorites(): void
+    {
+        // Vérifier que l'utilisateur est connecté
+        if (!isset($_SESSION['id'])) {
+            $_SESSION['error'] = "Vous devez être connecté pour voir vos favoris.";
+            header('Location: /mangatheque/login');
+            exit();
+        }
+
+        $userId = (int)$_SESSION['id'];
+        $favoriteMangas = $this->mangaModel->getUserFavorites($userId);
+
+        $title = "Mes Mangas Favoris";
+
+        ob_start();
+        require './view/manga/favorites.php';
+        $content = ob_get_clean();
+        require './view/base-html.php';
     }
 }

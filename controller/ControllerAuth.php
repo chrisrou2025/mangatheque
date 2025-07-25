@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contrôleur d'authentification
  * Gère l'inscription et la connexion des utilisateurs
@@ -35,6 +36,20 @@ class ControllerAuth
             // Création d'une instance du modèle utilisateur
             $modelUser = new ModelUser();
 
+            // Vérifier si l'email existe déjà
+            if ($modelUser->getUserByEmail($email)) {
+                $_SESSION['error'] = "Cet email est déjà utilisé !";
+                header('Location: /mangatheque/register');
+                exit;
+            }
+
+            // Vérifier si le pseudo existe déjà
+            if ($modelUser->getUserByPseudo($pseudo)) {
+                $_SESSION['error'] = "Ce pseudo est déjà utilisé !";
+                header('Location: /mangatheque/register');
+                exit;
+            }
+
             // Tentative de création du nouvel utilisateur
             $successUser = $modelUser->createUser($pseudo, $email, $password);
 
@@ -60,10 +75,10 @@ class ControllerAuth
      */
     public function login()
     {
-        
+
         // Si c'est une requête POST, traiter l'authentification
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+
             // Validation : vérifier que les champs email et mot de passe sont remplis
             if (empty($_POST['email']) || empty($_POST['password'])) {
                 $_SESSION['error'] = 'Tous les champs doivent être remplis !';
@@ -84,7 +99,7 @@ class ControllerAuth
 
             // Création d'une instance du modèle utilisateur
             $modelUser = new ModelUser();
-            
+
             // Tentative de récupération de l'utilisateur par email
             $userSuccess = $modelUser->getUserByEmail($email);
 
@@ -94,7 +109,7 @@ class ControllerAuth
                 $_SESSION['success'] = 'Connecté avec succès !';
                 $_SESSION['id'] = $userSuccess->getId();
                 $_SESSION['pseudo'] = $userSuccess->getPseudo();
-                
+
                 // Redirection vers la page d'accueil
                 header('Location: /mangatheque/');
                 exit;
@@ -119,11 +134,11 @@ class ControllerAuth
         // Détruire toutes les données de session
         session_unset();
         session_destroy();
-        
+
         // Redémarrer une nouvelle session pour afficher le message de succès
         session_start();
         $_SESSION['success'] = 'Vous avez été déconnecté avec succès !';
-        
+
         // Redirection vers la page d'accueil
         header('Location: /mangatheque/login');
         exit;

@@ -126,4 +126,119 @@ class MangaModel extends Model
         // Exécute la requête et retourne le résultat
         return $stmt->execute();
     }
+
+    /**
+     * Ajoute un manga aux favoris d'un utilisateur
+     */
+    public function addFavorite(int $userId, int $mangaId): bool
+    {
+        try {
+            $stmt = $this->getDb()->prepare("INSERT INTO favorites (user_id, manga_id) VALUES (:user_id, :manga_id)");
+            $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+            $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            // Si l'erreur est due à une contrainte d'unicité (favori déjà existant)
+            if ($e->getCode() == 23000) {
+                return false; // Favori déjà existant
+            }
+            throw $e; // Re-lance l'exception pour les autres erreurs
+        }
+    }
+
+    /**
+     * Retire un manga des favoris d'un utilisateur
+     */
+    public function removeFavorite(int $userId, int $mangaId): bool
+    {
+        $stmt = $this->getDb()->prepare("DELETE FROM favorites WHERE user_id = :user_id AND manga_id = :manga_id");
+        $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    /**
+     * Vérifie si un manga est dans les favoris d'un utilisateur
+     */
+    public function isFavorite(int $userId, int $mangaId): bool
+    {
+        $stmt = $this->getDb()->prepare("SELECT COUNT(*) FROM favorites WHERE user_id = :user_id AND manga_id = :manga_id");
+        $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
+    /**
+     * Récupère les mangas favoris d'un utilisateur
+     */
+    public function getUserFavorites(int $userId): array
+    {
+        $mangas = [];
+        $stmt = $this->getDb()->prepare("
+        SELECT m.id, m.title, m.author, m.volume, m.description, m.cover_image, m.publisher, m.type, mf.created_at as favorite_date
+        FROM mangas m
+        INNER JOIN favorites mf ON m.id = mf.manga_id
+        WHERE mf.user_id = :user_id
+        ORDER BY mf.created_at DESC
+    ");
+        $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $data = $stmt->fetchAll();
+
+        foreach ($data as $row) {
+            $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher'], $row['type']);
+            $manga->setId($row['id']);
+            $mangas[] = $manga;
+        }
+
+        return $mangas;
+    }
+
+    /**
+     * Récupère le top des mangas les plus ajoutés aux favoris
+     */
+    public function getTopFavorites(int $limit = 5): array
+    {
+        $results = [];
+        $stmt = $this->getDb()->prepare("
+        SELECT 
+            m.id, m.title, m.author, m.volume, m.description, m.cover_image, m.publisher, m.type,
+            COUNT(mf.manga_id) as favorite_count
+        FROM mangas m
+        LEFT JOIN favorites mf ON m.id = mf.manga_id
+        GROUP BY m.id, m.title, m.author, m.volume, m.description, m.cover_image, m.publisher, m.type
+        HAVING favorite_count > 0
+        ORDER BY favorite_count DESC, m.title ASC
+        LIMIT :limit
+    ");
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $data = $stmt->fetchAll();
+
+        foreach ($data as $row) {
+            $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher'], $row['type']);
+            $manga->setId($row['id']);
+
+            $results[] = [
+                'manga' => $manga,
+                'favorite_count' => (int)$row['favorite_count']
+            ];
+        }
+
+        return $results;
+    }
+
+    /**
+     * Compte le nombre total de favoris pour un manga donné
+     */
+    public function getFavoriteCount(int $mangaId): int
+    {
+        $stmt = $this->getDb()->prepare("SELECT COUNT(*) FROM favorites WHERE manga_id = :manga_id");
+        $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
+        $stmt->execute();
+        return (int)$stmt->fetchColumn();
+    }
 }

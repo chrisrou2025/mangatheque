@@ -88,4 +88,18 @@ class ModelUser extends Model
 
         return $req->rowCount() > 0 ? new User($user) : null;
     }
+
+    /**
+     * Récupère un utilisateur par son pseudo depuis la base de données.
+     */
+    public function getUserByPseudo(string $pseudo): ?User
+    {
+        $req = $this->getDb()->prepare('SELECT id, pseudo, email, password, created_at FROM user WHERE pseudo = :pseudo');
+        $req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+        $req->execute();
+
+        $user = $req->fetch(PDO::FETCH_ASSOC);
+
+        return $req->rowCount() > 0 ? new User($user) : null;
+    }
 }

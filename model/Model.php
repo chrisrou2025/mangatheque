@@ -6,9 +6,13 @@ abstract class Model
     private static function setDb()
     {
         try {
+            // Assurez-vous que les informations de connexion sont correctes pour votre environnement
             self::$db = new PDO('mysql:host=localhost;dbname=mangatheque', 'root', 'root');
+            self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Ajoute la gestion des erreurs
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            echo "Erreur de connexion à la base de données : " . $e->getMessage();
+            // En production, vous devriez logger l'erreur au lieu de l'afficher directement
+            exit(); // Arrête l'exécution si la connexion échoue
         }
     }
 
@@ -19,14 +23,5 @@ abstract class Model
         }
 
         return self::$db;
-    }
-
-    public function deleteOneUserById(int $id): bool
-    {
-        $req = $this->getDb()->prepare('DELETE FROM user WHERE id = :id');
-        $req->bindParam(':id', $id, PDO::PARAM_INT);
-        $req->execute();
-
-        return $req->rowCount() > 0;
     }
 }

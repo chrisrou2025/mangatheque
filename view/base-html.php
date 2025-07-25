@@ -5,21 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Ma Mangathèque' ?></title>
-    <!-- Inclure Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Styles personnalisés pour la police Inter */
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        /* Styles pour les toasts */
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            min-width: 250px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            animation: progressBar 4s linear forwards;
+        }
+
+        @keyframes progressBar {
+            from {
+                width: 100%;
+            }
+
+            to {
+                width: 0%;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-gray-100 min-h-screen flex flex-col">
-    <!-- Container pour les notifications toast -->
     <div id="toast-container"></div>
 
-    <!-- Messages d'erreur (restent en bannière) -->
     <?php if (isset($_SESSION['error'])) : ?>
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 mx-4 mt-4">
             <strong class="font-bold">Erreur : </strong>
@@ -30,20 +74,28 @@
 
     <header class="bg-gray-800 text-white p-4 shadow-md">
         <nav class="container mx-auto flex justify-between items-center">
-            <!-- Logo toujours présent -->
             <a href="/mangatheque" class="text-2xl font-bold text-orange-400 hover:text-orange-300 transition duration-300 ease-in-out">Ma Mangathèque</a>
 
-            <div>
+            <div class="flex items-center space-x-4">
+
+                <a href="/mangatheque/mangas" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Liste des Mangas</a>
+                <a href="/mangatheque/mangas/top" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Top Favoris</a>
+
                 <?php if (isset($_SESSION['id'])): ?>
-                    <!-- Bouton de déconnexion avec alerte JavaScript -->
+
+                    <a href="/mangatheque/mangas/create" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Ajouter un nouveau Manga</a>
+
+                    <a href="/mangatheque/mangas/favorites" class="bg-pink-600 hover:bg-pink-700 text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Mes Favoris</a>
+
                     <button onclick="confirmLogout()" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium ml-4 transition duration-300 ease-in-out">
                         Déconnexion
                     </button>
                 <?php else: ?>
-                    <!-- Menu pour utilisateur non connecté -->
+
                     <a href="/mangatheque/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out">Connexion</a>
                     <a href="/mangatheque/register" class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-md text-sm font-medium ml-2 transition duration-300 ease-in-out">Inscription</a>
-                <?php endif; ?>
+                <?php endif;
+                ?>
             </div>
         </nav>
     </header>
@@ -56,7 +108,6 @@
         <p>&copy; <?= date('Y') ?> Ma Mangathèque. Tous droits réservés.</p>
     </footer>
 
-    <!-- Scripts JavaScript -->
     <script>
         /**
          * Fonction pour afficher une notification toast

@@ -6,7 +6,7 @@ if (!isset($mangas) || !is_array($mangas)) {
 ?>
 
 <div class="container mx-auto p-4">
-    <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8">Découvrez Ma Mangathèque</h1>
+    <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8">Découvrez La Mangathèque</h1>
 
     <?php if (empty($mangas)): ?>
         <div class="text-center py-10 bg-white rounded-lg shadow-md">
@@ -16,7 +16,7 @@ if (!isset($mangas) || !is_array($mangas)) {
             </a>
         </div>
     <?php else: ?>
-        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Vos Mangas Récents</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Mangas Récemment Ajoutés</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             <?php foreach ($mangas as $manga): ?>
                 <div class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
@@ -30,11 +30,6 @@ if (!isset($mangas) || !is_array($mangas)) {
                     </a>
                 </div>
             <?php endforeach; ?>
-        </div>
-        <div class="text-center mt-10">
-            <a href="/mangatheque/mangas" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out">
-                Voir tous les mangas
-            </a>
         </div>
     <?php endif; ?>
 </div>

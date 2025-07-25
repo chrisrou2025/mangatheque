@@ -30,8 +30,13 @@ $router->map('GET', '/mangas/[i:id]/edit', 'ControllerManga#editMangaForm', 'man
 $router->map('POST', '/mangas/[i:id]/update', 'ControllerManga#updateManga', 'mangas_update');
 // POST /mangas/[i:id]/delete → Suppression d'un manga
 $router->map('POST', '/mangas/[i:id]/delete', 'ControllerManga#deleteManga', 'mangas_delete');
-// GET /mangas/[i:id]/cover → Affichage de l'image de couverture
-$router->map('GET', '/mangas/[i:id]/cover', 'ControllerManga#showCoverImage', 'mangas_cover');
+// GET /mangas/covers/[*:filename] → Affichage des images de couverture
+$router->map('GET', '/mangas/covers/[*:filename]', 'ControllerManga#getCoverImage', 'mangas_cover');
+
+// FAVORIS
+$router->map('POST', '/mangas/[i:id]/toggle-favorite', 'ControllerManga#toggleFavorite', 'mangas_toggle_favorite');
+$router->map('GET', '/mangas/top', 'ControllerManga#topFavorites', 'mangas_top');
+$router->map('GET', '/mangas/favorites', 'ControllerManga#myFavorites', 'user_favorites');
 
 // User
 $router->map('GET', '/user/[i:id]', 'ControllerUser#oneUserById', 'userPage');
@@ -61,11 +66,10 @@ if (is_array($match)) {
     } else {
         // Si la méthode n'est pas appelable, renvoie une erreur 404
         http_response_code(404);
-        echo "Erreur : Action non trouvée.";
+        echo "Erreur : Action non trouvée dans le contrôleur.";
     }
 } else {
     // Si aucune route ne correspond, renvoie une erreur 404
     http_response_code(404);
     echo "Erreur 404 : Page non trouvée.";
 }
-// --- Fin de la définition des routes ---
