@@ -1,8 +1,10 @@
 <?php
 
+/**
+ * Classe ModelUser - Gère les opérations liées aux utilisateurs dans la base de données
+ */
 class ModelUser extends Model
 {
-
     /**
      * Récupère tous les utilisateurs depuis la base de données.
      */

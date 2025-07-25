@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 25 juil. 2025 à 16:10
+-- Généré le : ven. 25 juil. 2025 à 16:57
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.1.31
 
@@ -95,8 +95,11 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `manga_id`, `user_id`, `rating`, `comment`, `created_at`) VALUES
-(1, 3, 3, 1, 'pas mal', '2025-07-25 13:56:07'),
-(2, 2, 3, 3, 'délire', '2025-07-25 15:56:33');
+(5, 3, 3, 5, 'très gore', '2025-07-25 16:37:52'),
+(2, 2, 3, 3, 'délire', '2025-07-25 15:56:33'),
+(3, 5, 3, 3, 'pas mal', '2025-07-25 16:32:07'),
+(4, 8, 3, 5, 'délirant', '2025-07-25 16:34:25'),
+(6, 7, 3, 5, 'sympa', '2025-07-25 16:43:27');
 
 -- --------------------------------------------------------
 
@@ -117,7 +120,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `pseudo`, `email`, `password`, `created_at`) VALUES
-(3, 'dede', 'dede@laposte.net', '$2y$10$MfjNPJJtpYUeH4vl9C80S.s/DPVvgQAgRdonvSQ.2bJ3cocIKv2qu', '2025-07-10 17:01:00');
+(3, 'dede', 'dede@laposte.net', '$2y$10$MfjNPJJtpYUeH4vl9C80S.s/DPVvgQAgRdonvSQ.2bJ3cocIKv2qu', '2025-07-10 17:01:00'),
+(4, 'chrisrou2025', 'ch.roupioz@laposte.net', '$2y$10$Q8P1CkQzOzkkwnNNtHAvGeeCWykIoq8o22kg.CR7LYHtTqAyvyT6O', '2025-07-25 16:50:48');
 
 --
 -- Index pour les tables déchargées
@@ -173,13 +177,13 @@ ALTER TABLE `mangas`
 -- AUTO_INCREMENT pour la table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
