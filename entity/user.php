@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Classe User - Représente un utilisateur du système
+ */
+
 class User
 {
     private int $id;

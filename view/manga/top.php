@@ -1,7 +1,3 @@
-<?php
-// Vue: ./view/manga/top.php
-?>
-
 <div class="container mx-auto p-4">
     <div class="text-center mb-8">
         <h1 class="text-4xl font-bold text-gray-800 mb-4">🏆 Top des Mangas Favoris</h1>

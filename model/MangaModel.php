@@ -286,41 +286,48 @@ class MangaModel extends Model
         }
     }
 
-    /**
-     * Récupère tous les avis pour un manga donné.
-     * Jointure avec la table user pour récupérer le nom d'utilisateur.
-     */
-    public function getReviewsByMangaId(int $mangaId): array
-    {
-        $reviews = [];
+/**
+ * Récupère tous les avis pour un manga donné.
+ * Jointure avec la table user pour récupérer le nom d'utilisateur.
+ */
+public function getReviewsByMangaId(int $mangaId): array
+{
+    $reviews = [];
+    
+    try {
         $stmt = $this->getDb()->prepare("
             SELECT 
                 r.id, r.rating, r.comment, r.created_at,
-                u.pseudo AS username -- CORRIGÉ ICI : u.pseudo au lieu de u.username
+                u.pseudo
             FROM reviews r
-            INNER JOIN user u ON r.user_id = u.id -- Assurez-vous que c'est bien 'user' et non 'users'
+            INNER JOIN user u ON r.user_id = u.id
             WHERE r.manga_id = :manga_id
             ORDER BY r.created_at DESC
         ");
         $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
         $stmt->execute();
 
-        $data = $stmt->fetchAll();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($data as $row) {
-            // Créer un objet Review (vous devrez créer cette classe)
-            // Pour l'instant, on peut retourner un tableau associatif ou un StdClass
-            $review = new stdClass(); // Ou une instance de votre classe Review si elle existe
-            $review->id = $row['id'];
-            $review->rating = (int)$row['rating'];
-            $review->comment = $row['comment'];
-            $review->created_at = $row['created_at'];
-            $review->username = $row['username']; // Nom d'utilisateur de l'auteur de l'avis
+            // Créer un objet Review complet au lieu de stdClass
+            $review = new Review($mangaId, 0, (int)$row['rating'], $row['comment']);
+            $review->setId((int)$row['id']);
+            $review->setCreatedAt($row['created_at']);
+            $review->setPseudo($row['pseudo']);
+
             $reviews[] = $review;
         }
-
-        return $reviews;
+        
+    } catch (PDOException $e) {
+        // Logger l'erreur au lieu de la laisser planter
+        error_log("Erreur lors de la récupération des avis: " . $e->getMessage());
+        // Retourner un tableau vide en cas d'erreur
+        return [];
     }
+
+    return $reviews;
+}
 
     /**
      * Calcule et retourne la note moyenne d'un manga.

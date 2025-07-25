@@ -6,14 +6,23 @@ if (!isset($manga)) {
     exit();
 }
 
-// Vérifier si le manga est en favori (seulement si l'utilisateur est connecté)
-// Cette variable $isFavorite doit maintenant être passée par le contrôleur
-// $isFavorite = $isFavorite ?? false; // Cette ligne était un placeholder, le contrôleur passe la vraie valeur
-
-// Assurez-vous que $averageRating et $reviews sont passés par le contrôleur
 $averageRating = $averageRating ?? null;
 $reviews = $reviews ?? [];
 
+// Affichage des messages de succès/erreur
+if (isset($_SESSION['success'])) {
+    echo '<div class="max-w-2xl mx-auto mb-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">';
+    echo htmlspecialchars($_SESSION['success']);
+    echo '</div>';
+    unset($_SESSION['success']);
+}
+
+if (isset($_SESSION['error'])) {
+    echo '<div class="max-w-2xl mx-auto mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">';
+    echo htmlspecialchars($_SESSION['error']);
+    echo '</div>';
+    unset($_SESSION['error']);
+}
 ?>
 
 <div class="container mx-auto p-4">
@@ -43,8 +52,7 @@ $reviews = $reviews ?? [];
                 <p class="text-gray-600 mt-1"><?= nl2br(htmlspecialchars($manga->getDescription())) ?></p>
             </div>
 
-            <?php if (isset($_SESSION['id'])): // Afficher le bouton seulement si l'utilisateur est connecté
-            ?>
+            <?php if (isset($_SESSION['id'])): // Afficher le bouton seulement si l'utilisateur est connecté ?>
                 <form action="/mangatheque/mangas/<?= htmlspecialchars($manga->getId()) ?>/toggle-favorite" method="POST" class="mb-4">
                     <button type="submit" class="w-full md:w-auto bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center transition-colors duration-200">
                         <?php if ($isFavorite): ?>
@@ -63,8 +71,8 @@ $reviews = $reviews ?? [];
 
                 <div class="mt-8 pt-8 border-t border-gray-200">
                     <h3 class="text-xl font-semibold mb-4">Laisser une note et un commentaire</h3>
-                    <form action="/mangatheque/mangas/<?= htmlspecialchars($manga->getId()) ?>/review" method="POST">
-                        <div class="mb-4">
+                    <form action="/mangatheque/mangas/<?= htmlspecialchars($manga->getId()) ?>/review" method="POST" class="space-y-4">
+                        <div>
                             <label for="rating" class="block text-gray-700 text-sm font-bold mb-2">Note (1-5):</label>
                             <select name="rating" id="rating" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                 <option value="">-- Choisir une note --</option>
@@ -75,7 +83,7 @@ $reviews = $reviews ?? [];
                                 <option value="5">5 étoiles</option>
                             </select>
                         </div>
-                        <div class="mb-4">
+                        <div>
                             <label for="comment" class="block text-gray-700 text-sm font-bold mb-2">Commentaire:</label>
                             <textarea name="comment" id="comment" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Écrivez votre commentaire ici..."></textarea>
                         </div>
@@ -116,17 +124,46 @@ $reviews = $reviews ?? [];
                 <?php foreach ($reviews as $review): ?>
                     <div class="border-b border-gray-200 pb-4 last:border-b-0">
                         <div class="flex items-center mb-2">
-                            <p class="font-semibold text-gray-800 mr-2"><?= htmlspecialchars($review->getUsername()) ?></p>
+                            <p class="font-semibold text-gray-800 mr-2">
+                                <?php 
+                                // Gestion compatible pour les deux formats (objet Review ou stdClass)
+                                if (isset($review->username)) {
+                                    echo htmlspecialchars($review->username);
+                                } elseif (method_exists($review, 'getUsername')) {
+                                    echo htmlspecialchars($review->getUsername());
+                                } else {
+                                    echo "Utilisateur inconnu";
+                                }
+                                ?>
+                            </p>
                             <div class="flex">
-                                <?php for ($i = 1; $i <= 5; $i++): ?>
-                                    <svg class="w-4 h-4 <?= $i <= $review->getRating() ? 'text-yellow-400' : 'text-gray-300' ?>" fill="currentColor" viewBox="0 0 20 20">
+                                <?php 
+                                $rating = isset($review->rating) ? $review->rating : 
+                                         (method_exists($review, 'getRating') ? $review->getRating() : 0);
+                                for ($i = 1; $i <= 5; $i++): 
+                                ?>
+                                    <svg class="w-4 h-4 <?= $i <= $rating ? 'text-yellow-400' : 'text-gray-300' ?>" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.683-1.532 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.777.565-1.832-.197-1.532-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"></path>
                                     </svg>
                                 <?php endfor; ?>
                             </div>
-                            <span class="ml-2 text-sm text-gray-500"><?= htmlspecialchars((new DateTime($review->getCreatedAt()))->format('d/m/Y')) ?></span>
+                            <span class="ml-2 text-sm text-gray-500">
+                                <?php 
+                                $createdAt = isset($review->created_at) ? $review->created_at : 
+                                           (method_exists($review, 'getCreatedAt') ? $review->getCreatedAt() : '');
+                                if ($createdAt) {
+                                    echo htmlspecialchars((new DateTime($createdAt))->format('d/m/Y'));
+                                }
+                                ?>
+                            </span>
                         </div>
-                        <p class="text-gray-700"><?= nl2br(htmlspecialchars($review->getComment())) ?></p>
+                        <p class="text-gray-700">
+                            <?php 
+                            $comment = isset($review->comment) ? $review->comment : 
+                                     (method_exists($review, 'getComment') ? $review->getComment() : '');
+                            echo nl2br(htmlspecialchars($comment));
+                            ?>
+                        </p>
                     </div>
                 <?php endforeach; ?>
             </div>

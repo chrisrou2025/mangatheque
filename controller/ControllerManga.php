@@ -102,28 +102,27 @@ class ControllerManga
      */
     public function storeManga(): void
     {
-        // Vérifie si la méthode de requête est POST
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Récupère les données du formulaire
+            // Récupération des données du formulaire
             $title = $_POST['title'] ?? '';
             $author = $_POST['author'] ?? '';
             $volume = (int)($_POST['volume'] ?? 0);
             $description = $_POST['description'] ?? '';
-            $publisher = $_POST['publisher'] ?? ''; // <-- AJOUTÉ : Récupère le champ publisher
+            $publisher = $_POST['publisher'] ?? '';
+            $type = $_POST['type'] ?? 'Shonen'; // AJOUTÉ : récupération du type
 
-            // Gère l'upload de l'image de couverture
+            // Gestion de l'upload de l'image de couverture
             $coverImage = $this->handleFileUpload($_FILES['cover_image'] ?? []);
 
-            // Crée un nouvel objet Manga avec l'image de couverture et le publisher
-            $manga = new Manga($title, $author, $volume, $description, $coverImage, $publisher); // <-- MODIFIÉ : Ajout de $publisher
-            // Ajoute le manga via le modèle (qui interagit maintenant avec la DB)
+            // Création d'un nouvel objet Manga avec TOUS les paramètres
+            $manga = new Manga($title, $author, $volume, $description, $coverImage, $publisher, $type);
+
+            // Ajout du manga via le modèle
             $this->mangaModel->add($manga);
 
-            // Redirige l'utilisateur vers la liste des mangas
             header('Location: /mangatheque/mangas');
             exit();
         }
-        // Si la méthode n'est pas POST, redirige vers le formulaire d'ajout
         header('Location: /mangatheque/mangas/create');
         exit();
     }
@@ -135,30 +134,45 @@ class ControllerManga
     public function showManga(array $params): void
     {
         $id = (int)$params['id'];
-        $manga = $this->mangaModel->getById($id); // Cette méthode récupère déjà la note moyenne
 
-        if ($manga) {
-            // Vérifier si le manga est en favori pour l'utilisateur connecté
-            $isFavorite = false;
-            if (isset($_SESSION['id'])) {
-                $isFavorite = $this->mangaModel->isFavorite((int)$_SESSION['id'], $id);
+        try {
+            // Récupération du manga avec sa note moyenne
+            $manga = $this->mangaModel->getById($id);
+
+            if ($manga) {
+                // Vérifier si le manga est en favori pour l'utilisateur connecté
+                $isFavorite = false;
+                if (isset($_SESSION['id'])) {
+                    $isFavorite = $this->mangaModel->isFavorite((int)$_SESSION['id'], $id);
+                }
+
+                // Récupération de la note moyenne et des avis
+                $averageRating = $manga->getAverageRating();
+                $reviews = $this->mangaModel->getReviewsByMangaId($id);
+
+                // Définition du titre et préparation de la vue
+                $title = "Fiche de " . $manga->getTitle();
+
+                // Capture de la sortie
+                ob_start();
+                require './view/manga/show.php';
+                $content = ob_get_clean();
+
+                // Inclusion du template de base
+                require './view/base-html.php';
+            } else {
+                // Manga non trouvé
+                http_response_code(404);
+                $title = "Manga non trouvé";
+                $content = "<div class='container mx-auto p-4'><h1 class='text-3xl font-bold text-red-600'>Erreur 404: Manga non trouvé</h1><p class='mt-4'>Le manga que vous recherchez n'existe pas.</p><a href='/mangatheque/mangas' class='mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded'>Retour à la liste</a></div>";
+                require './view/base-html.php';
             }
-
-            // AJOUTÉ : Récupérer la note moyenne et les avis
-            $averageRating = $manga->getAverageRating(); // Accède à la note moyenne déjà chargée
-            $reviews = $this->mangaModel->getReviewsByMangaId($id);
-
-
-            $title = "Fiche de " . $manga->getTitle();
-            ob_start();
-            // AJOUTÉ : Passer $averageRating et $reviews à la vue
-            require './view/manga/show.php';
-            $content = ob_get_clean();
-            require './view/base-html.php';
-        } else {
-            http_response_code(404);
-            $title = "Manga non trouvé";
-            $content = "<h1>Erreur 404: Manga non trouvé</h1><p>Le manga que vous recherchez n'existe pas.</p>";
+        } catch (Exception $e) {
+            // Gestion des erreurs
+            error_log("Erreur dans showManga: " . $e->getMessage());
+            http_response_code(500);
+            $title = "Erreur serveur";
+            $content = "<div class='container mx-auto p-4'><h1 class='text-3xl font-bold text-red-600'>Erreur serveur</h1><p class='mt-4'>Une erreur est survenue lors du chargement de la page.</p><a href='/mangatheque/mangas' class='mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded'>Retour à la liste</a></div>";
             require './view/base-html.php';
         }
     }
@@ -200,75 +214,67 @@ class ControllerManga
      */
     public function updateManga(array $params): void
     {
-        $id = (int)$params['id']; // Récupère l'ID du manga
-        // Vérifie si la méthode de requête est POST
+        $id = (int)$params['id'];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Récupère les données du formulaire
+            // Récupération des données du formulaire
             $title = $_POST['title'] ?? '';
             $author = $_POST['author'] ?? '';
             $volume = (int)($_POST['volume'] ?? 0);
             $description = $_POST['description'] ?? '';
-            $publisher = $_POST['publisher'] ?? ''; // <-- AJOUTÉ : Récupère le champ publisher
+            $publisher = $_POST['publisher'] ?? '';
+            $type = $_POST['type'] ?? 'Shonen'; // AJOUTÉ : récupération du type
 
-            // Récupère le manga existant pour conserver les valeurs actuelles si non modifiées
+            // Récupération du manga existant pour conserver les valeurs actuelles si non modifiées
             $existingManga = $this->mangaModel->getById($id);
 
             if (!$existingManga) {
-                // Gérer le cas où le manga n'existe pas
                 header('Location: /mangatheque/mangas');
                 exit();
             }
 
-            // Gestion de la maison d'édition (publisher) : si le champ est vide dans le formulaire,
-            // conserve l'ancienne valeur du manga existant.
+            // Conservation des valeurs existantes si les champs sont vides
             if (empty($publisher)) {
                 $publisher = $existingManga->getPublisher();
             }
 
+            // AJOUTÉ : Conservation du type existant si non défini
+            if (empty($type) || $type === 'Shonen') {
+                $type = $existingManga->getType();
+            }
+
             // Gestion de l'image de couverture
-            $currentCoverImage = $existingManga->getCoverImage(); // Image actuelle du manga
-
-            // Gère l'upload de la nouvelle image de couverture
+            $currentCoverImage = $existingManga->getCoverImage();
             $newCoverImage = $this->handleFileUpload($_FILES['cover_image'] ?? []);
-
-            // Utilise la nouvelle image si elle a été uploadée et est valide (n'est pas 'placeholder.png' après handleFileUpload),
-            // sinon conserve l'ancienne image.
             $coverImageToSave = ($newCoverImage !== 'placeholder.png') ? $newCoverImage : $currentCoverImage;
 
-            // Si une nouvelle image a été uploadée avec succès et qu'il existait une ancienne image (non placeholder),
-            // alors supprime l'ancienne image physique pour éviter l'accumulation.
-            // S'assure que l'ancienne image n'est pas la placeholder avant de tenter de la supprimer.
             if (($newCoverImage !== 'placeholder.png') && ($currentCoverImage !== 'placeholder.png') && file_exists(self::UPLOAD_DIR . $currentCoverImage)) {
                 unlink(self::UPLOAD_DIR . $currentCoverImage);
             }
 
-            // Crée un objet Manga avec les données mises à jour et l'ID existant
+            // Création de l'objet Manga mis à jour avec TOUS les paramètres
             $updatedManga = new Manga(
                 $title,
                 $author,
                 $volume,
                 $description,
                 $coverImageToSave,
-                $publisher
+                $publisher,
+                $type // AJOUTÉ : inclusion du type
             );
             $updatedManga->setId($id);
 
-            // Met à jour le manga via le modèle
             if ($this->mangaModel->update($updatedManga)) {
-                // Redirige vers la fiche du manga mis à jour
                 header('Location: /mangatheque/mangas/' . $id);
                 exit();
             } else {
-                // Si la mise à jour échoue, redirige vers la liste ou affiche un message d'erreur
                 header('Location: /mangatheque/mangas');
                 exit();
             }
         }
-        // Si la méthode n'est pas POST, redirige vers la page d'édition
         header('Location: /mangatheque/mangas/' . $id . '/edit');
         exit();
     }
-
     /**
      * Supprime un manga.
      * Route: POST /mangas/[i:id]/delete
@@ -389,10 +395,16 @@ class ControllerManga
      */
     public function addReview(array $params): void
     {
+        // Débogage : Vérifier les données reçues
+        error_log("=== DEBUT addReview ===");
+        error_log("POST data: " . print_r($_POST, true));
+        error_log("SESSION data: " . print_r($_SESSION, true));
+
         // Vérifier que l'utilisateur est connecté
         if (!isset($_SESSION['id'])) {
+            error_log("Utilisateur non connecté");
             $_SESSION['error'] = "Vous devez être connecté pour laisser un avis.";
-            header('Location: /mangatheque/login'); // Rediriger vers la page de connexion
+            header('Location: /mangatheque/login');
             exit();
         }
 
@@ -401,8 +413,11 @@ class ControllerManga
         $rating = (int)($_POST['rating'] ?? 0);
         $comment = trim($_POST['comment'] ?? '');
 
-        // Validation simple des données
+        error_log("MangaID: $mangaId, UserID: $userId, Rating: $rating");
+
+        // Validation des données
         if ($rating < 1 || $rating > 5) {
+            error_log("Rating invalide: $rating");
             $_SESSION['error'] = "La note doit être comprise entre 1 et 5.";
             header('Location: /mangatheque/mangas/' . $mangaId);
             exit();
@@ -411,18 +426,32 @@ class ControllerManga
         // Vérifier que le manga existe
         $manga = $this->mangaModel->getById($mangaId);
         if (!$manga) {
+            error_log("Manga non trouvé: $mangaId");
             $_SESSION['error'] = "Le manga n'existe pas.";
             header('Location: /mangatheque/mangas');
             exit();
         }
 
         // Tenter d'ajouter l'avis
-        if ($this->mangaModel->addReview($mangaId, $userId, $rating, $comment)) {
-            $_SESSION['success'] = "Votre avis a été ajouté avec succès !";
-        } else {
-            $_SESSION['error'] = "Vous avez déjà laissé un avis pour ce manga ou une erreur est survenue.";
+        try {
+            $result = $this->mangaModel->addReview($mangaId, $userId, $rating, $comment);
+
+            if ($result) {
+                error_log("Avis ajouté avec succès");
+                $_SESSION['success'] = "Votre avis a été ajouté avec succès !";
+            } else {
+                error_log("Échec de l'ajout de l'avis");
+                $_SESSION['error'] = "Vous avez déjà laissé un avis pour ce manga ou une erreur est survenue.";
+            }
+        } catch (Exception $e) {
+            error_log("Exception lors de l'ajout de l'avis: " . $e->getMessage());
+            $_SESSION['error'] = "Une erreur technique est survenue.";
         }
 
+        error_log("Redirection vers: /mangatheque/mangas/$mangaId");
+        error_log("=== FIN addReview ===");
+
+        // Redirection avec un header complet
         header('Location: /mangatheque/mangas/' . $mangaId);
         exit();
     }

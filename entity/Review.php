@@ -1,6 +1,8 @@
 <?php
 
-// app/Entity/Review.php (ou app/Model/Review.php)
+/**
+ * Classe Review - Représente un avis sur un manga
+ */
 
 class Review
 {
@@ -10,7 +12,7 @@ class Review
     private int $rating;
     private ?string $comment;
     private ?string $createdAt;
-    private ?string $username; // Pour stocker le nom d'utilisateur qui a laissé l'avis
+    private ?string $pseudo;
 
     public function __construct(int $mangaId, int $userId, int $rating, ?string $comment = null)
     {
@@ -20,7 +22,7 @@ class Review
         $this->comment = $comment;
         $this->id = null;
         $this->createdAt = null;
-        $this->username = null;
+        $this->pseudo = null;
     }
 
     // Getters
@@ -54,9 +56,9 @@ class Review
         return $this->createdAt;
     }
 
-    public function getUsername(): ?string
+    public function getPseudo(): ?string
     {
-        return $this->username;
+        return $this->pseudo;
     }
 
     // Setters
@@ -72,9 +74,9 @@ class Review
         return $this;
     }
 
-    public function setUsername(string $username): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->username = $username;
+        $this->pseudo = $pseudo;
         return $this;
     }
 }

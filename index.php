@@ -1,9 +1,7 @@
 <?php
 session_start();
-// Inclut l'autoloader de Composer
-require 'vendor/autoload.php';
-// Inclut la classe AltoRouter
-require 'vendor/altorouter/altorouter/AltoRouter.php';
+// Inclut le fichier de configuration
+require __DIR__ . '/vendor/autoload.php';
 
 // Crée une nouvelle instance d'AltoRouter
 $router = new AltoRouter();
@@ -15,7 +13,7 @@ $router->setBasePath('/mangatheque');
 // Route pour la page d'accueil
 $router->map('GET', '/', 'ControllerPage#homePage', 'homepage');
 
-// Routes pour les mangas
+// MANGAS
 // GET /mangas → Liste de tous les mangas
 $router->map('GET', '/mangas', 'ControllerManga#listMangas', 'mangas_list');
 // GET /mangas/create → Formulaire d'ajout
@@ -38,7 +36,7 @@ $router->map('POST', '/mangas/[i:id]/toggle-favorite', 'ControllerManga#toggleFa
 $router->map('GET', '/mangas/top', 'ControllerManga#topFavorites', 'mangas_top');
 $router->map('GET', '/mangas/favorites', 'ControllerManga#myFavorites', 'user_favorites');
 
-// NOUVELLE ROUTE POUR LES AVIS
+// AVIS
 $router->map('POST', '/mangas/[i:id]/review', 'ControllerManga#addReview', 'mangas_add_review');
 
 
