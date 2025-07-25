@@ -65,7 +65,7 @@ class ControllerManga
     public function listMangas(): void
     {
         // Récupère tous les mangas depuis le modèle (qui interagit maintenant avec la DB)
-        $mangas = $this->mangaModel->getAll();
+        $mangas = $this->mangaModel->getAll(); // Cette méthode récupère déjà la note moyenne
         // Définit le titre de la page
         $title = "Liste des Mangas";
         // Démarre la capture de la sortie pour inclure la vue
@@ -135,7 +135,7 @@ class ControllerManga
     public function showManga(array $params): void
     {
         $id = (int)$params['id'];
-        $manga = $this->mangaModel->getById($id);
+        $manga = $this->mangaModel->getById($id); // Cette méthode récupère déjà la note moyenne
 
         if ($manga) {
             // Vérifier si le manga est en favori pour l'utilisateur connecté
@@ -144,8 +144,14 @@ class ControllerManga
                 $isFavorite = $this->mangaModel->isFavorite((int)$_SESSION['id'], $id);
             }
 
+            // AJOUTÉ : Récupérer la note moyenne et les avis
+            $averageRating = $manga->getAverageRating(); // Accède à la note moyenne déjà chargée
+            $reviews = $this->mangaModel->getReviewsByMangaId($id);
+
+
             $title = "Fiche de " . $manga->getTitle();
             ob_start();
+            // AJOUTÉ : Passer $averageRating et $reviews à la vue
             require './view/manga/show.php';
             $content = ob_get_clean();
             require './view/base-html.php';
@@ -375,5 +381,49 @@ class ControllerManga
         require './view/manga/favorites.php';
         $content = ob_get_clean();
         require './view/base-html.php';
+    }
+
+    /**
+     * Traite la soumission d'un avis (note et commentaire) pour un manga.
+     * Route: POST /mangas/[i:id]/review
+     */
+    public function addReview(array $params): void
+    {
+        // Vérifier que l'utilisateur est connecté
+        if (!isset($_SESSION['id'])) {
+            $_SESSION['error'] = "Vous devez être connecté pour laisser un avis.";
+            header('Location: /mangatheque/login'); // Rediriger vers la page de connexion
+            exit();
+        }
+
+        $mangaId = (int)$params['id'];
+        $userId = (int)$_SESSION['id'];
+        $rating = (int)($_POST['rating'] ?? 0);
+        $comment = trim($_POST['comment'] ?? '');
+
+        // Validation simple des données
+        if ($rating < 1 || $rating > 5) {
+            $_SESSION['error'] = "La note doit être comprise entre 1 et 5.";
+            header('Location: /mangatheque/mangas/' . $mangaId);
+            exit();
+        }
+
+        // Vérifier que le manga existe
+        $manga = $this->mangaModel->getById($mangaId);
+        if (!$manga) {
+            $_SESSION['error'] = "Le manga n'existe pas.";
+            header('Location: /mangatheque/mangas');
+            exit();
+        }
+
+        // Tenter d'ajouter l'avis
+        if ($this->mangaModel->addReview($mangaId, $userId, $rating, $comment)) {
+            $_SESSION['success'] = "Votre avis a été ajouté avec succès !";
+        } else {
+            $_SESSION['error'] = "Vous avez déjà laissé un avis pour ce manga ou une erreur est survenue.";
+        }
+
+        header('Location: /mangatheque/mangas/' . $mangaId);
+        exit();
     }
 }

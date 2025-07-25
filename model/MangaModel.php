@@ -10,7 +10,16 @@ class MangaModel extends Model
     {
         $mangas = []; // Initialise un tableau vide pour stocker les objets Manga
         // Utilise $this->getDb() héritée de la classe Model
-        $stmt = $this->getDb()->query("SELECT id, title, author, volume, description, cover_image, publisher, type FROM mangas ORDER BY id DESC");
+        // MODIFIÉ : Ajout de la jointure avec la table reviews pour récupérer la note moyenne
+        $stmt = $this->getDb()->query("
+            SELECT 
+                m.id, m.title, m.author, m.volume, m.description, m.cover_image, m.publisher, m.type,
+                AVG(r.rating) as average_rating
+            FROM mangas m
+            LEFT JOIN reviews r ON m.id = r.manga_id
+            GROUP BY m.id, m.title, m.author, m.volume, m.description, m.cover_image, m.publisher, m.type
+            ORDER BY m.id DESC
+        ");
         // Exécute la requête et récupère tous les résultats
         $data = $stmt->fetchAll();
 
@@ -18,6 +27,8 @@ class MangaModel extends Model
         foreach ($data as $row) {
             $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher'], $row['type']);
             $manga->setId($row['id']); // Assigne l'ID récupéré de la base de données
+            // AJOUTÉ : Assigne la note moyenne à l'objet Manga
+            $manga->setAverageRating($row['average_rating'] ? (float)$row['average_rating'] : null);
             $mangas[] = $manga; // Ajoute l'objet Manga au tableau
         }
         return $mangas;
@@ -29,7 +40,16 @@ class MangaModel extends Model
     public function getById(int $id): ?Manga
     {
         // Utilise $this->getDb() héritée de la classe Model
-        $stmt = $this->getDb()->prepare("SELECT id, title, author, volume, description, cover_image, publisher, type FROM mangas WHERE id = :id");
+        // MODIFIÉ : Ajout de la jointure avec la table reviews pour récupérer la note moyenne
+        $stmt = $this->getDb()->prepare("
+            SELECT 
+                m.id, m.title, m.author, m.volume, m.description, m.cover_image, m.publisher, m.type,
+                AVG(r.rating) as average_rating
+            FROM mangas m
+            LEFT JOIN reviews r ON m.id = r.manga_id
+            WHERE m.id = :id
+            GROUP BY m.id, m.title, m.author, m.volume, m.description, m.cover_image, m.publisher, m.type
+        ");
         // Lie la valeur de l'ID au placeholder en utilisant bindValue pour éviter les notices
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         // Exécute la requête
@@ -41,6 +61,8 @@ class MangaModel extends Model
         if ($row) {
             $manga = new Manga($row['title'], $row['author'], $row['volume'], $row['description'], $row['cover_image'], $row['publisher'], $row['type']);
             $manga->setId($row['id']);
+            // AJOUTÉ : Assigne la note moyenne à l'objet Manga
+            $manga->setAverageRating($row['average_rating'] ? (float)$row['average_rating'] : null);
             return $manga;
         }
         return null; // Retourne null si aucun manga n'est trouvé
@@ -240,5 +262,76 @@ class MangaModel extends Model
         $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
         $stmt->execute();
         return (int)$stmt->fetchColumn();
+    }
+
+    /**
+     * Ajoute un avis (note et commentaire) pour un manga.
+     */
+    public function addReview(int $mangaId, int $userId, int $rating, ?string $comment): bool
+    {
+        try {
+            $stmt = $this->getDb()->prepare("INSERT INTO reviews (manga_id, user_id, rating, comment) VALUES (:manga_id, :user_id, :rating, :comment)");
+            $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
+            $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+            $stmt->bindValue(':rating', $rating, PDO::PARAM_INT);
+            $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            // Gérer le cas où l'utilisateur a déjà laissé un avis pour ce manga
+            if ($e->getCode() == 23000) { // Code d'erreur pour violation de contrainte unique
+                // Vous pouvez logguer l'erreur ou la gérer silencieusement
+                return false;
+            }
+            throw $e; // Re-lancer l'exception pour les autres erreurs inattendues
+        }
+    }
+
+    /**
+     * Récupère tous les avis pour un manga donné.
+     * Jointure avec la table user pour récupérer le nom d'utilisateur.
+     */
+    public function getReviewsByMangaId(int $mangaId): array
+    {
+        $reviews = [];
+        $stmt = $this->getDb()->prepare("
+            SELECT 
+                r.id, r.rating, r.comment, r.created_at,
+                u.pseudo AS username -- CORRIGÉ ICI : u.pseudo au lieu de u.username
+            FROM reviews r
+            INNER JOIN user u ON r.user_id = u.id -- Assurez-vous que c'est bien 'user' et non 'users'
+            WHERE r.manga_id = :manga_id
+            ORDER BY r.created_at DESC
+        ");
+        $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $data = $stmt->fetchAll();
+
+        foreach ($data as $row) {
+            // Créer un objet Review (vous devrez créer cette classe)
+            // Pour l'instant, on peut retourner un tableau associatif ou un StdClass
+            $review = new stdClass(); // Ou une instance de votre classe Review si elle existe
+            $review->id = $row['id'];
+            $review->rating = (int)$row['rating'];
+            $review->comment = $row['comment'];
+            $review->created_at = $row['created_at'];
+            $review->username = $row['username']; // Nom d'utilisateur de l'auteur de l'avis
+            $reviews[] = $review;
+        }
+
+        return $reviews;
+    }
+
+    /**
+     * Calcule et retourne la note moyenne d'un manga.
+     * Retourne null si aucune note n'est présente.
+     */
+    public function getAverageRatingForManga(int $mangaId): ?float
+    {
+        $stmt = $this->getDb()->prepare("SELECT AVG(rating) FROM reviews WHERE manga_id = :manga_id");
+        $stmt->bindValue(':manga_id', $mangaId, PDO::PARAM_INT);
+        $stmt->execute();
+        $average = $stmt->fetchColumn();
+        return $average !== null ? (float)$average : null;
     }
 }

@@ -38,6 +38,10 @@ $router->map('POST', '/mangas/[i:id]/toggle-favorite', 'ControllerManga#toggleFa
 $router->map('GET', '/mangas/top', 'ControllerManga#topFavorites', 'mangas_top');
 $router->map('GET', '/mangas/favorites', 'ControllerManga#myFavorites', 'user_favorites');
 
+// NOUVELLE ROUTE POUR LES AVIS
+$router->map('POST', '/mangas/[i:id]/review', 'ControllerManga#addReview', 'mangas_add_review');
+
+
 // User
 $router->map('GET', '/user/[i:id]', 'ControllerUser#oneUserById', 'userPage');
 $router->map('GET', '/user/delete/[i:id]', 'ControllerUser#deleteUserById', 'userDelete');
