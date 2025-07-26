@@ -1,25 +1,24 @@
-<div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold text-center mb-6">Ajouter un nouveau Manga</h1>
-    <form action="/mangatheque/mangas/store" method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
-        <div class="mb-4">
-            <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Titre:</label>
-            <input type="text" id="title" name="title" required class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+<div class="create-container">
+    <h1 class="create-title">Ajouter un nouveau Manga</h1>
+    <form action="/mangatheque/mangas/store" method="POST" enctype="multipart/form-data" class="create-form-container">
+        <div class="form-group-create">
+            <label for="title" class="form-label-create">Titre:</label>
+            <input type="text" id="title" name="title" required class="form-input-create">
         </div>
 
-        <div class="mb-4">
-            <label for="author" class="block text-gray-700 text-sm font-bold mb-2">Auteur:</label>
-            <input type="text" id="author" name="author" required class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+        <div class="form-group-create">
+            <label for="author" class="form-label-create">Auteur:</label>
+            <input type="text" id="author" name="author" required class="form-input-create">
         </div>
 
-        <div class="mb-4">
-            <label for="volume" class="block text-gray-700 text-sm font-bold mb-2">Volume:</label>
-            <input type="number" id="volume" name="volume" required class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+        <div class="form-group-create">
+            <label for="volume" class="form-label-create">Volume:</label>
+            <input type="number" id="volume" name="volume" required class="form-input-create">
         </div>
 
-        <!-- Nouveau champ pour le type de manga -->
-        <div class="mb-4">
-            <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Type de manga:</label>
-            <select id="type" name="type" required class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+        <div class="form-group-create">
+            <label for="type" class="form-label-create">Type de manga:</label>
+            <select id="type" name="type" required class="form-select-create">
                 <option value="">Sélectionnez un type</option>
                 <option value="Shonen">Shōnen</option>
                 <option value="Kodomo">Kodomo</option>
@@ -29,26 +28,26 @@
             </select>
         </div>
 
-        <div class="mb-4">
-            <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
-            <textarea id="description" name="description" rows="4" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"></textarea>
+        <div class="form-group-create">
+            <label for="description" class="form-label-create">Description:</label>
+            <textarea id="description" name="description" rows="4" class="form-textarea-create"></textarea>
         </div>
 
-        <div class="mb-4">
-            <label for="publisher" class="block text-gray-700 text-sm font-bold mb-2">Maison d'édition:</label>
-            <input type="text" id="publisher" name="publisher" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+        <div class="form-group-create">
+            <label for="publisher" class="form-label-create">Maison d'édition:</label>
+            <input type="text" id="publisher" name="publisher" class="form-input-create">
         </div>
 
-        <div class="mb-6">
-            <label for="cover_image" class="block text-gray-700 text-sm font-bold mb-2">Image de couverture:</label>
-            <input type="file" id="cover_image" name="cover_image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+        <div class="form-group-create-large">
+            <label for="cover_image" class="form-label-create">Image de couverture:</label>
+            <input type="file" id="cover_image" name="cover_image" accept="image/*" class="form-file-create">
         </div>
 
-        <div class="flex items-center justify-between">
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200">
+        <div class="form-buttons-section">
+            <button type="submit" class="submit-btn-create">
                 Ajouter le Manga
             </button>
-            <a href="/mangatheque/mangas" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+            <a href="/mangatheque/mangas" class="cancel-link-create">
                 Annuler
             </a>
         </div>
