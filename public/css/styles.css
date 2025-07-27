@@ -3,7 +3,6 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Reset et mise en page principale - reproduction exacte de Tailwind */
 * {
     box-sizing: border-box;
 }
@@ -11,161 +10,230 @@ body {
 body {
     margin: 0;
     padding: 0;
-    background-color: #f3f4f6; /* bg-gray-100 */
+    background-color: #f3f4f6;
+    /* bg-gray-100 */
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* flex flex-col */
+    flex-direction: column;
+    /* flex flex-col */
 }
 
-/* Messages d'erreur - reproduction exacte */
+/* Messages d'erreur */
 .error-message {
-    background-color: #fef2f2; /* bg-red-100 */
-    border: 1px solid #fca5a5; /* border-red-400 */
-    color: #b91c1c; /* text-red-700 */
-    padding: 1rem; /* px-4 py-3 */
-    border-radius: 0.25rem; /* rounded */
+    background-color: #fef2f2;
+    /* bg-red-100 */
+    border: 1px solid #fca5a5;
+    /* border-red-400 */
+    color: #b91c1c;
+    /* text-red-700 */
+    padding: 1rem;
+    /* px-4 py-3 */
+    border-radius: 0.25rem;
+    /* rounded */
     position: relative;
-    margin: 1rem; /* mb-4 mx-4 mt-4 */
+    margin: 1rem;
+    /* mb-4 mx-4 mt-4 */
 }
 
 .error-message strong {
-    font-weight: 700; /* font-bold */
+    font-weight: 700;
+    /* font-bold */
 }
 
 .error-message span {
-    display: block; /* block */
+    display: block;
+    /* block */
 }
 
 @media (min-width: 640px) {
     .error-message span {
-        display: inline; /* sm:inline */
+        display: inline;
+        /* sm:inline */
     }
 }
 
-/* Header - reproduction exacte */
+/* Header */
 .header {
-    background-color: #1f2937; /* bg-gray-800 */
-    color: #ffffff; /* text-white */
-    padding: 1rem; /* p-4 */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    background-color: #1f2937;
+    /* bg-gray-800 */
+    color: #ffffff;
+    /* text-white */
+    padding: 1rem;
+    /* p-4 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
 }
 
 .nav-container {
-    max-width: 1200px; /* container mx-auto */
+    max-width: 1200px;
+    /* container mx-auto */
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    justify-content: space-between; /* justify-between */
-    align-items: center; /* items-center */
+    justify-content: space-between;
+    /* justify-between */
+    align-items: center;
+    /* items-center */
 }
 
 /* Logo */
 .logo {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    color: #fb923c; /* text-orange-400 */
+    font-size: 1.5rem;
+    /* text-2xl */
+    font-weight: 700;
+    /* font-bold */
+    color: #fb923c;
+    /* text-orange-400 */
     text-decoration: none;
-    transition: color 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+    transition: color 0.3s ease-in-out;
+    /* transition duration-300 ease-in-out */
 }
 
 .logo:hover {
-    color: #fdba74; /* hover:text-orange-300 */
+    color: #fdba74;
+    /* hover:text-orange-300 */
 }
 
 /* Navigation links container */
 .nav-links {
     display: flex;
-    align-items: center; /* items-center */
-    gap: 1rem; /* space-x-4 */
+    align-items: center;
+    /* items-center */
+    gap: 1rem;
+    /* space-x-4 */
 }
 
 /* Liens de navigation */
 .nav-link {
-    color: #d1d5db; /* text-gray-300 */
+    color: #d1d5db;
+    /* text-gray-300 */
     text-decoration: none;
-    padding: 0.5rem 0.75rem; /* px-3 py-2 */
-    border-radius: 0.375rem; /* rounded-md */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    transition: color 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+    padding: 0.5rem 0.75rem;
+    /* px-3 py-2 */
+    border-radius: 0.375rem;
+    /* rounded-md */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    transition: color 0.3s ease-in-out;
+    /* transition duration-300 ease-in-out */
 }
 
 .nav-link:hover {
-    color: #ffffff; /* hover:text-white */
+    color: #ffffff;
+    /* hover:text-white */
 }
 
 /* Boutons spéciaux */
 .btn-favorites {
-    background-color: #db2777; /* bg-pink-600 */
-    color: #ffffff; /* text-white */
+    background-color: #db2777;
+    /* bg-pink-600 */
+    color: #ffffff;
+    /* text-white */
     text-decoration: none;
-    padding: 0.5rem 0.75rem; /* px-3 py-2 */
-    border-radius: 0.375rem; /* rounded-md */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    transition: background-color 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+    padding: 0.5rem 0.75rem;
+    /* px-3 py-2 */
+    border-radius: 0.375rem;
+    /* rounded-md */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    transition: background-color 0.3s ease-in-out;
+    /* transition duration-300 ease-in-out */
 }
 
 .btn-favorites:hover {
-    background-color: #be185d; /* hover:bg-pink-700 */
+    background-color: #be185d;
+    /* hover:bg-pink-700 */
 }
 
 .btn-logout {
-    background-color: #dc2626; /* bg-red-600 */
-    color: #ffffff; /* text-white */
+    background-color: #dc2626;
+    /* bg-red-600 */
+    color: #ffffff;
+    /* text-white */
     border: none;
-    padding: 0.5rem 0.75rem; /* px-3 py-2 */
-    border-radius: 0.375rem; /* rounded-md */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    margin-left: 1rem; /* ml-4 */
+    padding: 0.5rem 0.75rem;
+    /* px-3 py-2 */
+    border-radius: 0.375rem;
+    /* rounded-md */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    margin-left: 1rem;
+    /* ml-4 */
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+    transition: background-color 0.3s ease-in-out;
+    /* transition duration-300 ease-in-out */
 }
 
 .btn-logout:hover {
-    background-color: #b91c1c; /* hover:bg-red-700 */
+    background-color: #b91c1c;
+    /* hover:bg-red-700 */
 }
 
 .btn-register {
-    background-color: #16a34a; /* bg-green-600 */
-    color: #ffffff; /* text-white */
+    background-color: #16a34a;
+    /* bg-green-600 */
+    color: #ffffff;
+    /* text-white */
     text-decoration: none;
-    padding: 0.5rem 0.75rem; /* px-3 py-2 */
-    border-radius: 0.375rem; /* rounded-md */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    margin-left: 0.5rem; /* ml-2 */
-    transition: background-color 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+    padding: 0.5rem 0.75rem;
+    /* px-3 py-2 */
+    border-radius: 0.375rem;
+    /* rounded-md */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    margin-left: 0.5rem;
+    /* ml-2 */
+    transition: background-color 0.3s ease-in-out;
+    /* transition duration-300 ease-in-out */
 }
 
 .btn-register:hover {
-    background-color: #15803d; /* hover:bg-green-700 */
+    background-color: #15803d;
+    /* hover:bg-green-700 */
 }
 
 /* Contenu principal */
 .main-content {
-    flex-grow: 1; /* flex-grow */
-    padding: 2rem 0; /* py-8 */
+    flex-grow: 1;
+    /* flex-grow */
+    padding: 2rem 0;
+    /* py-8 */
 }
 
 .no-content {
-    text-align: center; /* text-center */
-    color: #4b5563; /* text-gray-600 */
-    font-size: 1.25rem; /* text-xl */
+    text-align: center;
+    /* text-center */
+    color: #4b5563;
+    /* text-gray-600 */
+    font-size: 1.25rem;
+    /* text-xl */
 }
 
 /* Footer */
 .footer {
-    background-color: #1f2937; /* bg-gray-800 */
-    color: #ffffff; /* text-white */
-    padding: 1rem; /* p-4 */
-    text-align: center; /* text-center */
-    font-size: 0.875rem; /* text-sm */
-    margin-top: auto; /* mt-auto */
+    background-color: #1f2937;
+    /* bg-gray-800 */
+    color: #ffffff;
+    /* text-white */
+    padding: 1rem;
+    /* p-4 */
+    text-align: center;
+    /* text-center */
+    font-size: 0.875rem;
+    /* text-sm */
+    margin-top: auto;
+    /* mt-auto */
 }
 
-/* Styles pour les toasts (conservés de l'original) */
+/* Styles pour les toasts */
 #toast-container {
     position: fixed;
     top: 20px;
@@ -200,18 +268,24 @@ body {
 
 /* Classes pour les différents types de toast */
 .toast-success {
-    background-color: #10b981; /* bg-green-500 */
-    color: #ffffff; /* text-white */
+    background-color: #10b981;
+    /* bg-green-500 */
+    color: #ffffff;
+    /* text-white */
 }
 
 .toast-error {
-    background-color: #ef4444; /* bg-red-500 */
-    color: #ffffff; /* text-white */
+    background-color: #ef4444;
+    /* bg-red-500 */
+    color: #ffffff;
+    /* text-white */
 }
 
 .toast-info {
-    background-color: #3b82f6; /* bg-blue-500 */
-    color: #ffffff; /* text-white */
+    background-color: #3b82f6;
+    /* bg-blue-500 */
+    color: #ffffff;
+    /* text-white */
 }
 
 /* Structure interne des toasts */
@@ -222,41 +296,51 @@ body {
 
 .toast-icon {
     flex-shrink: 0;
-    margin-right: 0.75rem; /* mr-3 */
+    margin-right: 0.75rem;
+    /* mr-3 */
 }
 
 .toast-icon span {
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 700; /* font-bold */
+    font-size: 1.25rem;
+    /* text-xl */
+    font-weight: 700;
+    /* font-bold */
 }
 
 .toast-message {
-    flex: 1; /* flex-1 */
+    flex: 1;
+    /* flex-1 */
 }
 
 .toast-message p {
-    font-weight: 500; /* font-medium */
+    font-weight: 500;
+    /* font-medium */
     margin: 0;
 }
 
 .toast-close {
     flex-shrink: 0;
-    margin-left: 0.75rem; /* ml-3 */
+    margin-left: 0.75rem;
+    /* ml-3 */
 }
 
 .close-btn {
-    color: #ffffff; /* text-white */
+    color: #ffffff;
+    /* text-white */
     background: none;
     border: none;
-    font-weight: 700; /* font-bold */
-    font-size: 1.25rem; /* text-xl */
+    font-weight: 700;
+    /* font-bold */
+    font-size: 1.25rem;
+    /* text-xl */
     cursor: pointer;
     padding: 0;
     transition: color 0.3s ease-in-out;
 }
 
 .close-btn:hover {
-    color: #d1d5db; /* hover:text-gray-200 */
+    color: #d1d5db;
+    /* hover:text-gray-200 */
 }
 
 /* Barres de progression pour les toasts */
@@ -270,21 +354,25 @@ body {
 }
 
 .progress-bar-success {
-    background-color: #6ee7b7; /* bg-green-300 */
+    background-color: #6ee7b7;
+    /* bg-green-300 */
 }
 
 .progress-bar-error {
-    background-color: #fca5a5; /* bg-red-300 */
+    background-color: #fca5a5;
+    /* bg-red-300 */
 }
 
 .progress-bar-info {
-    background-color: #93c5fd; /* bg-blue-300 */
+    background-color: #93c5fd;
+    /* bg-blue-300 */
 }
 
 @keyframes progressBar {
     from {
         width: 100%;
     }
+
     to {
         width: 0%;
     }
@@ -294,150 +382,205 @@ body {
 
 /* Container principal de la homepage */
 .homepage-container {
-    max-width: 1200px; /* container mx-auto */
+    max-width: 1200px;
+    /* container mx-auto */
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* Titre principal */
 .homepage-title {
-    font-size: 2.25rem; /* text-4xl */
-    font-weight: 800; /* font-extrabold */
-    text-align: center; /* text-center */
-    color: #111827; /* text-gray-900 */
-    margin-bottom: 2rem; /* mb-8 */
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-weight: 800;
+    /* font-extrabold */
+    text-align: center;
+    /* text-center */
+    color: #111827;
+    /* text-gray-900 */
+    margin-bottom: 2rem;
+    /* mb-8 */
 }
 
 /* Section collection vide */
 .empty-collection {
-    text-align: center; /* text-center */
-    padding: 2.5rem 0; /* py-10 */
-    background-color: #ffffff; /* bg-white */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    text-align: center;
+    /* text-center */
+    padding: 2.5rem 0;
+    /* py-10 */
+    background-color: #ffffff;
+    /* bg-white */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
 }
 
 .empty-message {
-    font-size: 1.25rem; /* text-xl */
-    color: #4b5563; /* text-gray-600 */
-    margin-bottom: 1rem; /* mb-4 */
+    font-size: 1.25rem;
+    /* text-xl */
+    color: #4b5563;
+    /* text-gray-600 */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Bouton pour ajouter le premier manga */
 .btn-add-first-manga {
-    background-color: #10b981; /* bg-green-500 */
-    color: #ffffff; /* text-white */
+    background-color: #10b981;
+    /* bg-green-500 */
+    color: #ffffff;
+    /* text-white */
     text-decoration: none;
-    font-weight: 700; /* font-bold */
-    padding: 0.75rem 1.5rem; /* py-3 px-6 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-    transition: background-color 0.3s ease-in-out; /* transition duration-300 ease-in-out */
+    font-weight: 700;
+    /* font-bold */
+    padding: 0.75rem 1.5rem;
+    /* py-3 px-6 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
+    transition: background-color 0.3s ease-in-out;
+    /* transition duration-300 ease-in-out */
     display: inline-block;
 }
 
 .btn-add-first-manga:hover {
-    background-color: #047857; /* hover:bg-green-700 */
+    background-color: #047857;
+    /* hover:bg-green-700 */
 }
 
 /* Titre de la section mangas récents */
 .recent-mangas-title {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    color: #1f2937; /* text-gray-800 */
-    margin-bottom: 1.5rem; /* mb-6 */
-    text-align: center; /* text-center */
+    font-size: 1.5rem;
+    /* text-2xl */
+    font-weight: 700;
+    /* font-bold */
+    color: #1f2937;
+    /* text-gray-800 */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+    text-align: center;
+    /* text-center */
 }
 
 /* Grille des mangas */
 .mangas-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* grid-cols-1 par défaut */
-    gap: 1.5rem; /* gap-6 */
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-cols-1 par défaut */
+    gap: 1.5rem;
+    /* gap-6 */
 }
 
 /* Responsive grid */
 @media (min-width: 640px) {
     .mangas-grid {
-        grid-template-columns: repeat(2, 1fr); /* sm:grid-cols-2 */
+        grid-template-columns: repeat(2, 1fr);
+        /* sm:grid-cols-2 */
     }
 }
 
 @media (min-width: 768px) {
     .mangas-grid {
-        grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+        grid-template-columns: repeat(3, 1fr);
+        /* md:grid-cols-3 */
     }
 }
 
 @media (min-width: 1024px) {
     .mangas-grid {
-        grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+        grid-template-columns: repeat(4, 1fr);
+        /* lg:grid-cols-4 */
     }
 }
 
 @media (min-width: 1280px) {
     .mangas-grid {
-        grid-template-columns: repeat(5, 1fr); /* xl:grid-cols-5 */
+        grid-template-columns: repeat(5, 1fr);
+        /* xl:grid-cols-5 */
     }
 }
 
 /* Carte individuelle de manga */
 .manga-card {
-    background-color: #ffffff; /* bg-white */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    background-color: #ffffff;
+    /* bg-white */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
     overflow: hidden;
-    transform: scale(1); /* transform */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* transition duration-300 */
+    transform: scale(1);
+    /* transform */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition duration-300 */
 }
 
 .manga-card:hover {
-    transform: scale(1.05); /* hover:scale-105 */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* hover:shadow-xl */
+    transform: scale(1.05);
+    /* hover:scale-105 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* hover:shadow-xl */
 }
 
 /* Lien de la carte manga */
 .manga-link {
-    display: block; /* block */
+    display: block;
+    /* block */
     text-decoration: none;
     color: inherit;
 }
 
 /* Image de couverture */
 .manga-cover {
-    width: 100%; /* w-full */
-    height: 16rem; /* h-64 */
-    object-fit: cover; /* object-cover */
+    width: 100%;
+    /* w-full */
+    height: 16rem;
+    /* h-64 */
+    object-fit: cover;
+    /* object-cover */
 }
 
 /* Informations du manga */
 .manga-info {
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* Titre du manga */
 .manga-title {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 600; /* font-semibold */
-    color: #111827; /* text-gray-900 */
-    white-space: nowrap; /* truncate */
+    font-size: 1.125rem;
+    /* text-lg */
+    font-weight: 600;
+    /* font-semibold */
+    color: #111827;
+    /* text-gray-900 */
+    white-space: nowrap;
+    /* truncate */
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 /* Volume du manga */
 .manga-volume {
-    font-size: 0.875rem; /* text-sm */
-    color: #4b5563; /* text-gray-600 */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #4b5563;
+    /* text-gray-600 */
     margin: 0;
 }
 
 /* Auteur du manga */
 .manga-author {
-    font-size: 0.75rem; /* text-xs */
-    color: #6b7280; /* text-gray-500 */
-    margin-top: 0.25rem; /* mt-1 */
+    font-size: 0.75rem;
+    /* text-xs */
+    color: #6b7280;
+    /* text-gray-500 */
+    margin-top: 0.25rem;
+    /* mt-1 */
     margin-bottom: 0;
 }
 
@@ -447,33 +590,36 @@ body {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .btn-logout {
         margin-left: 0;
         margin-top: 0.5rem;
     }
-    
+
     .btn-register {
         margin-left: 0;
         margin-top: 0.5rem;
     }
-    
+
     /* Ajustements pour la homepage sur mobile */
     .homepage-title {
-        font-size: 1.875rem; /* Réduction pour mobile */
+        font-size: 1.875rem;
+        /* Réduction pour mobile */
     }
-    
+
     .homepage-container {
-        padding: 0.5rem; /* Réduction du padding sur mobile */
+        padding: 0.5rem;
+        /* Réduction du padding sur mobile */
     }
-    
+
     .manga-cover {
-        height: 12rem; /* Réduction de la hauteur sur mobile */
+        height: 12rem;
+        /* Réduction de la hauteur sur mobile */
     }
 }
 
@@ -481,88 +627,122 @@ body {
 
 /* Container principal de la page de connexion */
 .login-container {
-    min-height: 100vh; /* min-h-screen */
+    min-height: 100vh;
+    /* min-h-screen */
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    background: linear-gradient(to bottom right, #e0e7ff, #ffffff, #ecfeff); /* bg-gradient-to-br from-indigo-100 via-white to-cyan-100 */
-    padding: 3rem 1rem; /* py-12 px-4 */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
+    background: linear-gradient(to bottom right, #e0e7ff, #ffffff, #ecfeff);
+    /* bg-gradient-to-br from-indigo-100 via-white to-cyan-100 */
+    padding: 3rem 1rem;
+    /* py-12 px-4 */
 }
 
 @media (min-width: 640px) {
     .login-container {
-        padding-left: 1.5rem; /* sm:px-6 */
+        padding-left: 1.5rem;
+        /* sm:px-6 */
         padding-right: 1.5rem;
     }
 }
 
 @media (min-width: 1024px) {
     .login-container {
-        padding-left: 2rem; /* lg:px-8 */
+        padding-left: 2rem;
+        /* lg:px-8 */
         padding-right: 2rem;
     }
 }
 
 /* Wrapper du formulaire */
 .login-wrapper {
-    max-width: 28rem; /* max-w-md */
-    width: 100%; /* w-full */
+    max-width: 28rem;
+    /* max-w-md */
+    width: 100%;
+    /* w-full */
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* space-y-8 */
+    gap: 2rem;
+    /* space-y-8 */
 }
 
 /* En-tête du formulaire */
 .login-header {
-    text-align: center; /* text-center */
+    text-align: center;
+    /* text-center */
 }
 
 /* Icône de connexion */
 .login-icon {
-    margin: 0 auto; /* mx-auto */
-    height: 4rem; /* h-16 */
-    width: 4rem; /* w-16 */
-    background: linear-gradient(to right, #fb923c, #f472b6); /* bg-gradient-to-r from-orange-400 to-pink-400 */
-    border-radius: 50%; /* rounded-full */
+    margin: 0 auto;
+    /* mx-auto */
+    height: 4rem;
+    /* h-16 */
+    width: 4rem;
+    /* w-16 */
+    background: linear-gradient(to right, #fb923c, #f472b6);
+    /* bg-gradient-to-r from-orange-400 to-pink-400 */
+    border-radius: 50%;
+    /* rounded-full */
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
 }
 
 .icon-svg {
-    height: 2rem; /* h-8 */
-    width: 2rem; /* w-8 */
-    color: #ffffff; /* text-white */
+    height: 2rem;
+    /* h-8 */
+    width: 2rem;
+    /* w-8 */
+    color: #ffffff;
+    /* text-white */
 }
 
 .icon-svg-small {
-    height: 1.25rem; /* h-5 */
-    width: 1.25rem; /* w-5 */
+    height: 1.25rem;
+    /* h-5 */
+    width: 1.25rem;
+    /* w-5 */
 }
 
 /* Titre de connexion */
 .login-title {
-    margin-top: 1.5rem; /* mt-6 */
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 800; /* font-extrabold */
-    color: #111827; /* text-gray-900 */
+    margin-top: 1.5rem;
+    /* mt-6 */
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-weight: 800;
+    /* font-extrabold */
+    color: #111827;
+    /* text-gray-900 */
 }
 
 /* Container du formulaire */
 .login-form-container {
-    background-color: #ffffff; /* bg-white */
-    padding: 2rem 1.5rem; /* py-8 px-6 */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-xl */
-    border-radius: 1rem; /* rounded-2xl */
-    border: 1px solid #f3f4f6; /* border border-gray-100 */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 2rem 1.5rem;
+    /* py-8 px-6 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* shadow-xl */
+    border-radius: 1rem;
+    /* rounded-2xl */
+    border: 1px solid #f3f4f6;
+    /* border border-gray-100 */
 }
 
 /* Formulaire */
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* space-y-6 */
+    gap: 1.5rem;
+    /* space-y-6 */
 }
 
 /* Groupe de champ */
@@ -573,82 +753,81 @@ body {
 
 /* Label des champs */
 .form-label {
-    display: block; /* block */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    color: #374151; /* text-gray-700 */
-    margin-bottom: 0.5rem; /* mb-2 */
+    display: block;
+    /* block */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    color: #374151;
+    /* text-gray-700 */
+    margin-bottom: 0.5rem;
+    /* mb-2 */
 }
 
 /* Wrapper des inputs */
 .input-wrapper {
-    position: relative; /* relative */
+    position: relative;
+    /* relative */
 }
 
 /* Icône dans les inputs */
 .input-icon {
-    position: absolute; /* absolute */
+    position: absolute;
+    /* absolute */
     top: 0;
     bottom: 0;
     left: 0;
-    padding-left: 0.75rem; /* pl-3 */
+    padding-left: 0.75rem;
+    /* pl-3 */
     display: flex;
-    align-items: center; /* items-center */
-    pointer-events: none; /* pointer-events-none */
+    align-items: center;
+    /* items-center */
+    pointer-events: none;
+    /* pointer-events-none */
 }
 
 .input-icon .icon-svg-small {
-    color: #9ca3af; /* text-gray-400 */
+    color: #9ca3af;
+    /* text-gray-400 */
 }
 
 /* Champs de saisie */
 .form-input {
-    display: block; /* block */
-    width: 100%; /* w-full */
-    padding: 0.75rem 0.75rem 0.75rem 2.5rem; /* pl-10 pr-3 py-3 */
-    border: 1px solid #d1d5db; /* border border-gray-300 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    display: block;
+    /* block */
+    width: 100%;
+    /* w-full */
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+    /* pl-10 pr-3 py-3 */
+    border: 1px solid #d1d5db;
+    /* border border-gray-300 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow-sm */
     font-size: 1rem;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* transition duration-300 */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition duration-300 */
 }
 
 .form-input::placeholder {
-    color: #9ca3af; /* placeholder-gray-400 */
+    color: #9ca3af;
+    /* placeholder-gray-400 */
 }
 
 .form-input:focus {
-    outline: none; /* focus:outline-none */
-    border-color: #6366f1; /* focus:border-indigo-500 */
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5); /* focus:ring-2 focus:ring-indigo-500 */
+    outline: none;
+    /* focus:outline-none */
+    border-color: #6366f1;
+    /* focus:border-indigo-500 */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+    /* focus:ring-2 focus:ring-indigo-500 */
 }
 
 /* Input mot de passe avec bouton */
 .form-input-password {
-    padding-right: 2.5rem; /* pr-10 */
-}
-
-/* Bouton toggle mot de passe */
-.password-toggle-btn {
-    position: absolute; /* absolute */
-    top: 0;
-    bottom: 0;
-    right: 0;
-    padding-right: 0.75rem; /* pr-3 */
-    display: flex;
-    align-items: center; /* items-center */
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.eye-icon {
-    color: #9ca3af; /* text-gray-400 */
-    transition: color 0.3s ease-in-out;
-}
-
-.eye-icon:hover {
-    color: #4b5563; /* hover:text-gray-600 */
+    padding-right: 2.5rem;
 }
 
 /* Groupe bouton de soumission */
@@ -658,72 +837,99 @@ body {
 
 /* Bouton de soumission */
 .submit-btn {
-    position: relative; /* relative */
-    width: 100%; /* w-full */
+    position: relative;
+    /* relative */
+    width: 100%;
+    /* w-full */
     display: flex;
-    justify-content: center; /* justify-center */
-    padding: 0.75rem 1rem; /* py-3 px-4 */
-    border: 1px solid transparent; /* border border-transparent */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    border-radius: 0.5rem; /* rounded-lg */
-    color: #ffffff; /* text-white */
-    background: linear-gradient(to right, #4f46e5, #7c3aed); /* bg-gradient-to-r from-indigo-600 to-purple-600 */
+    justify-content: center;
+    /* justify-center */
+    padding: 0.75rem 1rem;
+    /* py-3 px-4 */
+    border: 1px solid transparent;
+    /* border border-transparent */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    color: #ffffff;
+    /* text-white */
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    /* bg-gradient-to-r from-indigo-600 to-purple-600 */
     cursor: pointer;
-    transition: all 0.3s ease-in-out; /* transition duration-300 */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-    transform: scale(1); /* transform */
+    transition: all 0.3s ease-in-out;
+    /* transition duration-300 */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
+    transform: scale(1);
+    /* transform */
 }
 
 .submit-btn:hover {
-    background: linear-gradient(to right, #4338ca, #6d28d9); /* hover:from-indigo-700 hover:to-purple-700 */
-    transform: scale(1.05); /* hover:scale-105 */
+    background: linear-gradient(to right, #4338ca, #6d28d9);
+    /* hover:from-indigo-700 hover:to-purple-700 */
+    transform: scale(1.05);
+    /* hover:scale-105 */
 }
 
 .submit-btn:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5), 0 0 0 4px rgba(99, 102, 241, 0.25); /* focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5), 0 0 0 4px rgba(99, 102, 241, 0.25);
+    /* focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 */
 }
 
 /* Icône du bouton de soumission */
 .submit-btn-icon {
-    position: absolute; /* absolute */
-    left: 0; /* left-0 */
+    position: absolute;
+    /* absolute */
+    left: 0;
+    /* left-0 */
     top: 0;
     bottom: 0;
     display: flex;
-    align-items: center; /* items-center */
-    padding-left: 0.75rem; /* pl-3 */
+    align-items: center;
+    /* items-center */
+    padding-left: 0.75rem;
+    /* pl-3 */
 }
 
 .submit-btn-icon .icon-svg-small {
-    color: #c7d2fe; /* text-indigo-300 */
+    color: #c7d2fe;
+    /* text-indigo-300 */
     transition: color 0.3s ease-in-out;
 }
 
 .submit-btn:hover .submit-btn-icon .icon-svg-small {
-    color: #a5b4fc; /* group-hover:text-indigo-400 */
+    color: #a5b4fc;
+    /* group-hover:text-indigo-400 */
 }
 
 /* Responsive pour la page de connexion */
 @media (max-width: 640px) {
     .login-container {
-        padding: 2rem 0.5rem; /* Réduction padding sur mobile */
+        padding: 2rem 0.5rem;
+        /* Réduction padding sur mobile */
     }
-    
+
     .login-form-container {
-        padding: 1.5rem 1rem; /* Réduction padding formulaire */
+        padding: 1.5rem 1rem;
+        /* Réduction padding formulaire */
     }
-    
+
     .login-title {
-        font-size: 1.5rem; /* Réduction taille titre */
+        font-size: 1.5rem;
+        /* Réduction taille titre */
     }
-    
+
     .login-icon {
-        height: 3rem; /* Réduction taille icône */
+        height: 3rem;
+        /* Réduction taille icône */
         width: 3rem;
     }
-    
+
     .icon-svg {
         height: 1.5rem;
         width: 1.5rem;
@@ -734,159 +940,222 @@ body {
 
 /* Container principal de la page d'inscription */
 .register-container {
-    min-height: 100vh; /* min-h-screen */
+    min-height: 100vh;
+    /* min-h-screen */
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    background: linear-gradient(to bottom right, #dcfce7, #ffffff, #dbeafe); /* bg-gradient-to-br from-green-100 via-white to-blue-100 */
-    padding: 3rem 1rem; /* py-12 px-4 */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
+    background: linear-gradient(to bottom right, #dcfce7, #ffffff, #dbeafe);
+    /* bg-gradient-to-br from-green-100 via-white to-blue-100 */
+    padding: 3rem 1rem;
+    /* py-12 px-4 */
 }
 
 @media (min-width: 640px) {
     .register-container {
-        padding-left: 1.5rem; /* sm:px-6 */
+        padding-left: 1.5rem;
+        /* sm:px-6 */
         padding-right: 1.5rem;
     }
 }
 
 @media (min-width: 1024px) {
     .register-container {
-        padding-left: 2rem; /* lg:px-8 */
+        padding-left: 2rem;
+        /* lg:px-8 */
         padding-right: 2rem;
     }
 }
 
 /* Wrapper du formulaire d'inscription */
 .register-wrapper {
-    max-width: 28rem; /* max-w-md */
-    width: 100%; /* w-full */
+    max-width: 28rem;
+    /* max-w-md */
+    width: 100%;
+    /* w-full */
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* space-y-8 */
+    gap: 2rem;
+    /* space-y-8 */
 }
 
 /* En-tête du formulaire d'inscription */
 .register-header {
-    text-align: center; /* text-center */
+    text-align: center;
+    /* text-center */
 }
 
 /* Icône d'inscription */
 .register-icon {
-    margin: 0 auto; /* mx-auto */
-    height: 4rem; /* h-16 */
-    width: 4rem; /* w-16 */
-    background: linear-gradient(to right, #4ade80, #3b82f6); /* bg-gradient-to-r from-green-400 to-blue-500 */
-    border-radius: 50%; /* rounded-full */
+    margin: 0 auto;
+    /* mx-auto */
+    height: 4rem;
+    /* h-16 */
+    width: 4rem;
+    /* w-16 */
+    background: linear-gradient(to right, #4ade80, #3b82f6);
+    /* bg-gradient-to-r from-green-400 to-blue-500 */
+    border-radius: 50%;
+    /* rounded-full */
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
 }
 
 /* Titre de l'inscription */
 .register-title {
-    margin-top: 1.5rem; /* mt-6 */
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 800; /* font-extrabold */
-    color: #111827; /* text-gray-900 */
+    margin-top: 1.5rem;
+    /* mt-6 */
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-weight: 800;
+    /* font-extrabold */
+    color: #111827;
+    /* text-gray-900 */
 }
 
 /* Container du formulaire d'inscription */
 .register-form-container {
-    background-color: #ffffff; /* bg-white */
-    padding: 2rem 1.5rem; /* py-8 px-6 */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-xl */
-    border-radius: 1rem; /* rounded-2xl */
-    border: 1px solid #f3f4f6; /* border border-gray-100 */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 2rem 1.5rem;
+    /* py-8 px-6 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* shadow-xl */
+    border-radius: 1rem;
+    /* rounded-2xl */
+    border: 1px solid #f3f4f6;
+    /* border border-gray-100 */
 }
 
 /* Formulaire d'inscription */
 .register-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* space-y-6 */
+    gap: 1.5rem;
+    /* space-y-6 */
 }
 
 /* Champs de saisie pour l'inscription (focus vert au lieu d'indigo) */
 .form-input-register {
-    display: block; /* block */
-    width: 100%; /* w-full */
-    padding: 0.75rem 0.75rem 0.75rem 2.5rem; /* pl-10 pr-3 py-3 */
-    border: 1px solid #d1d5db; /* border border-gray-300 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    display: block;
+    /* block */
+    width: 100%;
+    /* w-full */
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+    /* pl-10 pr-3 py-3 */
+    border: 1px solid #d1d5db;
+    /* border border-gray-300 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow-sm */
     font-size: 1rem;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* transition duration-300 */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition duration-300 */
 }
 
 .form-input-register::placeholder {
-    color: #9ca3af; /* placeholder-gray-400 */
+    color: #9ca3af;
+    /* placeholder-gray-400 */
 }
 
 .form-input-register:focus {
-    outline: none; /* focus:outline-none */
-    border-color: #10b981; /* focus:border-green-500 */
-    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5); /* focus:ring-2 focus:ring-green-500 */
+    outline: none;
+    /* focus:outline-none */
+    border-color: #10b981;
+    /* focus:border-green-500 */
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+    /* focus:ring-2 focus:ring-green-500 */
 }
 
 /* Bouton de soumission pour l'inscription (dégradé vert-bleu) */
 .submit-btn-register {
-    position: relative; /* relative */
-    width: 100%; /* w-full */
+    position: relative;
+    /* relative */
+    width: 100%;
+    /* w-full */
     display: flex;
-    justify-content: center; /* justify-center */
-    padding: 0.75rem 1rem; /* py-3 px-4 */
-    border: 1px solid transparent; /* border border-transparent */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    border-radius: 0.5rem; /* rounded-lg */
-    color: #ffffff; /* text-white */
-    background: linear-gradient(to right, #059669, #2563eb); /* bg-gradient-to-r from-green-600 to-blue-600 */
+    justify-content: center;
+    /* justify-center */
+    padding: 0.75rem 1rem;
+    /* py-3 px-4 */
+    border: 1px solid transparent;
+    /* border border-transparent */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    color: #ffffff;
+    /* text-white */
+    background: linear-gradient(to right, #059669, #2563eb);
+    /* bg-gradient-to-r from-green-600 to-blue-600 */
     cursor: pointer;
-    transition: all 0.3s ease-in-out; /* transition duration-300 */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-    transform: scale(1); /* transform */
+    transition: all 0.3s ease-in-out;
+    /* transition duration-300 */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
+    transform: scale(1);
+    /* transform */
 }
 
 .submit-btn-register:hover {
-    background: linear-gradient(to right, #047857, #1d4ed8); /* hover:from-green-700 hover:to-blue-700 */
-    transform: scale(1.05); /* hover:scale-105 */
+    background: linear-gradient(to right, #047857, #1d4ed8);
+    /* hover:from-green-700 hover:to-blue-700 */
+    transform: scale(1.05);
+    /* hover:scale-105 */
 }
 
 .submit-btn-register:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5), 0 0 0 4px rgba(16, 185, 129, 0.25); /* focus:ring-2 focus:ring-offset-2 focus:ring-green-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5), 0 0 0 4px rgba(16, 185, 129, 0.25);
+    /* focus:ring-2 focus:ring-offset-2 focus:ring-green-500 */
 }
 
 /* Icône du bouton de soumission pour l'inscription */
 .submit-btn-register .submit-btn-icon .icon-svg-small {
-    color: #86efac; /* text-green-300 */
+    color: #86efac;
+    /* text-green-300 */
     transition: color 0.3s ease-in-out;
 }
 
 .submit-btn-register:hover .submit-btn-icon .icon-svg-small {
-    color: #bbf7d0; /* group-hover:text-green-400 */
+    color: #bbf7d0;
+    /* group-hover:text-green-400 */
 }
 
 /* Responsive pour la page d'inscription */
 @media (max-width: 640px) {
     .register-container {
-        padding: 2rem 0.5rem; /* Réduction padding sur mobile */
+        padding: 2rem 0.5rem;
+        /* Réduction padding sur mobile */
     }
-    
+
     .register-form-container {
-        padding: 1.5rem 1rem; /* Réduction padding formulaire */
+        padding: 1.5rem 1rem;
+        /* Réduction padding formulaire */
     }
-    
+
     .register-title {
-        font-size: 1.5rem; /* Réduction taille titre */
+        font-size: 1.5rem;
+        /* Réduction taille titre */
     }
-    
+
     .register-icon {
-        height: 3rem; /* Réduction taille icône */
+        height: 3rem;
+        /* Réduction taille icône */
         width: 3rem;
     }
-    
+
     .register-icon .icon-svg {
         height: 1.5rem;
         width: 1.5rem;
@@ -914,7 +1183,8 @@ body {
 .manga-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 800px; /* Largeur minimale pour éviter la compression */
+    min-width: 800px;
+    /* Largeur minimale pour éviter la compression */
 }
 
 /* En-tête de la table */
@@ -1003,9 +1273,12 @@ body {
 /* === COLONNE ACTIONS - LARGEUR AUGMENTÉE === */
 .manga-table th:nth-child(8),
 .manga-table td:nth-child(8) {
-    width: 200px; /* Largeur fixe plus importante pour les actions */
-    min-width: 200px; /* Largeur minimale garantie */
-    max-width: 200px; /* Évite l'expansion excessive */
+    width: 200px;
+    /* Largeur fixe plus importante pour les actions */
+    min-width: 200px;
+    /* Largeur minimale garantie */
+    max-width: 200px;
+    /* Évite l'expansion excessive */
 }
 
 /* === STYLES POUR LES ÉLÉMENTS DE LA TABLE === */
@@ -1071,8 +1344,10 @@ body {
 /* === SECTION DES ACTIONS === */
 .actions-section {
     display: flex;
-    flex-direction: column; /* Disposition verticale pour plus d'espace */
-    gap: 6px; /* Espacement entre les éléments */
+    flex-direction: column;
+    /* Disposition verticale pour plus d'espace */
+    gap: 6px;
+    /* Espacement entre les éléments */
     width: 100%;
 }
 
@@ -1086,7 +1361,8 @@ body {
     font-weight: 500;
     text-align: center;
     transition: all 0.2s ease;
-    white-space: nowrap; /* Évite le retour à la ligne */
+    white-space: nowrap;
+    /* Évite le retour à la ligne */
 }
 
 .action-view {
@@ -1151,12 +1427,12 @@ body {
     .hide-on-mobile {
         display: none;
     }
-    
+
     /* Ajuster la table pour mobile */
     .manga-table {
         min-width: 500px;
     }
-    
+
     /* Réduire la largeur des actions sur mobile */
     .manga-table th:nth-child(8),
     .manga-table td:nth-child(8) {
@@ -1164,12 +1440,12 @@ body {
         min-width: 150px;
         max-width: 150px;
     }
-    
+
     /* Actions en disposition plus compacte sur mobile */
     .actions-section {
         gap: 4px;
     }
-    
+
     .action-link,
     .action-delete {
         padding: 4px 8px;
@@ -1178,20 +1454,22 @@ body {
 }
 
 @media (max-width: 480px) {
+
     /* Actions encore plus compactes sur très petit écran */
     .actions-section {
-        flex-direction: row; /* Disposition horizontale sur très petit écran */
+        flex-direction: row;
+        /* Disposition horizontale sur très petit écran */
         flex-wrap: wrap;
         gap: 2px;
     }
-    
+
     .manga-table th:nth-child(8),
     .manga-table td:nth-child(8) {
         width: 120px;
         min-width: 120px;
         max-width: 120px;
     }
-    
+
     .action-link,
     .action-delete {
         flex: 1;
@@ -1205,198 +1483,264 @@ body {
 
 /* Container principal */
 .top-container {
-    max-width: 1200px; /* container mx-auto */
+    max-width: 1200px;
+    /* container mx-auto */
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* En-tête de la page */
 .top-header {
-    text-align: center; /* text-center */
-    margin-bottom: 2rem; /* mb-8 */
+    text-align: center;
+    /* text-center */
+    margin-bottom: 2rem;
+    /* mb-8 */
 }
 
 /* Titre principal */
 .top-title {
-    font-size: 2.25rem; /* text-4xl */
-    font-weight: 700; /* font-bold */
-    color: #1f2937; /* text-gray-800 */
-    margin-bottom: 1rem; /* mb-4 */
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-weight: 700;
+    /* font-bold */
+    color: #1f2937;
+    /* text-gray-800 */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Message d'absence de favoris */
 .no-favorites-message {
-    background-color: #fef3c7; /* bg-yellow-100 */
-    border-left: 4px solid #f59e0b; /* border-l-4 border-yellow-500 */
-    color: #92400e; /* text-yellow-700 */
-    padding: 1rem; /* p-4 */
-    border-radius: 0.5rem; /* rounded-lg */
-    text-align: center; /* text-center */
+    background-color: #fef3c7;
+    /* bg-yellow-100 */
+    border-left: 4px solid #f59e0b;
+    /* border-l-4 border-yellow-500 */
+    color: #92400e;
+    /* text-yellow-700 */
+    padding: 1rem;
+    /* p-4 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    text-align: center;
+    /* text-center */
 }
 
 /* Container avec icône pour le message */
 .message-with-icon {
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
 }
 
 /* Icône du message */
 .message-icon {
-    width: 1.5rem; /* w-6 */
-    height: 1.5rem; /* h-6 */
-    margin-right: 0.5rem; /* mr-2 */
+    width: 1.5rem;
+    /* w-6 */
+    height: 1.5rem;
+    /* h-6 */
+    margin-right: 0.5rem;
+    /* mr-2 */
 }
 
 /* Texte en gras dans le message */
 .message-bold {
-    font-weight: 500; /* font-medium */
+    font-weight: 500;
+    /* font-medium */
 }
 
 /* Texte secondaire du message */
 .message-secondary {
-    margin-top: 0.5rem; /* mt-2 */
+    margin-top: 0.5rem;
+    /* mt-2 */
 }
 
 /* Grille des mangas */
 .top-grid {
     display: grid;
-    gap: 1.5rem; /* gap-6 */
+    gap: 1.5rem;
+    /* gap-6 */
 }
 
 @media (min-width: 768px) {
     .top-grid {
-        gap: 2rem; /* md:gap-8 */
+        gap: 2rem;
+        /* md:gap-8 */
     }
 }
 
 /* Carte de manga */
 .manga-card-top {
-    background-color: #ffffff; /* bg-white */
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    background-color: #ffffff;
+    /* bg-white */
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
     overflow: hidden;
-    transition: box-shadow 0.3s ease-in-out; /* transition-shadow duration-300 */
+    transition: box-shadow 0.3s ease-in-out;
+    /* transition-shadow duration-300 */
 }
 
 .manga-card-top:hover {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* hover:shadow-xl */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* hover:shadow-xl */
 }
 
 /* Anneaux de podium */
 .ring-gold {
-    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.5); /* ring-2 ring-opacity-50 ring-yellow-400 */
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.5);
+    /* ring-2 ring-opacity-50 ring-yellow-400 */
 }
 
 .ring-silver {
-    box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.5); /* ring-2 ring-opacity-50 ring-gray-400 */
+    box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.5);
+    /* ring-2 ring-opacity-50 ring-gray-400 */
 }
 
 .ring-bronze {
-    box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.5); /* ring-2 ring-opacity-50 ring-orange-400 */
+    box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.5);
+    /* ring-2 ring-opacity-50 ring-orange-400 */
 }
 
 /* Container flex pour carte */
 .manga-card-flex {
     display: flex;
-    flex-direction: column; /* flex-col */
+    flex-direction: column;
+    /* flex-col */
 }
 
 @media (min-width: 768px) {
     .manga-card-flex {
-        flex-direction: row; /* md:flex-row */
+        flex-direction: row;
+        /* md:flex-row */
     }
 }
 
 /* Section image avec badge */
 .image-section {
-    position: relative; /* relative */
+    position: relative;
+    /* relative */
 }
 
 /* Badge de position */
 .position-badge {
-    position: absolute; /* absolute */
-    top: 1rem; /* top-4 */
-    left: 1rem; /* left-4 */
-    z-index: 10; /* z-10 */
+    position: absolute;
+    /* absolute */
+    top: 1rem;
+    /* top-4 */
+    left: 1rem;
+    /* left-4 */
+    z-index: 10;
+    /* z-10 */
 }
 
 /* Cercle du badge */
 .badge-circle {
-    width: 3rem; /* w-12 */
-    height: 3rem; /* h-12 */
+    width: 3rem;
+    /* w-12 */
+    height: 3rem;
+    /* h-12 */
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    font-weight: 700; /* font-bold */
-    font-size: 1.125rem; /* text-lg */
-    color: #ffffff; /* text-white */
-    border-radius: 50%; /* rounded-full */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
+    font-weight: 700;
+    /* font-bold */
+    font-size: 1.125rem;
+    /* text-lg */
+    color: #ffffff;
+    /* text-white */
+    border-radius: 50%;
+    /* rounded-full */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
 }
 
 /* Dégradés pour les badges */
 .gradient-gold {
-    background: linear-gradient(to right, #fbbf24, #d97706); /* bg-gradient-to-r from-yellow-400 to-yellow-600 */
+    background: linear-gradient(to right, #fbbf24, #d97706);
+    /* bg-gradient-to-r from-yellow-400 to-yellow-600 */
 }
 
 .gradient-silver {
-    background: linear-gradient(to right, #d1d5db, #6b7280); /* bg-gradient-to-r from-gray-300 to-gray-500 */
+    background: linear-gradient(to right, #d1d5db, #6b7280);
+    /* bg-gradient-to-r from-gray-300 to-gray-500 */
 }
 
 .gradient-bronze {
-    background: linear-gradient(to right, #fb923c, #ea580c); /* bg-gradient-to-r from-orange-400 to-orange-600 */
+    background: linear-gradient(to right, #fb923c, #ea580c);
+    /* bg-gradient-to-r from-orange-400 to-orange-600 */
 }
 
 .gradient-blue {
-    background: linear-gradient(to right, #60a5fa, #2563eb); /* bg-gradient-to-r from-blue-400 to-blue-600 */
+    background: linear-gradient(to right, #60a5fa, #2563eb);
+    /* bg-gradient-to-r from-blue-400 to-blue-600 */
 }
 
 /* Container image */
 .image-container {
-    width: 100%; /* w-full */
+    width: 100%;
+    /* w-full */
 }
 
 @media (min-width: 768px) {
     .image-container {
-        width: 12rem; /* md:w-48 */
+        width: 12rem;
+        /* md:w-48 */
     }
 }
 
 /* Image de couverture */
 .manga-cover-top {
-    width: 100%; /* w-full */
-    height: 16rem; /* h-64 */
-    object-fit: cover; /* object-cover */
+    width: 100%;
+    /* w-full */
+    height: 16rem;
+    /* h-64 */
+    object-fit: cover;
+    /* object-cover */
 }
 
 @media (min-width: 768px) {
     .manga-cover-top {
-        height: 20rem; /* md:h-80 */
+        height: 20rem;
+        /* md:h-80 */
     }
 }
 
 /* Section contenu */
 .content-section {
-    flex: 1; /* flex-1 */
-    padding: 1.5rem; /* p-6 */
+    flex: 1;
+    /* flex-1 */
+    padding: 1.5rem;
+    /* p-6 */
 }
 
 /* En-tête du contenu */
 .content-header {
     display: flex;
-    justify-content: space-between; /* justify-between */
-    align-items: flex-start; /* items-start */
-    margin-bottom: 1rem; /* mb-4 */
+    justify-content: space-between;
+    /* justify-between */
+    align-items: flex-start;
+    /* items-start */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Titre du manga */
 .manga-title-top {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    color: #1f2937; /* text-gray-800 */
-    transition: color 0.3s ease-in-out; /* transition-colors */
+    font-size: 1.5rem;
+    /* text-2xl */
+    font-weight: 700;
+    /* font-bold */
+    color: #1f2937;
+    /* text-gray-800 */
+    transition: color 0.3s ease-in-out;
+    /* transition-colors */
 }
 
 .manga-link-top {
@@ -1405,82 +1749,113 @@ body {
 }
 
 .manga-title-top:hover {
-    color: #2563eb; /* hover:text-blue-600 */
+    color: #2563eb;
+    /* hover:text-blue-600 */
 }
 
 /* Compteur de favoris */
 .favorites-counter {
     display: flex;
-    align-items: center; /* items-center */
-    background-color: #fecaca; /* bg-red-100 */
-    color: #991b1b; /* text-red-800 */
-    padding: 0.25rem 0.75rem; /* px-3 py-1 */
-    border-radius: 9999px; /* rounded-full */
+    align-items: center;
+    /* items-center */
+    background-color: #fecaca;
+    /* bg-red-100 */
+    color: #991b1b;
+    /* text-red-800 */
+    padding: 0.25rem 0.75rem;
+    /* px-3 py-1 */
+    border-radius: 9999px;
+    /* rounded-full */
     font-size: 0.875rem;
 }
 
 .heart-icon {
-    width: 1rem; /* w-4 */
-    height: 1rem; /* h-4 */
-    margin-right: 0.25rem; /* mr-1 */
+    width: 1rem;
+    /* w-4 */
+    height: 1rem;
+    /* h-4 */
+    margin-right: 0.25rem;
+    /* mr-1 */
     fill: currentColor;
 }
 
 .favorites-count {
-    font-weight: 600; /* font-semibold */
+    font-weight: 600;
+    /* font-semibold */
 }
 
 .favorites-text {
-    margin-left: 0.25rem; /* ml-1 */
-    font-size: 0.875rem; /* text-sm */
+    margin-left: 0.25rem;
+    /* ml-1 */
+    font-size: 0.875rem;
+    /* text-sm */
 }
 
 /* Informations du manga */
 .manga-info-top {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* space-y-2 */
-    margin-bottom: 1rem; /* mb-4 */
+    gap: 0.5rem;
+    /* space-y-2 */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Ligne d'information */
 .info-line {
     display: flex;
-    align-items: center; /* items-center */
-    color: #4b5563; /* text-gray-600 */
+    align-items: center;
+    /* items-center */
+    color: #4b5563;
+    /* text-gray-600 */
     font-size: 0.875rem;
 }
 
 .info-icon {
-    width: 1rem; /* w-4 */
-    height: 1rem; /* h-4 */
-    margin-right: 0.5rem; /* mr-2 */
+    width: 1rem;
+    /* w-4 */
+    height: 1rem;
+    /* h-4 */
+    margin-right: 0.5rem;
+    /* mr-2 */
 }
 
 .info-label {
-    font-weight: 700; /* font-weight: bold */
+    font-weight: 700;
+    /* font-weight: bold */
 }
 
 .info-value {
-    margin-left: 0.25rem; /* ml-1 */
+    margin-left: 0.25rem;
+    /* ml-1 */
 }
 
 /* Badge de type */
 .type-badge-top {
-    display: inline-block; /* inline-block */
-    background-color: #dbeafe; /* bg-blue-100 */
-    color: #1e40af; /* text-blue-800 */
-    padding: 0.25rem 0.5rem; /* px-2 py-1 */
-    border-radius: 9999px; /* rounded-full */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
+    display: inline-block;
+    /* inline-block */
+    background-color: #dbeafe;
+    /* bg-blue-100 */
+    color: #1e40af;
+    /* text-blue-800 */
+    padding: 0.25rem 0.5rem;
+    /* px-2 py-1 */
+    border-radius: 9999px;
+    /* rounded-full */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 500;
+    /* font-medium */
 }
 
 /* Description */
 .manga-description {
-    color: #374151; /* text-gray-700 */
-    line-height: 1.625; /* leading-relaxed */
-    margin-bottom: 1rem; /* mb-4 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.625;
+    /* leading-relaxed */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Limitation de lignes pour la description */
@@ -1495,65 +1870,82 @@ body {
 /* Section bouton */
 .button-section {
     display: flex;
-    justify-content: flex-end; /* justify-end */
+    justify-content: flex-end;
+    /* justify-end */
 }
 
 /* Bouton voir manga */
 .view-manga-btn {
-    background-color: #2563eb; /* bg-blue-600 */
-    color: #ffffff; /* text-white */
-    font-weight: 500; /* font-medium */
-    padding: 0.5rem 1rem; /* py-2 px-4 */
-    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #2563eb;
+    /* bg-blue-600 */
+    color: #ffffff;
+    /* text-white */
+    font-weight: 500;
+    /* font-medium */
+    padding: 0.5rem 1rem;
+    /* py-2 px-4 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
     text-decoration: none;
     display: flex;
-    align-items: center; /* items-center */
-    transition: background-color 0.2s ease-in-out; /* transition-colors duration-200 */
+    align-items: center;
+    /* items-center */
+    transition: background-color 0.2s ease-in-out;
+    /* transition-colors duration-200 */
 }
 
 .view-manga-btn:hover {
-    background-color: #1d4ed8; /* hover:bg-blue-700 */
+    background-color: #1d4ed8;
+    /* hover:bg-blue-700 */
 }
 
 .btn-arrow-icon {
-    width: 1rem; /* w-4 */
-    height: 1rem; /* h-4 */
-    margin-left: 0.5rem; /* ml-2 */
+    width: 1rem;
+    /* w-4 */
+    height: 1rem;
+    /* h-4 */
+    margin-left: 0.5rem;
+    /* ml-2 */
 }
 
 /* Responsive pour petits écrans */
 @media (max-width: 640px) {
     .top-title {
-        font-size: 1.875rem; /* Réduction pour mobile */
+        font-size: 1.875rem;
+        /* Réduction pour mobile */
     }
-    
+
     .top-container {
-        padding: 0.5rem; /* Réduction du padding */
+        padding: 0.5rem;
+        /* Réduction du padding */
     }
-    
+
     .content-section {
-        padding: 1rem; /* Réduction du padding */
+        padding: 1rem;
+        /* Réduction du padding */
     }
-    
+
     .manga-title-top {
-        font-size: 1.25rem; /* Réduction de la taille */
+        font-size: 1.25rem;
+        /* Réduction de la taille */
     }
-    
+
     .content-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
-    
+
     .manga-cover-top {
-        height: 12rem; /* Réduction de la hauteur sur mobile */
+        height: 12rem;
+        /* Réduction de la hauteur sur mobile */
     }
-    
+
     .position-badge {
         top: 0.5rem;
         left: 0.5rem;
     }
-    
+
     .badge-circle {
         width: 2.5rem;
         height: 2.5rem;
@@ -1565,170 +1957,242 @@ body {
 
 /* Container principal */
 .show-container {
-    max-width: 1200px; /* container mx-auto */
+    max-width: 1200px;
+    /* container mx-auto */
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* Titre principal de la page */
 .show-title {
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 1.5rem; /* mb-6 */
-    text-align: center; /* text-center */
-    color: #1f2937; /* text-gray-900 */
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-weight: 700;
+    /* font-bold */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+    text-align: center;
+    /* text-center */
+    color: #1f2937;
+    /* text-gray-900 */
 }
 
 /* Messages de succès et d'erreur */
 .message-success {
-    max-width: 42rem; /* max-w-2xl */
-    margin: 0 auto 1rem auto; /* mx-auto mb-4 */
-    background-color: #d1fae5; /* bg-green-100 */
-    border: 1px solid #34d399; /* border border-green-400 */
-    color: #065f46; /* text-green-700 */
-    padding: 0.75rem 1rem; /* px-4 py-3 */
-    border-radius: 0.25rem; /* rounded */
+    max-width: 42rem;
+    /* max-w-2xl */
+    margin: 0 auto 1rem auto;
+    /* mx-auto mb-4 */
+    background-color: #d1fae5;
+    /* bg-green-100 */
+    border: 1px solid #34d399;
+    /* border border-green-400 */
+    color: #065f46;
+    /* text-green-700 */
+    padding: 0.75rem 1rem;
+    /* px-4 py-3 */
+    border-radius: 0.25rem;
+    /* rounded */
 }
 
 .message-error {
-    max-width: 42rem; /* max-w-2xl */
-    margin: 0 auto 1rem auto; /* mx-auto mb-4 */
-    background-color: #fee2e2; /* bg-red-100 */
-    border: 1px solid #f87171; /* border border-red-400 */
-    color: #991b1b; /* text-red-700 */
-    padding: 0.75rem 1rem; /* px-4 py-3 */
-    border-radius: 0.25rem; /* rounded */
+    max-width: 42rem;
+    /* max-w-2xl */
+    margin: 0 auto 1rem auto;
+    /* mx-auto mb-4 */
+    background-color: #fee2e2;
+    /* bg-red-100 */
+    border: 1px solid #f87171;
+    /* border border-red-400 */
+    color: #991b1b;
+    /* text-red-700 */
+    padding: 0.75rem 1rem;
+    /* px-4 py-3 */
+    border-radius: 0.25rem;
+    /* rounded */
 }
 
 /* Carte principale du manga */
 .manga-card-detail {
-    max-width: 42rem; /* max-w-2xl */
-    margin: 0 auto; /* mx-auto */
-    background-color: #ffffff; /* bg-white */
-    padding: 2rem; /* p-8 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    max-width: 42rem;
+    /* max-w-2xl */
+    margin: 0 auto;
+    /* mx-auto */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 2rem;
+    /* p-8 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
     display: flex;
-    flex-direction: column; /* flex-col */
-    align-items: center; /* items-center */
+    flex-direction: column;
+    /* flex-col */
+    align-items: center;
+    /* items-center */
 }
 
 @media (min-width: 768px) {
     .manga-card-detail {
-        flex-direction: row; /* md:flex-row */
-        align-items: flex-start; /* md:items-start */
+        flex-direction: row;
+        /* md:flex-row */
+        align-items: flex-start;
+        /* md:items-start */
     }
 }
 
 /* Section image */
 .image-section-detail {
-    margin-bottom: 1.5rem; /* mb-6 */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
 }
 
 @media (min-width: 768px) {
     .image-section-detail {
-        margin-right: 2rem; /* md:mr-8 */
-        margin-bottom: 0; /* md:mb-0 */
+        margin-right: 2rem;
+        /* md:mr-8 */
+        margin-bottom: 0;
+        /* md:mb-0 */
     }
 }
 
 /* Image de couverture détaillée */
 .manga-cover-detail {
-    width: 12rem; /* w-48 */
-    height: 18rem; /* h-72 */
-    object-fit: cover; /* object-cover */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    width: 12rem;
+    /* w-48 */
+    height: 18rem;
+    /* h-72 */
+    object-fit: cover;
+    /* object-cover */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
 }
 
 /* Section contenu détaillé */
 .content-section-detail {
-    flex: 1; /* flex-1 */
+    flex: 1;
+    /* flex-1 */
     width: 100%;
 }
 
 /* Titre du manga */
 .manga-title-detail {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 1rem; /* mb-4 */
-    color: #1f2937; /* text-gray-800 */
+    font-size: 1.5rem;
+    /* text-2xl */
+    font-weight: 600;
+    /* font-semibold */
+    margin-bottom: 1rem;
+    /* mb-4 */
+    color: #1f2937;
+    /* text-gray-800 */
 }
 
 /* Lignes d'informations */
 .info-line-detail {
-    margin-bottom: 0.75rem; /* mb-3 */
+    margin-bottom: 0.75rem;
+    /* mb-3 */
     font-size: 0.875rem;
 }
 
 .info-line-detail:last-of-type {
-    margin-bottom: 1rem; /* mb-4 pour la dernière */
+    margin-bottom: 1rem;
+    /* mb-4 pour la dernière */
 }
 
 /* Labels des informations */
 .info-label-detail {
-    font-weight: 700; /* font-weight: bold (strong) */
-    color: #374151; /* text-gray-700 */
+    font-weight: 700;
+    /* font-weight: bold (strong) */
+    color: #374151;
+    /* text-gray-700 */
 }
 
 /* Description */
 .description-text {
-    color: #4b5563; /* text-gray-600 */
-    margin-top: 0.25rem; /* mt-1 */
-    line-height: 1.625; /* leading-relaxed */
+    color: #4b5563;
+    /* text-gray-600 */
+    margin-top: 0.25rem;
+    /* mt-1 */
+    line-height: 1.625;
+    /* leading-relaxed */
 }
 
 /* Formulaire de favoris */
 .favorites-form {
-    margin-bottom: 1rem; /* mb-4 */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Bouton favoris */
 .favorites-btn {
-    width: 100%; /* w-full */
-    background-color: #ec4899; /* bg-pink-500 */
-    color: #ffffff; /* text-white */
-    font-weight: 700; /* font-bold */
-    padding: 0.5rem 1rem; /* py-2 px-4 */
-    border-radius: 0.5rem; /* rounded-lg */
+    width: 100%;
+    /* w-full */
+    background-color: #e473ac;
+    /* bg-pink-500 */
+    color: #ffffff;
+    /* text-white */
+    font-weight: 700;
+    /* font-bold */
+    padding: 0.5rem 1rem;
+    /* py-2 px-4 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
     border: none;
     cursor: pointer;
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    transition: background-color 0.2s ease-in-out; /* transition-colors duration-200 */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
+    transition: background-color 0.2s ease-in-out;
+    /* transition-colors duration-200 */
 }
 
 .favorites-btn:hover {
-    background-color: #db2777; /* hover:bg-pink-600 */
+    background-color: #c4608d;
+    /* hover:bg-pink-600 */
 }
 
 @media (min-width: 768px) {
     .favorites-btn {
-        width: auto; /* md:w-auto */
+        width: auto;
+        /* md:w-auto */
     }
 }
 
 /* Icône du bouton favoris */
 .favorites-icon {
-    width: 1rem; /* w-4 */
-    height: 1rem; /* h-4 */
-    margin-right: 0.5rem; /* mr-2 */
+    width: 1rem;
+    /* w-4 */
+    height: 1rem;
+    /* h-4 */
+    margin-right: 0.5rem;
+    /* mr-2 */
 }
 
 /* Section avis */
 .review-section {
-    margin-top: 2rem; /* mt-8 */
-    padding-top: 2rem; /* pt-8 */
-    border-top: 1px solid #e5e7eb; /* border-t border-gray-200 */
+    margin-top: 2rem;
+    /* mt-8 */
+    padding-top: 2rem;
+    /* pt-8 */
+    border-top: 1px solid #e5e7eb;
+    /* border-t border-gray-200 */
 }
 
 /* Titre section avis */
 .review-title {
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 1rem; /* mb-4 */
+    font-size: 1.25rem;
+    /* text-xl */
+    font-weight: 600;
+    /* font-semibold */
+    margin-bottom: 1rem;
+    /* mb-4 */
     color: #1f2937;
 }
 
@@ -1736,7 +2200,8 @@ body {
 .review-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* space-y-4 */
+    gap: 1rem;
+    /* space-y-4 */
 }
 
 /* Groupe de champ dans le formulaire */
@@ -1747,35 +2212,50 @@ body {
 
 /* Label du formulaire */
 .form-label-detail {
-    display: block; /* block */
-    color: #374151; /* text-gray-700 */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 0.5rem; /* mb-2 */
+    display: block;
+    /* block */
+    color: #374151;
+    /* text-gray-700 */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 700;
+    /* font-bold */
+    margin-bottom: 0.5rem;
+    /* mb-2 */
 }
 
 /* Select et textarea */
 .form-select-detail,
 .form-textarea-detail {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.25rem; /* rounded */
-    width: 100%; /* w-full */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    color: #374151; /* text-gray-700 */
-    line-height: 1.25; /* leading-tight */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow */
+    border: 1px solid #d1d5db;
+    /* border */
+    border-radius: 0.25rem;
+    /* rounded */
+    width: 100%;
+    /* w-full */
+    padding: 0.5rem 0.75rem;
+    /* py-2 px-3 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.25;
+    /* leading-tight */
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .form-select-detail:focus,
 .form-textarea-detail:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
 }
 
 /* Textarea spécifique */
 .form-textarea-detail {
-    appearance: none; /* appearance-none */
+    appearance: none;
+    /* appearance-none */
     resize: vertical;
 }
 
@@ -1786,125 +2266,165 @@ body {
 
 /* Bouton d'envoi avis */
 .submit-review-btn {
-    background-color: #3b82f6; /* bg-blue-500 */
-    color: #ffffff; /* text-white */
-    font-weight: 700; /* font-bold */
-    padding: 0.5rem 1rem; /* py-2 px-4 */
-    border-radius: 0.25rem; /* rounded */
+    background-color: #3b82f6;
+    /* bg-blue-500 */
+    color: #ffffff;
+    /* text-white */
+    font-weight: 700;
+    /* font-bold */
+    padding: 0.5rem 1rem;
+    /* py-2 px-4 */
+    border-radius: 0.25rem;
+    /* rounded */
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
 .submit-review-btn:hover {
-    background-color: #1d4ed8; /* hover:bg-blue-700 */
+    background-color: #1d4ed8;
+    /* hover:bg-blue-700 */
 }
 
 .submit-review-btn:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
 }
 
 /* Carte des avis utilisateurs */
 .reviews-card {
-    max-width: 42rem; /* max-w-2xl */
-    margin: 2rem auto 0; /* mx-auto mt-8 */
-    background-color: #ffffff; /* bg-white */
-    padding: 2rem; /* p-8 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    max-width: 42rem;
+    /* max-w-2xl */
+    margin: 2rem auto 0;
+    /* mx-auto mt-8 */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 2rem;
+    /* p-8 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
 }
 
 /* Titre des avis utilisateurs */
 .reviews-title {
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 1rem; /* mb-4 */
+    font-size: 1.25rem;
+    /* text-xl */
+    font-weight: 600;
+    /* font-semibold */
+    margin-bottom: 1rem;
+    /* mb-4 */
     color: #1f2937;
 }
 
 /* Section note moyenne */
 .average-rating-section {
-    margin-bottom: 1.5rem; /* mb-6 */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
 }
 
 /* Texte note moyenne */
 .average-rating-text {
-    color: #374151; /* text-gray-700 */
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 700; /* font-bold */
+    color: #374151;
+    /* text-gray-700 */
+    font-size: 1.125rem;
+    /* text-lg */
+    font-weight: 700;
+    /* font-bold */
 }
 
 /* Valeur de la note */
 .rating-value {
-    color: #2563eb; /* text-blue-600 */
+    color: #2563eb;
+    /* text-blue-600 */
 }
 
 /* Container des étoiles moyennes */
 .average-stars-container {
     display: flex;
-    align-items: center; /* items-center */
-    margin-top: 0.5rem; /* mt-2 */
+    align-items: center;
+    /* items-center */
+    margin-top: 0.5rem;
+    /* mt-2 */
 }
 
 /* Étoile moyenne */
 .average-star {
-    width: 1.25rem; /* w-5 */
-    height: 1.25rem; /* h-5 */
+    width: 1.25rem;
+    /* w-5 */
+    height: 1.25rem;
+    /* h-5 */
     fill: currentColor;
 }
 
 /* Étoile dorée moyenne */
 .average-star-gold {
-    color: #fbbf24; /* text-yellow-400 */
+    color: #fbbf24;
+    /* text-yellow-400 */
 }
 
 /* Étoile grise moyenne */
 .average-star-gray {
-    color: #d1d5db; /* text-gray-300 */
+    color: #d1d5db;
+    /* text-gray-300 */
 }
 
 /* Message aucune note */
 .no-rating-message {
-    color: #4b5563; /* text-gray-600 */
-    margin-bottom: 1rem; /* mb-4 */
+    color: #4b5563;
+    /* text-gray-600 */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Message aucun commentaire */
 .no-comments-message {
-    color: #4b5563; /* text-gray-600 */
+    color: #4b5563;
+    /* text-gray-600 */
 }
 
 /* Container des avis */
 .reviews-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* space-y-6 */
+    gap: 1.5rem;
+    /* space-y-6 */
 }
 
 /* Avis individuel */
 .review-item {
-    border-bottom: 1px solid #e5e7eb; /* border-b border-gray-200 */
-    padding-bottom: 1rem; /* pb-4 */
+    border-bottom: 1px solid #e5e7eb;
+    /* border-b border-gray-200 */
+    padding-bottom: 1rem;
+    /* pb-4 */
 }
 
 .review-item:last-child {
-    border-bottom: none; /* last:border-b-0 */
+    border-bottom: none;
+    /* last:border-b-0 */
 }
 
 /* En-tête de l'avis */
 .review-header {
     display: flex;
-    align-items: center; /* items-center */
-    margin-bottom: 0.5rem; /* mb-2 */
+    align-items: center;
+    /* items-center */
+    margin-bottom: 0.5rem;
+    /* mb-2 */
     gap: 0.5rem;
 }
 
 /* Nom d'utilisateur */
 .review-username {
-    font-weight: 600; /* font-semibold */
-    color: #1f2937; /* text-gray-800 */
-    margin-right: 0.5rem; /* mr-2 */
+    font-weight: 600;
+    /* font-semibold */
+    color: #1f2937;
+    /* text-gray-800 */
+    margin-right: 0.5rem;
+    /* mr-2 */
 }
 
 /* Container étoiles avis */
@@ -1914,66 +2434,81 @@ body {
 
 /* Étoile avis */
 .review-star {
-    width: 1rem; /* w-4 */
-    height: 1rem; /* h-4 */
+    width: 1rem;
+    /* w-4 */
+    height: 1rem;
+    /* h-4 */
     fill: currentColor;
 }
 
 /* Étoile dorée avis */
 .review-star-gold {
-    color: #fbbf24; /* text-yellow-400 */
+    color: #fbbf24;
+    /* text-yellow-400 */
 }
 
 /* Étoile grise avis */
 .review-star-gray {
-    color: #d1d5db; /* text-gray-300 */
+    color: #d1d5db;
+    /* text-gray-300 */
 }
 
 /* Date de l'avis */
 .review-date {
-    margin-left: 0.5rem; /* ml-2 */
-    font-size: 0.875rem; /* text-sm */
-    color: #6b7280; /* text-gray-500 */
+    margin-left: 0.5rem;
+    /* ml-2 */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #6b7280;
+    /* text-gray-500 */
 }
 
 /* Commentaire de l'avis */
 .review-comment {
-    color: #374151; /* text-gray-700 */
-    line-height: 1.625; /* leading-relaxed */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.625;
+    /* leading-relaxed */
     margin: 0;
 }
 
 /* Responsive pour petits écrans */
 @media (max-width: 768px) {
     .show-container {
-        padding: 0.5rem; /* Réduction du padding */
+        padding: 0.5rem;
+        /* Réduction du padding */
     }
-    
+
     .show-title {
-        font-size: 1.5rem; /* Réduction de la taille */
+        font-size: 1.5rem;
+        /* Réduction de la taille */
     }
-    
+
     .manga-card-detail,
     .reviews-card {
-        padding: 1.5rem; /* Réduction du padding */
+        padding: 1.5rem;
+        /* Réduction du padding */
     }
-    
+
     .manga-title-detail {
-        font-size: 1.25rem; /* Réduction de la taille */
-        text-align: center; /* Centrage sur mobile */
+        font-size: 1.25rem;
+        /* Réduction de la taille */
+        text-align: center;
+        /* Centrage sur mobile */
     }
-    
+
     .manga-cover-detail {
-        width: 10rem; /* Réduction de la taille */
+        width: 10rem;
+        /* Réduction de la taille */
         height: 15rem;
     }
-    
+
     .review-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.25rem;
     }
-    
+
     .review-date {
         margin-left: 0;
     }
@@ -1984,15 +2519,15 @@ body {
     .manga-card-detail {
         padding: 1rem;
     }
-    
+
     .reviews-card {
         padding: 1rem;
     }
-    
+
     .show-title {
         font-size: 1.25rem;
     }
-    
+
     .manga-cover-detail {
         width: 8rem;
         height: 12rem;
@@ -2003,30 +2538,43 @@ body {
 
 /* Container principal du formulaire de création */
 .create-container {
-    max-width: 1200px; /* container mx-auto */
+    max-width: 1200px;
+    /* container mx-auto */
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* Titre principal de la page de création */
 .create-title {
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    text-align: center; /* text-center */
-    margin-bottom: 1.5rem; /* mb-6 */
-    color: #1f2937; /* text-gray-900 */
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-weight: 700;
+    /* font-bold */
+    text-align: center;
+    /* text-center */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+    color: #1f2937;
+    /* text-gray-900 */
 }
 
 /* Container du formulaire de création */
 .create-form-container {
-    max-width: 32rem; /* max-w-lg */
-    margin-left: auto; /* mx-auto */
+    max-width: 32rem;
+    /* max-w-lg */
+    margin-left: auto;
+    /* mx-auto */
     margin-right: auto;
-    background-color: #ffffff; /* bg-white */
-    padding: 2rem; /* p-8 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 2rem;
+    /* p-8 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
 }
 
 /* Formulaire de création */
@@ -2037,56 +2585,82 @@ body {
 
 /* Groupe de champ dans le formulaire */
 .form-group-create {
-    margin-bottom: 1rem; /* mb-4 */
+    margin-bottom: 1rem;
+    /* mb-4 */
     display: flex;
     flex-direction: column;
 }
 
 /* Groupe avec plus d'espacement */
 .form-group-create-large {
-    margin-bottom: 1.5rem; /* mb-6 */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
     display: flex;
     flex-direction: column;
 }
 
 /* Label des champs de création */
 .form-label-create {
-    display: block; /* block */
-    color: #374151; /* text-gray-700 */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 0.5rem; /* mb-2 */
+    display: block;
+    /* block */
+    color: #374151;
+    /* text-gray-700 */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 700;
+    /* font-bold */
+    margin-bottom: 0.5rem;
+    /* mb-2 */
 }
 
 /* Champs de saisie de création */
 .form-input-create {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow */
-    appearance: none; /* appearance-none */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.5rem; /* rounded-lg */
-    width: 100%; /* w-full */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    color: #374151; /* text-gray-700 */
-    line-height: 1.25; /* leading-tight */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow */
+    appearance: none;
+    /* appearance-none */
+    border: 1px solid #d1d5db;
+    /* border */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    width: 100%;
+    /* w-full */
+    padding: 0.5rem 0.75rem;
+    /* py-2 px-3 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.25;
+    /* leading-tight */
     transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .form-input-create:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
-    border-color: #3b82f6; /* focus:border-blue-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
 }
 
 /* Select spécifique */
 .form-select-create {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow */
-    appearance: none; /* appearance-none */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.5rem; /* rounded-lg */
-    width: 100%; /* w-full */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    color: #374151; /* text-gray-700 */
-    line-height: 1.25; /* leading-tight */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow */
+    appearance: none;
+    /* appearance-none */
+    border: 1px solid #d1d5db;
+    /* border */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    width: 100%;
+    /* w-full */
+    padding: 0.5rem 0.75rem;
+    /* py-2 px-3 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.25;
+    /* leading-tight */
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 0.5rem center;
@@ -2097,37 +2671,55 @@ body {
 }
 
 .form-select-create:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
-    border-color: #3b82f6; /* focus:border-blue-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
 }
 
 /* Textarea spécifique */
 .form-textarea-create {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow */
-    appearance: none; /* appearance-none */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.5rem; /* rounded-lg */
-    width: 100%; /* w-full */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    color: #374151; /* text-gray-700 */
-    line-height: 1.25; /* leading-tight */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow */
+    appearance: none;
+    /* appearance-none */
+    border: 1px solid #d1d5db;
+    /* border */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    width: 100%;
+    /* w-full */
+    padding: 0.5rem 0.75rem;
+    /* py-2 px-3 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.25;
+    /* leading-tight */
     resize: vertical;
     transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .form-textarea-create:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
-    border-color: #3b82f6; /* focus:border-blue-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
 }
 
 /* Champ de fichier */
 .form-file-create {
-    display: block; /* block */
-    width: 100%; /* w-full */
-    font-size: 0.875rem; /* text-sm */
-    color: #6b7280; /* text-gray-500 */
+    display: block;
+    /* block */
+    width: 100%;
+    /* w-full */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #6b7280;
+    /* text-gray-500 */
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -2137,91 +2729,120 @@ body {
 }
 
 .form-file-create::-webkit-file-upload-button {
-    background-color: #dbeafe; /* file:bg-blue-50 */
-    color: #1d4ed8; /* file:text-blue-700 */
-    font-weight: 600; /* file:font-semibold */
-    font-size: 0.875rem; /* file:text-sm */
-    border: none; /* file:border-0 */
-    border-radius: 9999px; /* file:rounded-full */
-    padding: 0.5rem 1rem; /* file:py-2 file:px-4 */
-    margin-right: 1rem; /* file:mr-4 */
+    background-color: #dbeafe;
+    /* file:bg-blue-50 */
+    color: #1d4ed8;
+    /* file:text-blue-700 */
+    font-weight: 600;
+    /* file:font-semibold */
+    font-size: 0.875rem;
+    /* file:text-sm */
+    border: none;
+    /* file:border-0 */
+    border-radius: 9999px;
+    /* file:rounded-full */
+    padding: 0.5rem 1rem;
+    /* file:py-2 file:px-4 */
+    margin-right: 1rem;
+    /* file:mr-4 */
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
 .form-file-create:hover::-webkit-file-upload-button {
-    background-color: #bfdbfe; /* hover:file:bg-blue-100 */
+    background-color: #bfdbfe;
+    /* hover:file:bg-blue-100 */
 }
 
 /* Section des boutons */
 .form-buttons-section {
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: space-between; /* justify-between */
+    align-items: center;
+    /* items-center */
+    justify-content: space-between;
+    /* justify-between */
     margin-top: 1rem;
 }
 
 /* Bouton de soumission */
 .submit-btn-create {
-    background-color: #3b82f6; /* bg-blue-500 */
-    color: #ffffff; /* text-white */
-    font-weight: 700; /* font-bold */
-    padding: 0.5rem 1rem; /* py-2 px-4 */
-    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #3b82f6;
+    /* bg-blue-500 */
+    color: #ffffff;
+    /* text-white */
+    font-weight: 700;
+    /* font-bold */
+    padding: 0.5rem 1rem;
+    /* py-2 px-4 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out, box-shadow 0.3s ease-in-out; /* transition duration-200 */
+    transition: background-color 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition duration-200 */
 }
 
 .submit-btn-create:hover {
-    background-color: #1d4ed8; /* hover:bg-blue-700 */
+    background-color: #1d4ed8;
+    /* hover:bg-blue-700 */
 }
 
 .submit-btn-create:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
 }
 
 /* Lien d'annulation */
 .cancel-link-create {
-    display: inline-block; /* inline-block */
-    font-weight: 700; /* font-bold */
-    font-size: 0.875rem; /* text-sm */
-    color: #3b82f6; /* text-blue-500 */
+    display: inline-block;
+    /* inline-block */
+    font-weight: 700;
+    /* font-bold */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #3b82f6;
+    /* text-blue-500 */
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .cancel-link-create:hover {
-    color: #1e40af; /* hover:text-blue-800 */
+    color: #1e40af;
+    /* hover:text-blue-800 */
 }
 
 /* Responsive pour la page de création */
 @media (max-width: 768px) {
     .create-container {
-        padding: 0.5rem; /* Réduction du padding sur mobile */
+        padding: 0.5rem;
+        /* Réduction du padding sur mobile */
     }
-    
+
     .create-form-container {
-        padding: 1.5rem; /* Réduction du padding du formulaire */
-        margin: 0 0.5rem; /* Ajout de marges latérales */
+        padding: 1.5rem;
+        /* Réduction du padding du formulaire */
+        margin: 0 0.5rem;
+        /* Ajout de marges latérales */
     }
-    
+
     .create-title {
-        font-size: 1.5rem; /* Réduction de la taille du titre */
+        font-size: 1.5rem;
+        /* Réduction de la taille du titre */
     }
-    
+
     .form-buttons-section {
         flex-direction: column;
         gap: 1rem;
         align-items: stretch;
     }
-    
+
     .submit-btn-create {
         width: 100%;
         text-align: center;
     }
-    
+
     .cancel-link-create {
         text-align: center;
         width: 100%;
@@ -2234,15 +2855,15 @@ body {
     .create-form-container {
         padding: 1rem;
     }
-    
+
     .create-title {
         font-size: 1.25rem;
     }
-    
+
     .form-label-create {
         font-size: 0.75rem;
     }
-    
+
     .form-input-create,
     .form-select-create,
     .form-textarea-create {
@@ -2255,30 +2876,43 @@ body {
 
 /* Container principal du formulaire d'édition */
 .edit-container {
-    max-width: 1200px; /* container mx-auto */
+    max-width: 1200px;
+    /* container mx-auto */
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* Titre principal de la page d'édition */
 .edit-title {
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
-    text-align: center; /* text-center */
-    margin-bottom: 1.5rem; /* mb-6 */
-    color: #1f2937; /* text-gray-900 */
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-weight: 700;
+    /* font-bold */
+    text-align: center;
+    /* text-center */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+    color: #1f2937;
+    /* text-gray-900 */
 }
 
 /* Container du formulaire d'édition */
 .edit-form-container {
-    max-width: 32rem; /* max-w-lg */
-    margin-left: auto; /* mx-auto */
+    max-width: 32rem;
+    /* max-w-lg */
+    margin-left: auto;
+    /* mx-auto */
     margin-right: auto;
-    background-color: #ffffff; /* bg-white */
-    padding: 2rem; /* p-8 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    background-color: #ffffff;
+    /* bg-white */
+    padding: 2rem;
+    /* p-8 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
 }
 
 /* Formulaire d'édition */
@@ -2289,56 +2923,82 @@ body {
 
 /* Groupe de champ dans le formulaire d'édition */
 .form-group-edit {
-    margin-bottom: 1rem; /* mb-4 */
+    margin-bottom: 1rem;
+    /* mb-4 */
     display: flex;
     flex-direction: column;
 }
 
 /* Groupe avec plus d'espacement pour l'image */
 .form-group-edit-large {
-    margin-bottom: 1.5rem; /* mb-6 */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
     display: flex;
     flex-direction: column;
 }
 
 /* Label des champs d'édition */
 .form-label-edit {
-    display: block; /* block */
-    color: #374151; /* text-gray-700 */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 700; /* font-bold */
-    margin-bottom: 0.5rem; /* mb-2 */
+    display: block;
+    /* block */
+    color: #374151;
+    /* text-gray-700 */
+    font-size: 0.875rem;
+    /* text-sm */
+    font-weight: 700;
+    /* font-bold */
+    margin-bottom: 0.5rem;
+    /* mb-2 */
 }
 
 /* Champs de saisie d'édition */
 .form-input-edit {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow */
-    appearance: none; /* appearance-none */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.5rem; /* rounded-lg */
-    width: 100%; /* w-full */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    color: #374151; /* text-gray-700 */
-    line-height: 1.25; /* leading-tight */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow */
+    appearance: none;
+    /* appearance-none */
+    border: 1px solid #d1d5db;
+    /* border */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    width: 100%;
+    /* w-full */
+    padding: 0.5rem 0.75rem;
+    /* py-2 px-3 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.25;
+    /* leading-tight */
     transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .form-input-edit:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
-    border-color: #3b82f6; /* focus:border-blue-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
 }
 
 /* Select spécifique pour l'édition */
 .form-select-edit {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow */
-    appearance: none; /* appearance-none */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.5rem; /* rounded-lg */
-    width: 100%; /* w-full */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    color: #374151; /* text-gray-700 */
-    line-height: 1.25; /* leading-tight */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow */
+    appearance: none;
+    /* appearance-none */
+    border: 1px solid #d1d5db;
+    /* border */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    width: 100%;
+    /* w-full */
+    padding: 0.5rem 0.75rem;
+    /* py-2 px-3 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.25;
+    /* leading-tight */
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 0.5rem center;
@@ -2349,52 +3009,77 @@ body {
 }
 
 .form-select-edit:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
-    border-color: #3b82f6; /* focus:border-blue-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
 }
 
 /* Textarea spécifique pour l'édition */
 .form-textarea-edit {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow */
-    appearance: none; /* appearance-none */
-    border: 1px solid #d1d5db; /* border */
-    border-radius: 0.5rem; /* rounded-lg */
-    width: 100%; /* w-full */
-    padding: 0.5rem 0.75rem; /* py-2 px-3 */
-    color: #374151; /* text-gray-700 */
-    line-height: 1.25; /* leading-tight */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    /* shadow */
+    appearance: none;
+    /* appearance-none */
+    border: 1px solid #d1d5db;
+    /* border */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    width: 100%;
+    /* w-full */
+    padding: 0.5rem 0.75rem;
+    /* py-2 px-3 */
+    color: #374151;
+    /* text-gray-700 */
+    line-height: 1.25;
+    /* leading-tight */
     resize: vertical;
     transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .form-textarea-edit:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
-    border-color: #3b82f6; /* focus:border-blue-500 */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
 }
 
 /* Image de couverture actuelle */
 .current-cover-image {
-    width: 8rem; /* w-32 */
-    height: auto; /* h-auto */
-    margin-bottom: 1rem; /* mb-4 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    width: 8rem;
+    /* w-32 */
+    height: auto;
+    /* h-auto */
+    margin-bottom: 1rem;
+    /* mb-4 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
 }
 
 /* Message d'absence d'image */
 .no-image-message {
-    color: #4b5563; /* text-gray-600 */
-    margin-bottom: 1rem; /* mb-4 */
+    color: #4b5563;
+    /* text-gray-600 */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Champ de fichier pour l'édition */
 .form-file-edit {
-    display: block; /* block */
-    width: 100%; /* w-full */
-    font-size: 0.875rem; /* text-sm */
-    color: #6b7280; /* text-gray-500 */
+    display: block;
+    /* block */
+    width: 100%;
+    /* w-full */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #6b7280;
+    /* text-gray-500 */
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -2404,106 +3089,139 @@ body {
 }
 
 .form-file-edit::-webkit-file-upload-button {
-    background-color: #dbeafe; /* file:bg-blue-50 */
-    color: #1d4ed8; /* file:text-blue-700 */
-    font-weight: 600; /* file:font-semibold */
-    font-size: 0.875rem; /* file:text-sm */
-    border: none; /* file:border-0 */
-    border-radius: 9999px; /* file:rounded-full */
-    padding: 0.5rem 1rem; /* file:py-2 file:px-4 */
-    margin-right: 1rem; /* file:mr-4 */
+    background-color: #dbeafe;
+    /* file:bg-blue-50 */
+    color: #1d4ed8;
+    /* file:text-blue-700 */
+    font-weight: 600;
+    /* file:font-semibold */
+    font-size: 0.875rem;
+    /* file:text-sm */
+    border: none;
+    /* file:border-0 */
+    border-radius: 9999px;
+    /* file:rounded-full */
+    padding: 0.5rem 1rem;
+    /* file:py-2 file:px-4 */
+    margin-right: 1rem;
+    /* file:mr-4 */
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
 .form-file-edit:hover::-webkit-file-upload-button {
-    background-color: #bfdbfe; /* hover:file:bg-blue-100 */
+    background-color: #bfdbfe;
+    /* hover:file:bg-blue-100 */
 }
 
 /* Texte d'aide pour le fichier */
 .file-help-text {
-    font-size: 0.75rem; /* text-xs */
-    color: #6b7280; /* text-gray-500 */
-    margin-top: 0.25rem; /* mt-1 */
+    font-size: 0.75rem;
+    /* text-xs */
+    color: #6b7280;
+    /* text-gray-500 */
+    margin-top: 0.25rem;
+    /* mt-1 */
 }
 
 /* Section des boutons d'édition */
 .form-buttons-section-edit {
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: space-between; /* justify-between */
+    align-items: center;
+    /* items-center */
+    justify-content: space-between;
+    /* justify-between */
     margin-top: 1rem;
 }
 
 /* Bouton de soumission pour l'édition */
 .submit-btn-edit {
-    background-color: #3b82f6; /* bg-blue-500 */
-    color: #ffffff; /* text-white */
-    font-weight: 700; /* font-bold */
-    padding: 0.5rem 1rem; /* py-2 px-4 */
-    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #3b82f6;
+    /* bg-blue-500 */
+    color: #ffffff;
+    /* text-white */
+    font-weight: 700;
+    /* font-bold */
+    padding: 0.5rem 1rem;
+    /* py-2 px-4 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out, box-shadow 0.3s ease-in-out; /* transition duration-200 */
+    transition: background-color 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition duration-200 */
 }
 
 .submit-btn-edit:hover {
-    background-color: #1d4ed8; /* hover:bg-blue-700 */
+    background-color: #1d4ed8;
+    /* hover:bg-blue-700 */
 }
 
 .submit-btn-edit:focus {
-    outline: none; /* focus:outline-none */
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:shadow-outline */
+    outline: none;
+    /* focus:outline-none */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    /* focus:shadow-outline */
 }
 
 /* Lien d'annulation pour l'édition */
 .cancel-link-edit {
-    display: inline-block; /* inline-block */
-    font-weight: 700; /* font-bold */
-    font-size: 0.875rem; /* text-sm */
-    color: #3b82f6; /* text-blue-500 */
+    display: inline-block;
+    /* inline-block */
+    font-weight: 700;
+    /* font-bold */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #3b82f6;
+    /* text-blue-500 */
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .cancel-link-edit:hover {
-    color: #1e40af; /* hover:text-blue-800 */
+    color: #1e40af;
+    /* hover:text-blue-800 */
 }
 
 /* Responsive pour la page d'édition */
 @media (max-width: 768px) {
     .edit-container {
-        padding: 0.5rem; /* Réduction du padding sur mobile */
+        padding: 0.5rem;
+        /* Réduction du padding sur mobile */
     }
-    
+
     .edit-form-container {
-        padding: 1.5rem; /* Réduction du padding du formulaire */
-        margin: 0 0.5rem; /* Ajout de marges latérales */
+        padding: 1.5rem;
+        /* Réduction du padding du formulaire */
+        margin: 0 0.5rem;
+        /* Ajout de marges latérales */
     }
-    
+
     .edit-title {
-        font-size: 1.5rem; /* Réduction de la taille du titre */
+        font-size: 1.5rem;
+        /* Réduction de la taille du titre */
     }
-    
+
     .form-buttons-section-edit {
         flex-direction: column;
         gap: 1rem;
         align-items: stretch;
     }
-    
+
     .submit-btn-edit {
         width: 100%;
         text-align: center;
     }
-    
+
     .cancel-link-edit {
         text-align: center;
         width: 100%;
         padding: 0.5rem;
     }
-    
+
     .current-cover-image {
-        width: 6rem; /* Réduction sur mobile */
+        width: 6rem;
+        /* Réduction sur mobile */
     }
 }
 
@@ -2512,24 +3230,26 @@ body {
     .edit-form-container {
         padding: 1rem;
     }
-    
+
     .edit-title {
-        font-size: 1.125rem; /* Plus petit titre sur très petit écran */
+        font-size: 1.125rem;
+        /* Plus petit titre sur très petit écran */
     }
-    
+
     .form-label-edit {
         font-size: 0.75rem;
     }
-    
+
     .form-input-edit,
     .form-select-edit,
     .form-textarea-edit {
         font-size: 0.875rem;
         padding: 0.375rem 0.5rem;
     }
-    
+
     .current-cover-image {
-        width: 5rem; /* Encore plus petit sur très petit écran */
+        width: 5rem;
+        /* Encore plus petit sur très petit écran */
     }
 }
 
@@ -2537,188 +3257,235 @@ body {
 
 /* Container principal des favoris */
 .favorites-container {
-    max-width: 1200px; /* container mx-auto */
+    max-width: 1200px;
+    /* container mx-auto */
     margin-left: auto;
     margin-right: auto;
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* En-tête de la page des favoris */
 .favorites-header {
-    text-align: center; /* text-center */
-    margin-bottom: 2rem; /* mb-8 */
+    text-align: center;
+    /* text-center */
+    margin-bottom: 2rem;
+    /* mb-8 */
 }
 
 /* Titre principal des favoris */
 .favorites-title {
-    font-size: 2.25rem; /* text-4xl */
-    font-weight: 700; /* font-bold */
-    color: #1f2937; /* text-gray-800 */
-    margin-bottom: 1rem; /* mb-4 */
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-weight: 700;
+    /* font-bold */
+    color: #1f2937;
+    /* text-gray-800 */
+    margin-bottom: 1rem;
+    /* mb-4 */
 }
 
 /* Message d'absence de favoris */
 .no-favorites-message {
-    background-color: #dbeafe; /* bg-blue-100 */
-    border-left: 4px solid #3b82f6; /* border-l-4 border-blue-500 */
-    color: #1e40af; /* text-blue-700 */
-    padding: 1rem; /* p-4 */
-    border-radius: 0.5rem; /* rounded-lg */
-    text-align: center; /* text-center */
+    background-color: #dbeafe;
+    /* bg-blue-100 */
+    border-left: 4px solid #3b82f6;
+    /* border-l-4 border-blue-500 */
+    color: #1e40af;
+    /* text-blue-700 */
+    padding: 1rem;
+    /* p-4 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    text-align: center;
+    /* text-center */
 }
 
 /* Container avec icône pour le message de favoris */
 .favorites-message-with-icon {
     display: flex;
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
+    align-items: center;
+    /* items-center */
+    justify-content: center;
+    /* justify-center */
 }
 
 /* Icône du message de favoris */
 .favorites-message-icon {
-    width: 1.5rem; /* w-6 */
-    height: 1.5rem; /* h-6 */
-    margin-right: 0.5rem; /* mr-2 */
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    font-size: 2rem; /* Ou la taille souhaitée */
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
 /* Texte en gras dans le message de favoris */
 .favorites-message-bold {
-    font-weight: 600; /* font-semibold */
+    font-weight: 600;
+    /* font-semibold */
 }
 
 /* Texte secondaire du message de favoris */
 .favorites-message-secondary {
-    margin-top: 0.5rem; /* mt-2 */
-    font-size: 0.875rem; /* text-sm */
+    margin-top: 0.5rem;
+    /* mt-2 */
+    font-size: 0.875rem;
+    /* text-sm */
 }
 
 /* Lien dans le message de favoris */
 .favorites-message-link {
-    color: #1e40af; /* text-blue-800 */
-    font-weight: 500; /* font-medium */
+    color: #1e40af;
+    /* text-blue-800 */
+    font-weight: 500;
+    /* font-medium */
     text-decoration: none;
     transition: text-decoration 0.3s ease-in-out;
 }
 
 .favorites-message-link:hover {
-    text-decoration: underline; /* hover:underline */
+    text-decoration: underline;
+    /* hover:underline */
 }
 
 /* Grille des mangas favoris */
 .favorites-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* grid-cols-1 par défaut */
-    gap: 1.5rem; /* gap-6 */
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-cols-1 par défaut */
+    gap: 1.5rem;
+    /* gap-6 */
 }
 
 /* Responsive grid pour les favoris */
 @media (min-width: 640px) {
     .favorites-grid {
-        grid-template-columns: repeat(2, 1fr); /* sm:grid-cols-2 */
+        grid-template-columns: repeat(2, 1fr);
+        /* sm:grid-cols-2 */
     }
 }
 
 @media (min-width: 768px) {
     .favorites-grid {
-        grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+        grid-template-columns: repeat(3, 1fr);
+        /* md:grid-cols-3 */
     }
 }
 
 @media (min-width: 1024px) {
     .favorites-grid {
-        grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+        grid-template-columns: repeat(4, 1fr);
+        /* lg:grid-cols-4 */
     }
 }
 
 @media (min-width: 1280px) {
     .favorites-grid {
-        grid-template-columns: repeat(5, 1fr); /* xl:grid-cols-5 */
+        grid-template-columns: repeat(5, 1fr);
+        /* xl:grid-cols-5 */
     }
 }
 
 /* Carte individuelle de manga favori */
 .favorite-manga-card {
-    background-color: #ffffff; /* bg-white */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    background-color: #ffffff;
+    /* bg-white */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    /* shadow-md */
     overflow: hidden;
-    transform: scale(1); /* transform */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* transition duration-300 */
+    transform: scale(1);
+    /* transform */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition duration-300 */
 }
 
 .favorite-manga-card:hover {
-    transform: scale(1.05); /* hover:scale-105 */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* hover:shadow-xl */
+    transform: scale(1.05);
+    /* hover:scale-105 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* hover:shadow-xl */
 }
 
 /* Lien de la carte manga favori */
 .favorite-manga-link {
-    display: block; /* block */
+    display: block;
+    /* block */
     text-decoration: none;
     color: inherit;
 }
 
 /* Image de couverture des favoris */
 .favorite-manga-cover {
-    width: 100%; /* w-full */
-    height: 16rem; /* h-64 */
-    object-fit: cover; /* object-cover */
+    width: 100%;
+    /* w-full */
+    height: 16rem;
+    /* h-64 */
+    object-fit: cover;
+    /* object-cover */
 }
 
 /* Informations du manga favori */
 .favorite-manga-info {
-    padding: 1rem; /* p-4 */
+    padding: 1rem;
+    /* p-4 */
 }
 
 /* Titre du manga favori */
 .favorite-manga-title {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 600; /* font-semibold */
-    color: #111827; /* text-gray-900 */
-    white-space: nowrap; /* truncate */
+    font-size: 1.125rem;
+    /* text-lg */
+    font-weight: 600;
+    /* font-semibold */
+    color: #111827;
+    /* text-gray-900 */
+    white-space: nowrap;
+    /* truncate */
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 /* Volume du manga favori */
 .favorite-manga-volume {
-    font-size: 0.875rem; /* text-sm */
-    color: #4b5563; /* text-gray-600 */
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #4b5563;
+    /* text-gray-600 */
     margin: 0;
 }
 
 /* Auteur du manga favori */
 .favorite-manga-author {
-    font-size: 0.75rem; /* text-xs */
-    color: #6b7280; /* text-gray-500 */
-    margin-top: 0.25rem; /* mt-1 */
+    font-size: 0.75rem;
+    /* text-xs */
+    color: #6b7280;
+    /* text-gray-500 */
+    margin-top: 0.25rem;
+    /* mt-1 */
     margin-bottom: 0;
 }
 
 /* Responsive pour les favoris - adaptation mobile */
 @media (max-width: 768px) {
     .favorites-container {
-        padding: 0.5rem; /* Réduction du padding sur mobile */
+        padding: 0.5rem;
+        /* Réduction du padding sur mobile */
     }
-    
+
     .favorites-title {
-        font-size: 1.875rem; /* Réduction pour mobile */
+        font-size: 1.875rem;
+        /* Réduction pour mobile */
     }
-    
+
     .favorite-manga-cover {
-        height: 12rem; /* Réduction de la hauteur sur mobile */
+        height: 12rem;
+        /* Réduction de la hauteur sur mobile */
     }
-    
+
     .favorites-message-with-icon {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .favorites-message-icon {
         margin-right: 0;
         margin-bottom: 0.5rem;
@@ -2728,18 +3495,442 @@ body {
 /* Styles pour très petits écrans */
 @media (max-width: 480px) {
     .favorites-title {
-        font-size: 1.5rem; /* Plus petit sur très petit écran */
+        font-size: 1.5rem;
+        /* Plus petit sur très petit écran */
     }
-    
+
     .favorite-manga-cover {
-        height: 10rem; /* Encore plus petit */
+        height: 10rem;
+        /* Encore plus petit */
     }
-    
+
     .favorite-manga-info {
-        padding: 0.75rem; /* Réduction du padding */
+        padding: 0.75rem;
+        /* Réduction du padding */
     }
-    
+
     .favorite-manga-title {
-        font-size: 1rem; /* Réduction de la taille */
+        font-size: 1rem;
+        /* Réduction de la taille */
     }
 }
+
+/* === STYLES POUR LES ÉTOILES UNICODE === */
+
+/* Style de base pour toutes les étoiles Unicode */
+.star-unicode {
+    font-size: 18px;
+    margin-right: 2px;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+/* Étoile pleine (dorée) */
+.star-filled {
+    color: #ffd700;
+    /* Or */
+}
+
+/* Étoile vide (grise) */
+.star-empty {
+    color: #ddd;
+    /* Gris clair */
+}
+
+/* === AJUSTEMENTS POUR DIFFÉRENTES SECTIONS === */
+
+/* Étoiles dans la section note moyenne (plus grandes) */
+.average-stars-container .star-unicode {
+    font-size: 22px;
+    margin-right: 3px;
+}
+
+/* Étoiles dans les avis utilisateurs (petites) */
+.review-stars .star-unicode {
+    font-size: 16px;
+    margin-right: 1px;
+}
+
+/* Étoiles dans le tableau des mangas (moyennes) */
+.stars-container .star-unicode {
+    font-size: 16px;
+    margin-right: 2px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .star-unicode {
+        font-size: 16px;
+    }
+
+    .average-stars-container .star-unicode {
+        font-size: 20px;
+        margin-right: 2px;
+    }
+
+    .review-stars .star-unicode {
+        font-size: 14px;
+    }
+
+    .stars-container .star-unicode {
+        font-size: 14px;
+        margin-right: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .star-unicode {
+        font-size: 14px;
+    }
+
+    .average-stars-container .star-unicode {
+        font-size: 18px;
+    }
+
+    .review-stars .star-unicode {
+        font-size: 12px;
+    }
+}
+
+/* === STYLES POUR L'ICÔNE CŒUR DES FAVORIS === */
+
+/* Icône cœur Unicode pour les favoris */
+.favorites-heart-icon {
+    display: inline-block;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* Responsive - adaptation mobile pour l'icône cœur */
+@media (max-width: 768px) {
+    .favorites-heart-icon {
+        font-size: 0.875rem;
+        /* légèrement plus petit sur mobile */
+    }
+}
+
+.strength-text {
+        font-size: 0.6875rem;
+    }
+    
+    .password-strength-container {
+        margin-top: 0.375rem;
+        margin-bottom: 0.375rem;
+    }
+    
+    /* ========================================
+   STYLES POUR LES FORMULAIRES SIMPLIFIÉS
+   ======================================== */
+
+/* --- Variables CSS pour la cohérence --- */
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --primary-focus: #312e81;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --border-color: #d1d5db;
+    --border-focus: #4f46e5;
+    --background-light: #f9fafb;
+    --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --border-radius: 0.5rem;
+    --transition: all 0.2s ease-in-out;
+}
+
+/* --- Styles généraux pour les conteneurs --- */
+.login-container,
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: var(--background-light);
+}
+
+.login-wrapper,
+.register-wrapper {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    padding: 2rem;
+}
+
+/* --- En-têtes des formulaires --- */
+.login-header,
+.register-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-icon,
+.register-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.login-title,
+.register-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* --- Styles pour les icônes Unicode --- */
+.unicode-icon {
+    font-size: 3rem;
+    line-height: 1;
+    display: inline-block;
+    color: var(--primary-color);
+}
+
+.unicode-icon-small {
+    font-size: 1.25rem;
+    line-height: 1;
+    display: inline-block;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+/* --- Groupes de formulaire --- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+/* --- Conteneurs d'entrée --- */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Champs de saisie --- */
+.form-input,
+.form-input-register {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: white;
+    color: var(--text-color);
+}
+
+.form-input:focus,
+.form-input-register:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* --- Champs de mot de passe --- */
+.form-input-password {
+    padding-right: 2.5rem;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.eye-icon {
+    cursor: pointer;
+}
+
+/* --- Groupes de soumission --- */
+.submit-group {
+    margin-top: 2rem;
+}
+
+.submit-btn,
+.submit-btn-register {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-btn:hover,
+.submit-btn-register:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+}
+
+.submit-btn:focus,
+.submit-btn-register:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+.submit-btn:active,
+.submit-btn-register:active {
+    transform: translateY(0);
+}
+
+.submit-btn-icon .simple-text-icon {
+    color: white;
+}
+
+/* ========================================
+   MEDIA QUERIES RESPONSIVE
+   ======================================== */
+
+/* --- Tablettes (768px et moins) --- */
+@media (max-width: 768px) {
+    .login-container,
+    .register-container {
+        padding: 0.5rem;
+    }
+    
+    .login-wrapper,
+    .register-wrapper {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+    
+    .login-title,
+    .register-title {
+        font-size: 1.25rem;
+    }
+    
+    .form-input,
+    .form-input-register {
+        font-size: 0.875rem;
+        padding: 0.625rem;
+    }
+    
+    .form-input-password {
+        padding-right: 2.25rem;
+    }
+    
+    .simple-text-icon {
+        font-size: 0.875rem;
+    }
+    
+    .password-toggle-btn {
+        right: 0.625rem;
+    }
+}
+
+/* --- Mobiles (480px et moins) --- */
+@media (max-width: 480px) {
+    .login-container,
+    .register-container {
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
+    .login-wrapper,
+    .register-wrapper {
+        padding: 1rem;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: calc(100vh - 4rem);
+    }
+    
+    .login-title,
+    .register-title {
+        font-size: 1.125rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+    
+    .form-input,
+    .form-input-register {
+        padding: 0.75rem;
+    }
+    
+    .form-input-password {
+        padding-right: 2rem;
+    }
+    
+    .simple-text-icon {
+        font-size: 0.8125rem;
+    }
+    
+    .password-toggle-btn {
+        right: 0.5rem;
+    }
+    
+    .submit-btn,
+    .submit-btn-register {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* --- Très petits écrans (320px et moins) --- */
+@media (max-width: 320px) {
+    .login-wrapper,
+    .register-wrapper {
+        padding: 0.75rem;
+    }
+    
+    .form-input,
+    .form-input-register {
+        padding: 0.625rem;
+        font-size: 0.8125rem;
+    }
+    
+    .form-input-password {
+        padding-right: 1.75rem;
+    }
+    
+    .simple-text-icon {
+        font-size: 0.75rem;
+    }
+    
+    .password-toggle-btn {
+        right: 0.375rem;
+    }
+}
+
+.message-icon,
+.heart-icon,
+.info-icon,
+.btn-arrow-icon {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+    margin-right: 0.25rem; /* Espacement après l'emoji */
+}
+
+
+
