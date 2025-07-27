@@ -6,9 +6,7 @@
     <?php if (empty($favoriteMangas)): ?>
         <div class="no-favorites-message">
             <div class="favorites-message-with-icon">
-                <svg class="favorites-message-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.996-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
-                </svg>
+                <span class="favorites-message-icon">⚠️</span>
                 <p class="favorites-message-bold">Vous n'avez pas encore ajouté de mangas à vos favoris.</p>
             </div>
             <p class="favorites-message-secondary">Parcourez la <a href="/mangatheque/mangas" class="favorites-message-link">liste des mangas</a> pour trouver vos préférés !</p>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Classe Model - Classe de base pour les modèles, gère la connexion à la base de données
  */
