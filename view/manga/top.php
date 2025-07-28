@@ -5,7 +5,6 @@
 
     <?php if (empty($topMangas)): ?>
         <div class="no-favorites-message">
-            <!-- 🔧 Amélioration: Structure flexbox pour l'alignement -->
             <div class="message-with-icon">
                 <span class="message-icon">⚠️</span>
                 <div class="message-content">
@@ -50,7 +49,6 @@
                         <!-- Badge de position -->
                         <div class="image-section">
                             <div class="position-badge">
-                                <!-- 🔧 Amélioration: Structure plus claire pour le badge -->
                                 <div class="badge-circle <?= $gradientClass ?>">
                                     <span class="badge-emoji">
                                         <?php if ($position <= 3): ?>
@@ -80,7 +78,7 @@
                                     </a>
                                 </h2>
 
-                                <!-- 🔧 Amélioration: Compteur de favoris avec flexbox -->
+                                <!-- Compteur de favoris -->
                                 <div class="favorites-counter">
                                     <span class="heart-icon">❤️</span>
                                     <div class="favorites-text-group">
@@ -90,7 +88,7 @@
                                 </div>
                             </div>
 
-                            <!-- 🔧 Amélioration: Informations avec alignement amélioré -->
+                            <!-- Informations supplémentaires -->
                             <div class="manga-info-top">
                                 <div class="info-line">
                                     <span class="info-icon">👤</span>
@@ -133,7 +131,7 @@
                                 <?= strlen($manga->getDescription()) > 200 ? '...' : '' ?>
                             </p>
 
-                            <!-- 🔧 Amélioration: Bouton avec emoji aligné -->
+                            <!-- Bouton de vue -->
                             <div class="button-section">
                                 <a href="/mangatheque/mangas/<?= htmlspecialchars($manga->getId()) ?>"
                                     class="view-manga-btn">
