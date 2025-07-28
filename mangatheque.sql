@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 25 juil. 2025 à 16:57
+-- Généré le : lun. 28 juil. 2025 à 13:42
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.1.31
 
@@ -41,7 +41,13 @@ CREATE TABLE `favorites` (
 INSERT INTO `favorites` (`id`, `user_id`, `manga_id`, `created_at`) VALUES
 (1, 3, 8, '2025-07-25 15:38:33'),
 (2, 3, 7, '2025-07-25 15:38:44'),
-(3, 3, 5, '2025-07-25 15:39:03');
+(3, 3, 5, '2025-07-25 15:39:03'),
+(4, 4, 8, '2025-07-26 14:51:15'),
+(5, 4, 7, '2025-07-26 14:51:24'),
+(24, 5, 3, '2025-07-28 08:08:40'),
+(23, 5, 5, '2025-07-28 07:58:05'),
+(21, 5, 4, '2025-07-27 15:03:24'),
+(19, 5, 7, '2025-07-27 09:56:48');
 
 -- --------------------------------------------------------
 
@@ -73,7 +79,7 @@ INSERT INTO `mangas` (`id`, `title`, `author`, `volume`, `description`, `created
 (5, 'Bakuman', 'Tsugumi Ohba & Takeshi Obata', 20, 'Deux lycéens décident de devenir mangakas pour réaliser leurs rêves.', '2025-07-25 13:42:04', 'bakuman.jpg', 'Kana', 'Shonen'),
 (6, 'My Hero Academia', 'Kohei Horikoshi', 42, 'Dans un monde où 80% de la population possède des super-pouvoirs, un jeune homme sans alter rêve de devenir un héros.', '2025-07-25 13:42:04', '6883a28dc1b91_My Hero Academia.jpg', 'Ki-oon', 'Shonen'),
 (7, 'Demon Slayer', 'Koyoharu Gotouge', 23, 'Après l\'assassinat de sa famille par des démons et la transformation de sa sœur en démon, Tanjiro Kamado devient pourfendeur de démons.', '2025-07-25 13:42:04', '6883a2795353e_Demon Slayer.jpg', 'Panini Manga', 'Shonen'),
-(8, 'Dragon Ball', 'Akira Toriyama', 42, 'Les aventures de Son Goku, un jeune garçon doté d\'une force surhumaine, qui part à la recherche des Dragon Balls.', '2025-07-25 13:42:04', '6883a2618c2c2_Dragon Ball.jpg', 'Glénat', 'Shonen');
+(8, 'Dragon Ball', 'Akira Toriyama', 42, 'Les aventures de Son Goku, un jeune garçon doté d\'une force surhumaine, qui part à la recherche des Dragon Balls.', '2025-07-25 13:42:04', '6885f57c16192_Dragon Ball.jpg', 'Glénat', 'Shonen');
 
 -- --------------------------------------------------------
 
@@ -99,7 +105,14 @@ INSERT INTO `reviews` (`id`, `manga_id`, `user_id`, `rating`, `comment`, `create
 (2, 2, 3, 3, 'délire', '2025-07-25 15:56:33'),
 (3, 5, 3, 3, 'pas mal', '2025-07-25 16:32:07'),
 (4, 8, 3, 5, 'délirant', '2025-07-25 16:34:25'),
-(6, 7, 3, 5, 'sympa', '2025-07-25 16:43:27');
+(6, 7, 3, 5, 'sympa', '2025-07-25 16:43:27'),
+(7, 1, 4, 5, 'excellent', '2025-07-26 10:27:22'),
+(8, 4, 3, 4, 'surprenant', '2025-07-26 14:39:26'),
+(9, 6, 3, 5, 'excellent', '2025-07-26 14:49:45'),
+(10, 8, 4, 5, 'génial', '2025-07-26 14:50:34'),
+(11, 5, 4, 3, 'intéressant', '2025-07-26 15:30:17'),
+(12, 6, 5, 3, 'à voir', '2025-07-27 08:24:37'),
+(13, 3, 5, 5, 'parfois un peu trop gore', '2025-07-28 08:09:12');
 
 -- --------------------------------------------------------
 
@@ -121,7 +134,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `pseudo`, `email`, `password`, `created_at`) VALUES
 (3, 'dede', 'dede@laposte.net', '$2y$10$MfjNPJJtpYUeH4vl9C80S.s/DPVvgQAgRdonvSQ.2bJ3cocIKv2qu', '2025-07-10 17:01:00'),
-(4, 'chrisrou2025', 'ch.roupioz@laposte.net', '$2y$10$Q8P1CkQzOzkkwnNNtHAvGeeCWykIoq8o22kg.CR7LYHtTqAyvyT6O', '2025-07-25 16:50:48');
+(4, 'chrisrou2025', 'ch.roupioz@laposte.net', '$2y$10$Q8P1CkQzOzkkwnNNtHAvGeeCWykIoq8o22kg.CR7LYHtTqAyvyT6O', '2025-07-25 16:50:48'),
+(5, 'gepeto', 'c.roupioz@laposte.net', '$2y$10$mw6ZU65Xj0Ae.JHzEi9j2OumVBJaFZBZ1Flyia91tQfnDYn74XiZe', '2025-07-26 15:50:18');
 
 --
 -- Index pour les tables déchargées
@@ -165,7 +179,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT pour la table `mangas`
@@ -177,13 +191,13 @@ ALTER TABLE `mangas`
 -- AUTO_INCREMENT pour la table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
